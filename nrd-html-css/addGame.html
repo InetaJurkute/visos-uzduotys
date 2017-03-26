@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- Viewport for @media -->
+    <meta name="viewport" content="width=device-width"/>
+    <!-- Reset defaults -->
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Responsive menu test</title>
+</head>
+
+<body>
+<nav>
+    <!--  Mobile menu -->
+    <input type="checkbox" id="toggleMenu">
+    <label for="toggleMenu" id="toggleMenuIcon"><i class="fa fa-bars md" aria-hidden="true"></i></label>
+    <!-- End Of Mobile menu -->
+    <div>
+        <a href="index.html">Namai</a>
+        <a href="regitra.html">Regitros forma</a>
+        <a href="registration.html">Registracija</a>
+        <a class="activeMenu" href="addGame.html">Pridėti žaidimą</a>
+        <a href="addOrder.html">Užsakymo kūrimas</a>
+    </div>
+</nav>
+<div class="container">
+    <p>
+        Naujo žaidimo pridėjimo į sistemą formos prototipas.
+        Šią formą matytų sistemos administratorius arba valdytojas.
+    </p>
+    <div class="form-light-block">
+        <h3>Pridėti žaidimą</h3>
+        <form action="#" method="post">
+            <!--  Game tile -->
+            <p>
+                <label for="gameTitle">Žaidimo pavadinimas</label>
+                <input id="gameTitle" type="text" name="gameTitle" maxlength="40" placeholder="Pavadinimas" required autofocus>
+            </p>
+            <!-- Release date -->
+            <p>
+                <label for="release_date">Išleidimo data</label>
+                <input id="release_date" type="date" name="release_date" required>
+            </p>
+            <!-- Genre -->
+            <p>
+                <label for="genre">Žanras</label>
+                <select name="select_genre" class="form-control" id="genre" required>
+                    <option value="">--------</option>
+                    <option value="action">Veiksmo</option>
+                    <option value="racing">Lenktynių</option>
+                    <option value="sim">Simuliatorius</option>
+                </select>
+            </p>
+            <!-- Price -->
+            <p>
+                <label for="price">Kaina</label>
+                <input type="number" name="price" id="price" min="0.0" step="0.01" required>
+            </p>
+            <!-- Platform(s) -->
+            <p>
+                <label>Platforma</label>
+                <input id="pc" type="checkbox" name="platform" value="pc">
+                <label class="selection-label" for="pc">PC</label>
+                <input id="xb" type="checkbox" name="platform" value="xb">
+                <label class="selection-label" for="xb">XBOX</label>
+                <input id="ps" type="checkbox" name="platform" value="ps">
+                <label class="selection-label" for="ps">PlayStation</label>
+                <input id="ni" type="checkbox" name="platform" value="ni">
+                <label class="selection-label" for="ni">Nintendo</label>
+            </p>
+            <!-- Description -->
+            <p>
+                <label for="desc">Aprašymas</label>
+                <textarea name="text" id="desc" cols="40" rows="10" required="" minlength="100" maxlength="2000"
+                          placeholder="Aprašymas. min. 100 simb."></textarea>
+            </p>
+            <!-- Submit -->
+            <input type="submit" value="Pateikti">
+        </form>
+    </div>
+</div>
+<!--
+-name
+-release_date
+-genre
+-price
+-platform(pc, xbox, ps, nintendo)
+-description
+-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</body>
+</html>

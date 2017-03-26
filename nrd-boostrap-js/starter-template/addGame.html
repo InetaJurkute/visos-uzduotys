@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Pridėti žaidimą</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Žaibo kirtis</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Namai</a></li>
+                <li><a href="registration.html">Registracija</a></li>
+                <li class="active"><a href="addGame.html">Pridėti žaidimą</a></li>
+                <li><a href="addOrder.html">Užsakymo kūrimas</a></li>
+                <li><a href="nameTable.html">Kintanti lentelė</a></li>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    DropDown panaudojimas
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item btn" href="index.html">Namai</a>
+                        <li role="separator" class="divider"></li>
+                        <a class="dropdown-item btn" href="registration.html">Registracija</a>
+                        <a class="dropdown-item btn" href="addGame.html">Pridėti žaidimą</a>
+                        <a class="dropdown-item btn" href="addOrder.html">Užsakymo kūrimas</a>
+                        <a class="dropdown-item btn" href="nameTable.html">Kintanti lentelė</a>
+                    </div>
+                </div>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="container">
+    <div class="form-light-block">
+        <h3>Pridėti žaidimą</h3>
+        <form action="#" method="post">
+            <!--  Game tile -->
+            <div class="form-group">
+                <label for="gameTitle">Žaidimo pavadinimas</label>
+                <input id="gameTitle" class="form-control" type="text" name="gameTitle" maxlength="40" placeholder="Pavadinimas" required autofocus>
+            </div>
+            <!-- Release date -->
+            <div class="form-group">
+                <label for="release_date">Išleidimo data</label>
+                <input id="release_date" class="form-control" type="date" name="release_date" required>
+            </div>
+            <!-- Genre -->
+            <div class="form-group">
+                <label for="genre">Žanras</label>
+                <select name="select_genre" class="form-control" id="genre" required>
+                    <option value="">--------</option>
+                    <option value="action">Veiksmo</option>
+                    <option value="racing">Lenktynių</option>
+                    <option value="sim">Simuliatorius</option>
+                </select>
+            </div>
+            <!-- Price -->
+            <div class="form-group">
+                <label for="price">Kaina</label>
+                <input type="number" class="form-control" name="price" id="price" min="0.0" step="0.01" required>
+            </div>
+            <!-- Platform(s) -->
+            <div class="form-group">
+                <label>Platforma</label>
+                <label class="checkbox-inline" for="pc">
+                    <input id="pc" type="checkbox" name="platform" value="pc">PC
+                </label>
+                <label class="checkbox-inline" for="xb">
+                    <input id="xb" type="checkbox" name="platform" value="xb">XBOX
+                </label>
+                <label class="checkbox-inline" for="ps">
+                    <input id="ps" type="checkbox" name="platform" value="ps">PlayStation
+                </label>
+                <label class="checkbox-inline" for="ni">
+                    <input id="ni" type="checkbox" name="platform" value="ni">Nintendo
+                </label>
+            </div>
+            <!-- Description -->
+            <div class="form-group">
+                <label for="desc">Aprašymas</label>
+                <textarea class="form-control" name="text" id="desc" required="" minlength="10" maxlength="2000"
+                          placeholder="Aprašymas. min. 10 simb."></textarea>
+            </div>
+            <!-- Submit -->
+            <input type="submit" class="btn btn-primary" value="Pateikti">
+        </form>
+    </div>
+</div><!-- /.container -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../js/vendor/jquery.min.js"><\/script>')</script>
+<script src="../js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>

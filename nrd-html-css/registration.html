@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- Viewport for @media -->
+    <meta name="viewport" content="width=device-width"/>
+    <!-- Reset defaults -->
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Responsive menu test</title>
+</head>
+
+<body>
+<nav>
+    <!--  Mobile menu -->
+    <input type="checkbox" id="toggleMenu">
+    <label for="toggleMenu" id="toggleMenuIcon"><i class="fa fa-bars md" aria-hidden="true"></i></label>
+    <!-- End Of Mobile menu -->
+    <div>
+        <a href="index.html">Namai</a>
+        <a href="regitra.html">Regitros forma</a>
+        <a class="activeMenu" href="registration.html">Registracija</a>
+        <a href="addGame.html">Pridėti žaidimą</a>
+        <a href="addOrder.html">Užsakymo kūrimas</a>
+    </div>
+</nav>
+<div class="container">
+    <p>
+        Registracijos formos prototipas.
+    </p>
+    <div class="form-light-block">
+        <h3>Registracija</h3>
+        <form action="/register" method="post">
+            <p>
+                <label for="username">Vartotojo vardas</label>
+                <input id="username" type="text" name="username" maxlength="40" required autofocus>
+            </p>
+            <p>
+                <label for="password">Slaptažodis</label>
+                <input class="required" id="password" type="password" name="password"
+                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                       title="Slaptažodis turi būti igesnis nei 6 simboliai, turėti bent vieną skaičių ir didžiąją raidę"
+                       required>
+            </p>
+            <p>
+                <label for="email">El. paštas</label>
+                <input id="email" type="email" name="email" placeholder="email@email.com" required>
+            </p>
+            <p>
+                <label for="phone">Telefono numeris</label>
+                <input id="phone" type="text" name="phone" placeholder="+xxx xxx xxxxx"
+                       pattern="^[+][0-9]{3} [0-9]{3} [0-9]{5}$"
+                       maxlength="14" title="Numeris turi atitikti tokį formatą: +xxx xxx xxxxx">
+            </p>
+            <p>
+                <label>Lytis</label>
+                <input id="m" type="radio" name="gender" value="male">
+                <label class="selection-label" for="m">Vyras</label>
+                <input id="f" type="radio" name="gender" value="female">
+                <label class="selection-label" for="f">Moteris</label>
+                <input id="o" type="radio" name="gender" value="other">
+                <label class="selection-label" for="o">Kita</label>
+            </p>
+            <p>
+                <label for="birth_date">Gimimo data</label>
+                <input id="birth_date" type="date" name="birth_date" min="1900-01-01">
+            </p>
+            <input type="submit" value="Registruotis">
+        </form>
+    </div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</body>
+</html>

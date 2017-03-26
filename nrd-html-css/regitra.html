@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- Viewport for @media -->
+    <meta name="viewport" content="width=device-width"/>
+    <!-- Reset defaults -->
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Regitros registracijos forma</title>
+</head>
+
+<body>
+<nav>
+    <!--  Mobile menu -->
+    <input type="checkbox" id="toggleMenu">
+    <label for="toggleMenu" id="toggleMenuIcon"><i class="fa fa-bars md" aria-hidden="true"></i></label>
+    <!-- End Of Mobile menu -->
+    <div>
+        <a href="index.html">Namai</a>
+        <a class="activeMenu" href="regitra.html">Regitros forma</a>
+        <a href="registration.html">Registracija</a>
+        <a href="addGame.html">Pridėti žaidimą</a>
+        <a href="addOrder.html">Užsakymo kūrimas</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="form-light-block">
+        <h3>KVIEČIAME UŽSIREGISTRUOTI Į TEORIJOS EGZAMINĄ</h3>
+        <form action="/register" method="post">
+            <fieldset>
+                <legend>Asmeninė informacija</legend>
+                <p>
+                    <label for="first_name">Vardas</label>
+                    <input id="first_name" type="text" name="first_name" placeholder="Jonas" pattern="^[A-Z]{1}[a-z]*$"
+                           maxlength="15" title="Vardas turi prasidėti didžiąja raide, turi būti be tarpų" required autofocus>
+                </p>
+                <p>
+                    <label for="last_name">Pavardė</label>
+                    <input id="last_name" type="text" name="last_name" placeholder="Petrauskas"
+                           pattern="^[A-Z]{1}[a-z]*$"
+                           maxlength="20" title="Pavardė turi prasidėti didžiąja raide, turi būti be tarpų" required>
+                </p>
+                <p>
+                    <label for="birth_date">Amžius</label>
+                    <input id="birth_date" type="number" min="15" max="120" required>
+                </p>
+                <p>
+                    <label>Lytis</label>
+                    <input id="m" type="radio" name="gender" value="male">
+                    <label class="selection-label" for="m">Vyras</label>
+                    <input id="f" type="radio" name="gender" value="female">
+                    <label class="selection-label" for="f">Moteris</label>
+                    <input id="o" type="radio" name="gender" value="other">
+                    <label class="selection-label" for="o">Kita</label>
+                </p>
+                <p>
+                    <label for="personalid">Asmens kodas</label>
+                    <input id="personalid" type="text" name="id" placeholder="00000000000"
+                           pattern="^[3-6]{1}[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[0-9]{4}$"
+                           title="Įveskite validų asmens kodą"
+                           size="11" maxlength="11" required>
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Kontaktinė informacija</legend>
+                <p>
+                    <label for="email">Elektroninis paštas</label>
+                    <input id="email" type="email" name="email" placeholder="email@email.com">
+                </p>
+                <p>
+                    <label for="phone">Telefono numeris</label>
+                    <input id="phone" type="text" name="phone" placeholder="+xxx xxx xxxxx"
+                           pattern="^[+][0-9]{3} [0-9]{3} [0-9]{5}$"
+                           maxlength="14" title="Numeris turi atitikti tokį formatą: +xxx xxx xxxxx" required>
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Informacija susijusi su egzaminu</legend>
+                <table>
+                    <tr>
+                        <td>
+                            <label>Pasirengimas</label>
+                        </td>
+                        <td>
+                            <select id="reason">
+                                <option value="1">---Pasirinkite---</option>
+                                <option value="2">Baigiau vairavimo mokymo kursą vairavimo mokykloje</option>
+                                <option value="3">Esu pasirengęs(usi) savarankiškai</option>
+                                <option value="4">Noriu pakeisti užsienyje išduotą vairuotojo pažymėjimą</option>
+                                <option value="5">Noriu susigrąžinti vairuotojo pažymėjimą</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <label for="times">Pasirinkite laiką egzaminui</label>
+                        </td>
+                        <td>
+                            <select id="times">
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="12:00">12:00</option>
+                                <option value="12:00">13:00</option>
+                                <option value="12:00">14:00</option>
+                                <option value="12:00">15:00</option>
+                                <option value="12:00">16:00</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">
+                            <input id="rules" type="checkbox" name="rules" value="agree" required>
+                        </td>
+                        <td>
+                            <label for="rules">Sutinku su egzamino laikymo tvarka <br>
+                                (<a style="color: dodgerblue;"
+                                    href="http://www.regitra.lt/lt/imone/teises-aktai/vairuotoju-egzaminavimas-2">Teisės
+                                    aktai</a>)
+                            </label>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            <input type="submit">
+        </form>
+    </div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</body>
+
+</html>

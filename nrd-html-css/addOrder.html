@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- Viewport for @media -->
+    <meta name="viewport" content="width=device-width"/>
+    <!-- Reset defaults -->
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Order</title>
+</head>
+
+<body>
+<nav>
+    <!--  Mobile menu -->
+    <input type="checkbox" id="toggleMenu">
+    <label for="toggleMenu" id="toggleMenuIcon"><i class="fa fa-bars md" aria-hidden="true"></i></label>
+    <!-- End Of Mobile menu -->
+    <div>
+        <a href="index.html">Namai</a>
+        <a href="regitra.html">Regitros forma</a>
+        <a href="registration.html">Registracija</a>
+        <a href="addGame.html">Pridėti žaidimą</a>
+        <a class="activeMenu" href="addOrder.html">Užsakymo kūrimas</a>
+    </div>
+</nav>
+
+<div class="container">
+    <p>
+        Užsakymo kūrimo formos prototipas.
+    </p>
+    <div class="form-light-block">
+        <h3>Užsakymo kūrimas</h3>
+        <form action="#" method="post">
+            <!-- client -->
+            <p>
+                <label for="client">Klientas</label>
+                <input id="client" type="text" name="client" maxlength="50" value="Jonas Petrauskas" required autofocus>
+            </p>
+            <!-- Creation date -->
+            <p>
+                <label for="creation_date">Sukūrimo data</label>
+                <input id="creation_date" type="date" name="creation_date" disabled>
+            </p>
+            <!-- State -->
+            <p>
+                <label for="state">Būsena</label>
+                <select name="select_state" id="state" required>
+                    <option value="">-------</option>
+                    <option value="started" selected>Pradėtas</option>
+                    <option value="active">Aktyvus</option>
+                    <option value="finished">Baigtas</option>
+                </select>
+            </p>
+            <!-- order -->
+            <fieldset>
+                <legend>Krepšelis</legend>
+                <table style="background: #efefef;">
+                    <tr>
+                        <th>Pavadinimas</th>
+                        <th>Žanras</th>
+                        <th>Kaina</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>Battlefield-1</td>
+                        <td>Shooter</td>
+                        <td>49.99€</td>
+                        <td><i class="fa fa-trash" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                        <td>CS:GO</td>
+                        <td>Shooter</td>
+                        <td>11.99€</td>
+                        <td><i class="fa fa-trash" aria-hidden="true"></i></td>
+                    </tr>
+                </table>
+
+                <div class="flex" style="padding: 10px 10px 20px 5px;">
+                    <label for="select_game">Pridėti į užsakymą</label>
+                    <select name="select_game" id="select_game" required>
+                        <option value="">--------</option>
+                        <option value="1">TheWitcher 3</option>
+                        <option value="2">Persona4</option>
+                        <option value="3">Call of Duty: MW2</option>
+                    </select>
+                    <button id="addToOrder">Pridėti</button>
+                </div>
+
+                <label for="gamesum">Suma</label>
+                <input id="gamesum" type="text" value="49,99" disabled> €.
+            </fieldset>
+            <p>
+            </p>
+            <p>
+                <!-- discount -->
+                <label for="discount">Nuolaida</label>
+                <select id="discount" name="select_discount">
+                    <option value="">------</option>
+                    <option value="5">5%</option>
+                    <option value="10">10% Lojaliems klientams</option>
+                </select>
+            </p>
+            <input type="submit" value="Patvirtinti">
+        </form>
+
+    </div>
+</div>
+<script>
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd;
+    }
+    if(mm<10){
+        mm='0'+mm;
+    }
+    var today = yyyy+'-'+mm+'-'+dd;
+    document.getElementById("creation_date").value = today;
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</body>
+</html>

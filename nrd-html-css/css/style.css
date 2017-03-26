@@ -1,0 +1,242 @@
+/* latin-ext */
+@font-face {
+    font-family: 'custom-font';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v15/Fcx7Wwv8OzT71A3E1XOAjvesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'custom-font';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v15/CWB0XYA8bzo0kSThX0UTuA.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+html {
+    font-family: custom-font;
+    font-size: 12pt;
+    letter-spacing: 0.2px;
+    background: #efefef;
+    background-image: url("../assets/body.jpg");
+}
+
+body {
+    width: 75%;
+    margin: auto;
+    /* TODO: Make not fixed */
+    /* Height + Margin */
+    margin-top: calc(66px + 14px);
+}
+
+nav {
+    /* Fixed menu: */
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    width: inherit;
+    box-sizing: border-box;
+    /* ---- */
+    text-transform: uppercase;
+    color: #C2F1BB;
+    background: #272932;
+}
+
+nav div {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+nav div a {
+    border-radius: 0.2em 0.2em 0 0;
+    margin: 0.3em 1em 0 0.1em;
+    padding: 1em 1em 1em 1em;
+    transition: background 0.2s linear;
+    /*box-shadow: 2px 0px 8px -2px rgba(0,0,0,0.5);*/
+}
+
+nav div a:hover {
+    color: #333431;
+    background: #DDF9C1;
+}
+
+nav a:first-child {
+    color: #828489;
+}
+
+table{
+    width: 100%;
+}
+#toggleMenu {
+    display: none;
+}
+
+#toggleMenuIcon {
+    display: none;
+}
+
+/* Marks menu element as active */
+.activeMenu {
+    color: #333431;
+    background: #efefef;
+}
+
+.person-pic{
+    width: 150px;
+    height: 150px;
+    background-color: #22212A;
+    transition-timing-function: ease-in-out;
+    transition: height 0.5s, background-color 3s, color 2s;
+    text-align: center;
+    color: #DDF9C1;
+    padding: 1px;
+}
+
+.person-pic:hover{
+    height: 180px;
+    background-color: #090907;
+    color: #ACC196;
+}
+
+.person{
+    color: #C2F1BB;
+    text-size: 14px;
+}
+
+.person:hover::after{
+    content: "Edvinas Balčiūnas";
+}
+
+.person2:hover::after{
+    content: "Evaldas Gardas";
+}
+
+.person3:hover::after{
+    content: "Ineta Jurkutė";
+}
+
+.anim-block{
+    width: 200px;
+    background-color: #22212A;
+    transition-timing-function: ease-in-out;
+    transition: width 0.5s, height 0.5s, background-color 2s, color 2s;
+    text-align: center;
+    color: #DDF9C1;
+    padding: 1px;
+}
+
+.anim-block:hover{
+    width: 50%;
+    background-color: #090907;
+    color: #D2D2D1;
+    animation-duration: 0s;
+}
+
+.anim-block:hover::after{
+    font-weight: 700;
+    font-size: 14px;
+    content: "internetinę žaidimų parduotuvę";
+}
+
+.anim{
+    animation-name: shake;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    80% { transform: rotate(0deg); }
+    85% { transform: rotate(1deg); }
+    95% { transform: rotate(-1deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.repeat-pic{
+    background-image: url("../assets/repeat.png");
+    background-repeat: repeat;
+}
+
+.container {
+    z-index: -10;
+    text-align: justify;
+    padding: 1em 1em 1em 1em;
+    margin: -26px 0 0 0;
+    background-color: rgba(239, 239, 239, 0.6);
+}
+
+.selection-label {
+    display: inline;
+    width: 30px;
+}
+
+.form-light-block {
+    padding: 10px 20px 10px 20px;
+    margin: 0 auto;
+    width: 60%;
+    min-width: 420px;
+    background-color: #F9FCFC;
+}
+
+.article{
+    text-align: justify;
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: 0.2em;
+    color: #151932;
+    background: #F9FCFC;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 745px) {
+    body {
+        /* Impossible to select body when the box is checked, mustu use js for this one*/
+        /*margin-top: calc(225.500px + 14px);*/
+        margin-top: 0;
+        width: 90%;
+        min-width: 500px;
+    }
+
+    nav div {
+        flex-direction: column;
+        text-align: center;
+        align-items: flex-start;
+        /* Otherwise mobile menu highlight goes out of parent element */
+        overflow: hidden;
+        /* For toggling animation*/
+        max-height: 0;
+        transition: max-height linear .2s;
+    }
+
+    nav div a {
+        margin: 0.2em 0;
+        border-radius: 0;
+        padding-right: 100%;
+    }
+
+    nav div a:hover {
+        color: #333431;
+        background: #efefef;
+    }
+
+    nav #toggleMenu:checked ~ div {
+        max-height: 20em;
+    }
+
+    #toggleMenuIcon {
+        display: inline;
+        position: absolute;
+        top: 0;
+        left: -0.5em;
+        color: #151932;
+        font-size: 2em;
+    }
+}

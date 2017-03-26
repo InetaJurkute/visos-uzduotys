@@ -1,0 +1,51 @@
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+.form-light-block {
+  padding: 10px 20px 10px 20px;
+  margin: 0 auto;
+  width: 60%;
+  min-width: 420px;
+  background-color: #F9FCFC;
+}
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+.person-pic{
+  width: 150px;
+  height: 150px;
+  background-color: #22212A;
+  transition-timing-function: ease-in-out;
+  transition: height 0.5s, background-color 3s, color 2s;
+  text-align: center;
+  color: #DDF9C1;
+  padding: 1px;
+}
+
+.person-pic:hover{
+  height: 180px;
+  background-color: #090907;
+  color: #ACC196;
+}
+
+.person{
+  color: #C2F1BB;
+  text-size: 14px;
+}
+
+.person:hover::after{
+  content: "Edvinas Balčiūnas";
+}
+
+.person2:hover::after{
+  content: "Evaldas Gardas";
+}
+
+.person3:hover::after{
+  content: "Ineta Jurkutė";
+}
