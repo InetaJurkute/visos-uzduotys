@@ -12,6 +12,9 @@ body {
   min-width: 420px;
   background-color: #F9FCFC;
 }
+.light-hover{
+  background-color: #E9FBD7 !important;
+}
 .flex{
   display: flex;
   flex-wrap: wrap;

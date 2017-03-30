@@ -69,33 +69,37 @@
             </div>
             <!-- order -->
             <h3>Krepšelis</h3>
-            <table id="gameTable" class="table table-striped">
-                <tr>
-                    <th>Pavadinimas</th>
-                    <th>Žanras</th>
-                    <th>Kaina</th>
-                    <th></th>
-                </tr>
-                <tr>
-                    <td>Battlefield-1</td>
-                    <td>Shooter</td>
-                    <td>49.99€</td>
-                    <td>
-                        <button type="button" class="btn btn-danger" onclick="removeGame(this)"><i class="fa fa-trash"
-                                                                                                   aria-hidden="true"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>CS:GO</td>
-                    <td>Shooter</td>
-                    <td>11.99€</td>
-                    <td>
-                        <button type="button" class="btn btn-danger" onclick="removeGame(this)"><i class="fa fa-trash"
-                                                                                                   aria-hidden="true"></i>
-                        </button>
-                    </td>
-                </tr>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Pavadinimas</th>
+                        <th>Žanras</th>
+                        <th>Kaina</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="gameTable">
+                    <tr>
+                        <td>Battlefield-1</td>
+                        <td>Shooter</td>
+                        <td>49.99€</td>
+                        <td>
+                            <button type="button" class="btn btn-danger" onclick="removeGame(this)"><i class="fa fa-trash"
+                                                                                                       aria-hidden="true"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>CS:GO</td>
+                        <td>Shooter</td>
+                        <td>11.99€</td>
+                        <td>
+                            <button type="button" class="btn btn-danger" onclick="removeGame(this)"><i class="fa fa-trash"
+                                                                                                       aria-hidden="true"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
 
             <div class="flex">
@@ -163,6 +167,10 @@
         $('#gamesum').val(sum);
     }
 
+    function hover() {
+        $(this).toggleClass('light-hover');
+    }
+
     $(document).ready(function() {
         var today = new Date();
         var dd = today.getDate();
@@ -184,8 +192,8 @@
             var selectedVal = $("#select_game").val();
 
             if (!isNaN(parseFloat(selectedVal)) && isFinite(selectedVal)) {
-                $('#gameTable tr:last')
-                    .after("<tr><td>" +
+                $('#gameTable')
+                    .append("<tr><td>" +
                         gameList[selectedVal].name + "</td><td>" +
                         gameList[selectedVal].genre + "</td><td>" +
                         gameList[selectedVal].price + "€</td><td>" +
@@ -197,6 +205,10 @@
                 updatePrice();
             }
         });
+
+        $('#gameTable').on('mouseenter', 'tr', hover);
+        $('#gameTable').on('mouseleave', 'tr', hover);
+
     });
 
 </script>
