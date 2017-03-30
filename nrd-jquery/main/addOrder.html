@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Užsakymo kūrimas</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="custom.css" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Žaibo kirtis</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Namai</a></li>
+                <li><a href="registration.html">Registracija</a></li>
+                <li><a href="addGame.html">Pridėti žaidimą</a></li>
+                <li class="active"><a href="addOrder.html">Užsakymo kūrimas</a></li>
+                <li><a href="nameTable.html">Kintanti lentelė</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="container">
+    <div class="form-light-block">
+        <h3>Užsakymo kūrimas</h3>
+        <form action="#" method="post">
+            <!-- client -->
+            <div class="form-group">
+                <label for="client">Klientas</label>
+                <input id="client" class="form-control" type="text" name="client" maxlength="50"
+                       value="Jonas Petrauskas" required autofocus>
+            </div>
+            <!-- Creation date -->
+            <div class="form-group">
+                <label for="creation_date">Sukūrimo data</label>
+                <input id="creation_date" class="form-control" type="date" name="creation_date" disabled>
+            </div>
+            <!-- State -->
+            <div class="form-group">
+                <label for="state">Būsena</label>
+                <select name="select_state" class="form-control" id="state" required>
+                    <option value="started" selected>Pradėtas</option>
+                    <option value="active">Aktyvus</option>
+                    <option value="finished">Baigtas</option>
+                </select>
+            </div>
+            <!-- order -->
+            <h3>Krepšelis</h3>
+            <table id="gameTable" class="table table-striped">
+                <tr>
+                    <th>Pavadinimas</th>
+                    <th>Žanras</th>
+                    <th>Kaina</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Battlefield-1</td>
+                    <td>Shooter</td>
+                    <td>49.99€</td>
+                    <td>
+                        <button type="button" class="btn btn-danger" onclick="removeGame(this)"><i class="fa fa-trash"
+                                                                                                   aria-hidden="true"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>CS:GO</td>
+                    <td>Shooter</td>
+                    <td>11.99€</td>
+                    <td>
+                        <button type="button" class="btn btn-danger" onclick="removeGame(this)"><i class="fa fa-trash"
+                                                                                                   aria-hidden="true"></i>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="flex">
+                <div class="form-group">
+                    <label for="select_game">Pridėti į užsakymą</label>
+                    <select name="select_game" id="select_game" class="form-control" required>
+                        <option value="">--------</option>
+                        <option value="0">The Witcher 3</option>
+                        <option value="1">Persona4</option>
+                        <option value="2">Call of Duty: MW2</option>
+                    </select>
+                </div>
+                <button style="height: 32px; margin-top: 26px; margin-left: 6px;" type="button" id="addToOrder"
+                        class="btn btn-primary btn-sm">Pridėti
+                </button>
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-addon">€</span>
+                <input id="gamesum" type="number" min="0" step="0.01" data-number-to-fixed="2"
+                       data-number-stepfactor="100" class="form-control currency" disabled/>
+            </div>
+
+            <div class="form-group">
+                <!-- discount -->
+                <label for="discount">Nuolaida</label>
+                <select class="form-control" id="discount" name="select_discount">
+                    <option value="">------</option>
+                    <option value="5">5%</option>
+                    <option value="10">10% Lojaliems klientams</option>
+                </select>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Patvirtinti">
+        </form>
+    </div>
+</div><!-- /.container -->
+
+<script> window.jQuery || document.write('<script src="../js/jquery-3.2.0.min.js"><\/script>')</script>
+<script>
+    var sum = 0;
+
+    function Game(name, genre, price) {
+        return {name: name, genre: genre, price: price};
+    }
+
+    var starterGames = [Game("Battlefield-1", "Shooter", 49.99), Game("CS:GO", "Shooter", 11.99)]
+
+    var gameList = [new Game("The Witcher 3", "RPG", 49.99),
+        new Game("Persona4", "Action", 19.99),
+        new Game("Call of Duty: MW2", "Shooter", 8.99)];
+
+    function removeGame(r) {
+        var index = $(r).closest("tr").index();
+        $(r).closest("tr").remove();
+        starterGames.splice(index - 1, 1);
+        updatePrice();
+    }
+
+    function updatePrice() {
+        sum = 0;
+        for (var i = 0; i < starterGames.length; i++) {
+            sum += starterGames[i].price;
+            sum = Math.round(sum * 100) / 100;
+        }
+        $('#gamesum').val(sum);
+    }
+
+    $(document).ready(function() {
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd;
+        }
+        if (mm < 10) {
+            mm = '0' + mm;
+        }
+        var today = yyyy + '-' + mm + '-' + dd;
+        $("#creation_date").val(today);
+
+        updatePrice();
+
+        $('#addToOrder').on('click', function() {
+            var selectedVal = $("#select_game").val();
+
+            if (!isNaN(parseFloat(selectedVal)) && isFinite(selectedVal)) {
+                $('#gameTable tr:last')
+                    .after("<tr><td>" +
+                        gameList[selectedVal].name + "</td><td>" +
+                        gameList[selectedVal].genre + "</td><td>" +
+                        gameList[selectedVal].price + "€</td><td>" +
+                        "<button type='button' class='btn btn-danger' onclick='removeGame(this)' >" +
+                        "<i class='fa fa-trash' aria-hidden='true'></i></button></td></tr>");
+
+                starterGames.push(new Game(gameList[selectedVal].name, gameList[selectedVal].genre, gameList[selectedVal].price));
+                console.log(starterGames);
+                updatePrice();
+            }
+        });
+    });
+
+</script>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../js/ie10-viewport-bug-workaround.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</body>
+</html>

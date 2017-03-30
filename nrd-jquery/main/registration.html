@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Registracija</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="custom.css" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Žaibo kirtis</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Namai</a></li>
+                <li class="active"><a href="registration.html">Registracija</a></li>
+                <li><a href="addGame.html">Pridėti žaidimą</a></li>
+                <li><a href="addOrder.html">Užsakymo kūrimas</a></li>
+                <li><a href="nameTable.html">Kintanti lentelė</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="container">
+    <div class="form-light-block">
+        <div style="width: 100%;">
+            <h3>Registracija</h3>
+            <form action="/register" method="post">
+                <div class="form-group">
+                    <label for="username">Vartotojo vardas</label>
+                    <input id="username" type="text" name="username" maxlength="40" class="form-control" required
+                           autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="password">Slaptažodis</label>
+                    <input id="password" type="password" name="password"
+                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" class="form-control"
+                           title="Slaptažodis turi būti igesnis nei 6 simboliai, turėti bent vieną skaičių ir didžiąją raidę"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label for="email">El. paštas</label>
+                    <input id="email" type="email" name="email" placeholder="email@email.com" class="form-control"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefono numeris</label>
+                    <input id="phone" type="text" name="phone" placeholder="+xxx xxx xxxxx"
+                           pattern="^[+][0-9]{3} [0-9]{3} [0-9]{5}$" class="form-control"
+                           maxlength="14" title="Numeris turi atitikti tokį formatą: +xxx xxx xxxxx">
+                </div>
+                <div class="form-group">
+                    <label>Lytis</label>
+                    <input id="m" type="radio" name="gender" value="male">
+                    <label for="m">Vyras</label>
+                    <input id="f" type="radio" name="gender" value="female">
+                    <label for="f">Moteris</label>
+                    <input id="o" type="radio" name="gender" value="other">
+                    <label for="o">Kita</label>
+                </div>
+                <div class="form-group">
+                    <label for="birth_date">Gimimo data</label>
+                    <input id="birth_date" type="date" name="birth_date" min="1900-01-01" class="form-control">
+                </div>
+                <input type="submit" class="btn btn-primary" value="Registruotis">
+            </form>
+        </div>
+    </div>
+</div><!-- /.container -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script> window.jQuery || document.write('<script src="../js/jquery-3.2.0.min.js"><\/script>')</script>
+<script src="../js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
