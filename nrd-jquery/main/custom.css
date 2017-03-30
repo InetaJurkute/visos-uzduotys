@@ -23,32 +23,19 @@ body {
   width: 150px;
   height: 150px;
   background-color: #22212A;
-  transition-timing-function: ease-in-out;
-  transition: height 0.5s, background-color 3s, color 2s;
-  text-align: center;
   color: #DDF9C1;
   padding: 1px;
+  position:relative;
 }
 
-.person-pic:hover{
-  height: 180px;
-  background-color: #090907;
-  color: #ACC196;
-}
-
-.person{
+.slide-span{
+  z-index: 100;
+  width: 100%;
+  text-align: center;
+  background-color: #22212A;
   color: #C2F1BB;
-  text-size: 14px;
-}
-
-.person:hover::after{
-  content: "Edvinas Balčiūnas";
-}
-
-.person2:hover::after{
-  content: "Evaldas Gardas";
-}
-
-.person3:hover::after{
-  content: "Ineta Jurkutė";
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 0;
 }

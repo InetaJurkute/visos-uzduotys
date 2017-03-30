@@ -47,17 +47,20 @@
 
     <div class="container">
         <h1>Komanda</h1>
-        <div class="flex" style="width: 50%; margin: 0 auto; padding: 20px 50px 20px 50px;">
-            <div class="person-pic person">
+        <div id="team" class="flex" style="width: 50%; margin: 0 auto; padding: 20px 50px 20px 50px;">
+            <div class="person-pic">
                 <img src="../assets/edvinas.jpg" alt="Edvinas">
+                <span class="slide-span">Edvinas</span>
             </div>
 
-            <div class="person-pic person2">
+            <div class="person-pic">
                 <img src="../assets/evaldas.jpg" style="width: 150px; height: 150px;" alt="Evaldas">
+                <span class="slide-span">Evaldas</span>
             </div>
 
-            <div class="person-pic person3">
+            <div class="person-pic">
                 <img src="../assets/ineta.jpg" alt="Ineta">
+                <span class="slide-span">Ineta</span>
             </div>
         </div>
     </div>
@@ -101,9 +104,17 @@
     }
 
     var pageNum = takeParamFromURL('page');
-    var newDiv = document.createElement("div");
-    newDiv.innerHTML = "puslapio parametras: " + pageNum;
-    document.getElementById("forPaging").appendChild(newDiv);
+    $("#forPaging").append("puslapio parametras: " + pageNum);
+
+    $(document).ready(function() {
+        function showName() {
+            $(this).find("span").stop(false, true).slideToggle("fast");
+        }
+
+        $('#team').on('mouseenter', 'div', showName);
+        $('#team').on('mouseleave', 'div', showName);
+    });
+
 </script>
 <!-- Bootstrap core JavaScript
 ================================================== -->
