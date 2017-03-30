@@ -41,19 +41,17 @@
                 <li class="active"><a href="nameTable.html">Kintanti lentelė</a></li>
             </ul>
         </div>
-        <!--/.nav-collapse -->
-
     </div>
 </nav>
 
 <div class="container">
     <div class="form-group">
-        <label for="vardas">Vardas:</label>
-        <input type="text" class="form-control" id="vardas">
+        <label for="name">Vardas:</label>
+        <input type="text" class="form-control" id="name">
     </div>
     <div class="form-group">
-        <label for="pavarde">Pavardė:</label>
-        <input type="text" class="form-control" id="pavarde">
+        <label for="last_name">Pavardė:</label>
+        <input type="text" class="form-control" id="last_name">
     </div>
     <button type="button" class="btn btn-default" onclick=addPerson()>Pridėti žmogų</button>
     <table class="table">
@@ -73,8 +71,6 @@
         </tr>
         </tbody>
     </table>
-
-
 </div>
 <!-- /.container -->
 
@@ -85,28 +81,19 @@
 <script src="../js/ie10-viewport-bug-workaround.js"></script>
 <script>
     function addPerson() {
-        var vardas = document.getElementById("vardas").value;
-        var pavarde = document.getElementById("vardas").value;
-        if (vardas && pavarde) {
-
-
-            var nameTable = document.getElementById("nameTable");
-
-            var row = nameTable.insertRow(0);
-
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(1);
-            var cell3 = row.insertCell(2);
-
-            cell1.innerHTML = vardas;
-            cell2.innerHTML = pavarde;
-            cell3.innerHTML = "<button type='button' class='btn btn-danger' onclick='removePerson(this)' >Trinti žmogų</button>";
+        var name = $("#name").val();
+        var last_name = $("#last_name").val();
+        if (name && last_name) {
+            $('#nameTable')
+                .append("<tr><td>" +
+                    name + "</td><td>" +
+                    last_name + "</td><td>" +
+                    "<button type='button' class='btn btn-danger' onclick='removePerson(this)' >Trinti žmogų</button></td></tr>");
         }
     }
 
     function removePerson(r) {
-        var i = r.parentNode.parentNode.rowIndex;
-        document.getElementById("nameTable").deleteRow(i - 1);
+        $(r).parent().parent().remove();
     }
 </script>
 </body>
