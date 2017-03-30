@@ -109,18 +109,24 @@
                 data: {rows: r},
                 dataType: "json",
                 success: function (response) {
-                    for (i = 0; i < response.length; i++) {
-                        $('#peopleTable')
-                            .append("<tr><td>" +
-                                response[i].name + "</td><td>" +
-                                response[i].lastName + "</td><td>" +
-                                "<button class='btn btn-danger' onclick='removePerson(this)'>Trinti</button></td></tr>");
-                    }
+                    console.log(response);
+                    addToTable(response);
                 },
                 failure: function (response) {
                     resp = response;
                 }
             });
+
+            function addToTable(resp){
+                for (i = 0; i < resp.length; i++) {
+                    $('#peopleTable')
+                        .append("<tr><td>" +
+                            resp[i].name + "</td><td>" +
+                            resp[i].lastName + "</td><td>" +
+                            "<button class='btn btn-danger' onclick='removePerson(this)'>Trinti</button></td></tr>");
+                }
+            }
+
         });
     });
 
