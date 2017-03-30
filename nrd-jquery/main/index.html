@@ -106,13 +106,27 @@
     var pageNum = takeParamFromURL('page');
     $("#forPaging").append("puslapio parametras: " + pageNum);
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         function showName() {
             $(this).find("span").stop(false, true).slideToggle("fast");
         }
 
         $('#team').on('mouseenter', 'div', showName);
         $('#team').on('mouseleave', 'div', showName);
+
+
+        $("#team .person-pic").stop(false, true).mouseenter(function () {
+            $(this).stop(false, true).animate({
+                height: '+=20px'
+            }, 700);
+        });
+
+        $('#team .person-pic').stop(false, true).mouseleave(function () {
+            $(this).stop(false, true).animate({
+                height: '-=20px'
+            }, 700);
+        });
+
     });
 
 </script>
