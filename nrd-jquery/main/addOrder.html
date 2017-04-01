@@ -88,6 +88,9 @@
                         <button type="button" class="btn btn-danger" onclick="removeGame(this)"><i class="fa fa-trash"
                                                                                                    aria-hidden="true"></i>
                         </button>
+                        <button type="button" class="btn btn-success" onclick="dupeGame(this)"><i class="fa fa-clone"
+                                                                                                   aria-hidden="true"></i>
+                        </button>
                     </td>
                 </tr>
                 <tr>
@@ -96,6 +99,9 @@
                     <td>11.99€</td>
                     <td>
                         <button type="button" class="btn btn-danger" onclick="removeGame(this)"><i class="fa fa-trash"
+                                                                                                   aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="btn btn-success" onclick="dupeGame(this)"><i class="fa fa-clone"
                                                                                                    aria-hidden="true"></i>
                         </button>
                     </td>
@@ -158,6 +164,25 @@
         starterGames.splice(index - 1, 1);
         updatePrice();
     }
+    function dupeGame(r){
+        var game = $(r).closest("tr");
+        game.clone().prependTo("#gameTable");
+        // Get values
+        var data = $(game).children('td').toArray();
+
+        var name = $(data[0]);
+        var genre = $(data[1]);
+        var price = $(data[2]);
+
+        console.log(name.text());
+        console.log(genre.text());
+        console.log(price.text().replace('€',''));
+        // Parse to float
+        var priceFloat = parseFloat($(price).text().replace('€',''));
+        console.log(priceFloat);
+        starterGames.push(new Game(name.text(),genre.text(),priceFloat));
+        updatePrice();
+    }
 
     function updatePrice() {
         sum = 0;
@@ -209,7 +234,6 @@
 
         $('#gameTable').on('mouseenter', 'tr', hover);
         $('#gameTable').on('mouseleave', 'tr', hover);
-
     });
 
 </script>
