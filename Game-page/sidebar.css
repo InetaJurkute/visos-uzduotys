@@ -1,0 +1,65 @@
+.gamePage{
+    display:flex;
+    justify-content: space-around;
+}
+
+.gameListContainer{
+    width:370px;
+}
+#showCategories{
+    height:30px;
+    display:block;
+    background:#2A363B;
+    position:relative;
+}
+#showCategories .subTitle{
+    transform:translate(-50%,50%);
+    color: #fefefe;
+}
+/* Game List Items (games) */
+.gameList{
+    background:#2A363B;
+    padding:20px;
+    max-height:auto;
+}
+#categories{
+    /*TODO*/
+    /*Fix keista perejima, nes height ir padding nevienodai animatina*/
+    transition: all 0.4s ease-out;
+}
+.gameListItem{
+    width:335px;
+    height:40px;
+    display:block;
+    background:#efefef;
+    margin-top:20px;
+    border-radius: 3px;
+    position:relative;
+}
+.gameListItem:first-child{
+    margin-top:0;
+}
+.gameListItem:hover{
+    background:#99B898;
+}
+.gameListItem:hover .subTitle{
+    color:#fefefe;
+}
+.gameListItem .subTitle{
+    transition: color 0.3s ease-out;
+    bottom:50%;
+    transform:translate(-50%, 50%);
+}
+/* Active item */
+.activeTitle{
+    background:#99B898;
+}
+.activeTitle .subTitle{
+    color:#fefefe;
+}
+.categoriesHidden{
+    max-height:0;
+    /*opacity:0;*/
+    padding:0 20px;
+    /*transition: all 5s ease-out;*/
+}

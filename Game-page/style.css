@@ -1,0 +1,159 @@
+body{
+    background: white;
+    font-family:arial;
+    width:100%;
+}
+.gamePage{
+    /*KAD NEBUTU ON TOP*/
+    padding:50px 0;
+    margin:0 auto;
+    width:1170px;
+    height:100%;
+    background:#efefef;
+}
+/* Container */
+.game{
+    width:670px;
+    /*height:1087px;*/
+    background:#2A363B;
+    color:#fefefe;
+}
+/* Header */
+.game header{
+    background: #fefefe;
+    position:relative;
+    height:100px;
+}
+/* Image(s) */
+.game #gameImage{
+    width: 630px;
+    padding:20px 0;
+    box-sizing:border-box;
+    margin: 0 auto;
+}
+.game #gameImage img{
+    width:100%;
+}
+/* Description */
+.game #description{
+    width:630px;
+    padding:10px;
+    box-sizing: border-box;
+    background:#efefef;
+    color: #818181;
+    text-align: justify;
+    margin: 0 auto;
+}
+.game #description p{
+    padding-top:1em;
+    line-height: 20px;
+    font-size: 18px;
+    /*letter-spacing: 5px;*/
+}
+.game #description p:first-child{
+    padding-top:0;
+}
+/* Footer stuff */
+.game footer{
+    display:flex;
+    justify-content: space-around;
+    align-items:center;
+    color:#818181;
+    margin:20px 0;
+    font-size: 30px;
+}
+
+.game footer #addToCart{
+    height:67px;
+    background:#efefef;
+    width:305px;
+    flex: 0 0 305px;
+    position:relative;
+}
+.game footer #addToCart span{
+    position:absolute;
+    top:50%;
+    right:0;
+    transform:translate(-10px,-50%);
+}
+
+.game footer #priceContainer{
+    width:80px;
+    min-width: 80px;
+    height:80px;
+    background:#405259;
+    border-radius: 100%;
+    font-size: 30px;
+    position:relative;
+    margin:0 10px;
+}
+.game footer #priceContainer > span{
+    color:#EFEFEF;
+    transform:translate(-50%,-50%);
+    position:absolute;
+    top:50%;
+    left:50%;
+}
+
+
+.game footer #platformSelection{
+    /*Don't grow don't shrink*/
+    flex: 0 0 305px;
+    background:#efefef;
+    height:67px;
+    width:305px;
+    position:relative;
+}
+.game footer #platformSelection > span{
+    position:absolute;
+    top:50%;
+    transform:translate(10px,-50%);
+}
+/*Float button to the right*/
+.game footer #platformSelection .buttonBox{
+    position:absolute;
+    right:0;
+    border-radius: 0 5px 5px 0;
+}
+/* Elements */
+/* Box for buttons*/
+.buttonBox{
+    position:relative;
+    height:67px;
+    width:67px;
+    background:#405259;
+    border-radius: 5px 0 0 5px;
+    color:#fefefe;
+}
+.buttonBox span{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, -50%);
+}
+.buttonBox .crossX{
+    width:57px;
+    height:4px;
+    background:#efefef;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+}
+.buttonBox .crossY{
+    width:57px;
+    height:4px;
+    background:#efefef;
+    position:absolute;
+    top:50%;
+    left:50%;
+    border-radius: 1px;
+    transform:translate(-50%, -50%) rotate(90deg);
+}
+/* Header sizes */
+h1{
+    font-size: 40px;
+}
+h3{
+    font-size: 18px;
+}
