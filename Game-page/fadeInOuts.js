@@ -20,5 +20,5 @@ $(document).ready(function(){
         $("h3:contains(GAME)").attr("badTitle","yes");
     });
 
-    $("#allGames .gameListItem h3[badTitle*='yes'").html('IM NOT ORIGINAL');
+    $("#allGames .gameListItem h3[badTitle*='yes']").html('IM NOT ORIGINAL');
 });
