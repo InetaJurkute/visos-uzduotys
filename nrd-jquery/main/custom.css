@@ -2,7 +2,6 @@ body {
     padding-top: 50px;
 }
 
-
 .starter-template {
     padding: 40px 15px;
     text-align: center;
@@ -12,6 +11,14 @@ body {
     padding: 10px 20px 10px 20px;
     margin: 0 auto;
     width: 60%;
+    min-width: 420px;
+    background-color: #F9FCFC;
+}
+
+.wide-table-block {
+    padding: 10px 20px 10px 20px;
+    margin: 0 auto;
+    width: 80%;
     min-width: 420px;
     background-color: #F9FCFC;
 }

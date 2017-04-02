@@ -15,6 +15,17 @@
 
     <!-- Custom styles for this template -->
     <link href="custom.css" rel="stylesheet">
+    <style>
+        td{
+            width: 300px;
+        }
+        .trpad{
+            padding-bottom: 10px;
+            height: 50px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+    </style>
 </head>
 
 <body>
@@ -44,7 +55,7 @@
 </nav>
 
 <div class="container">
-    <div class="form-light-block">
+    <div class="wide-table-block">
         <div class="flex form-group" style="width: 150px;">
             <label for="rows">Įterpiamų eilučių skaičius</label><br>
             <input id="rows" type="number" min="0" class="form-control"/>
@@ -66,23 +77,41 @@
             <tr>
                 <td>Vardenis</td>
                 <td>Pavardenis</td>
-                <td>
+                <td class="flex">
+                    <button type='button' class='btn btn-info show' onclick='showPerson(this)' >info</button>
                     <button class="btn btn-danger" onclick='removePerson(this)'>Trinti</button>
                 </td>
+            </tr>
+            <tr class="trpad" style='display: none'>
+                <td>Ūgis: 189 cm</td>
+                <td>Svoris: 80 kg</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Name</td>
                 <td>LastName</td>
-                <td>
+                <td class="flex">
+                    <button type='button' class='btn btn-info show' onclick='showPerson(this)' >info</button>
                     <button class="btn btn-danger" onclick='removePerson(this)'>Trinti</button>
                 </td>
+            </tr>
+            <tr class="trpad" style='display: none'>
+                <td>Ūgis: 169 cm</td>
+                <td>Svoris: 60 kg</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Name2</td>
                 <td>LastName2</td>
-                <td>
+                <td class="flex">
+                    <button type='button' class='btn btn-info show' onclick='showPerson(this)' >info</button>
                     <button class="btn btn-danger" onclick='removePerson(this)'>Trinti</button>
                 </td>
+            </tr>
+            <tr class="trpad" style='display: none'>
+                <td>Ūgis: 179 cm</td>
+                <td>Svoris: 70 kg</td>
+                <td></td>
             </tr>
             </tbody>
         </table>
@@ -94,6 +123,15 @@
 <script>
     function removePerson(r) {
         $(r).closest("tr").remove();
+    }
+    function showPerson(button){
+        var showing = $(button).parent().parent().next().attr("style");
+        if(showing == "display: none"){
+            $(button).parent().parent().next().attr("style", "display: static");
+        } else {
+            $(button).parent().parent().next().attr("style", "display: none");
+        }
+
     }
     $(function () {
         var url = "http://mankaz4.stud.if.ktu.lt/people.php";
@@ -117,31 +155,29 @@
             function addToTable(resp){
                       for (i = 0; i < resp.length; i++) {
                           $('#peopleTable')
-                              .append("<tr><td>"
-      			                     +resp[i].name+"</td><td>"+
-      			                       resp[i].lastName+"</td><td>"+
-                         "<button type='button' class='btn btn-info show' data-weight='" + resp[i].weight + "' data-height='"+resp[i].height +" onclick='showPerson()' >info</button>"+
-                              "<button class='btn btn-danger' onclick='removePerson(this)'>Trinti</button> </td></tr>"+
-                              "<tr class='p'>"+
-                              "<td>"+'Ugis:'+resp[i].height+"</td>"+
-                          "<td>"+'Svoris:'+ +resp[i].weight+"</td></tr>"
-                              );
+                              .append("<tr><td>" +
+                                  resp[i].name+"</td><td>"+
+                                  resp[i].lastName+"</td><td class='flex'>"+
+                                  "<button type='button' class='btn btn-info show' onclick='showPerson(this)' >info</button>"+
+                                  "<button class='btn btn-danger' onclick='removePerson(this)'>Trinti</button> </td></tr>"+
+                                  "<tr class='trpad' style='display: none'>"+
+                                  "<td>" + "Ugis:" + resp[i].height + " cm" + "</td>"+
+                                  "<td>" + "Svoris:" + resp[i].weight + " kg" + "</td></tr>"
+                                  );
                       }
-                      $(document).ready(function(){
-                        $('.p').hide();
-                        $('.btn-info').click(function(){
-                          $(".p").toggle();
+            }
 
-                         var ugis = $(this).data("height"),
-                                svoris = $(this).data("weight");
+            /*  data-weight='" + resp[i].weight + "' data-height='"+resp[i].height + '
+            $('.p').hide();
+            $('.btn-info').click(function(){
+                $(".p").toggle();
 
-     console.log("sio zmogaus ugis yra "+ ugis +" , svoris yra " + svoris );
-                        })
+                var ugis = $(this).data("height");
+                var svoris = $(this).data("weight");
 
-                      })
-                    }
-
-
+                console.log("sio zmogaus ugis yra "+ ugis +" , svoris yra " + svoris );
+            })
+            */
 
         });
     });
