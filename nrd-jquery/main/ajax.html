@@ -21,7 +21,6 @@
         }
         .trpad{
             padding-bottom: 10px;
-            height: 50px;
             font-size: 12px;
             font-weight: 700;
         }
@@ -136,12 +135,7 @@
         updateAverages();
     }
     function showPerson(button){
-        var showing = $(button).parent().parent().next().attr("style");
-        if(showing == "display: none"){
-            $(button).parent().parent().next().attr("style", "display: static");
-        } else {
-            $(button).parent().parent().next().attr("style", "display: none");
-        }
+        $(button).parent().parent().next().toggle("fast");
     }
 
     var heightSum = 0;
@@ -194,11 +188,12 @@
                           resp[i].lastName+"</td><td class='flex'>"+
                           "<button type='button' class='btn btn-info show' onclick='showPerson(this)' >info</button>"+
                           "<button class='btn btn-danger' onclick='removePerson(this)'>Trinti</button> </td></tr>"+
-                          "<tr class='trpad' style='display: none'>"+
+                          "<tr class='trpad'>"+
                           "<td data-height=" + resp[i].height + ">" + "Ugis:" + resp[i].height + " cm" + "</td>"+
                           "<td data-weight=" + resp[i].weight + ">" + "Svoris:" + resp[i].weight + " kg" + "</td></tr>"
                           );
                 }
+                $(".show").parent().parent().next().hide();
                 updateAverages();
             }
         });
