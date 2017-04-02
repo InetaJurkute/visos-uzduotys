@@ -14,4 +14,11 @@ $(document).ready(function(){
             opacity: '1.0'
         });
     })
+    // Find not so original game titles
+    $(".gameListItem").each(function(index){
+        $("h3:contains(game)").attr("badTitle","yes");
+        $("h3:contains(GAME)").attr("badTitle","yes");
+    });
+
+    $("#allGames .gameListItem h3[badTitle*='yes'").html('IM NOT ORIGINAL');
 });
