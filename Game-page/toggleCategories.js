@@ -1,3 +1,7 @@
+// .hasClass()
+// .fadeIn()
+// .fadeOut()
+// .toggleClass()
 function toggleCategories(){
 	var categ = $("#categories");
 	if(categ.hasClass("categoriesHidden"))

@@ -1,3 +1,11 @@
+// .ready()
+// .hide()
+// .delay()
+// .fadeIn()
+// .each()
+// .animate()
+// .attr()
+// .html()
 $(document).ready(function(){
     // Hide, tada delay puse sec, tada daryt fadeIn
     // Kodel? kad panaudot dar 3 funkcijas
