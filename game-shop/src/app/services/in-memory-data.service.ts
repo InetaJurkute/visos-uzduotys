@@ -17,7 +17,19 @@ const cArrayGames: Game[] =[
       {
         id: '1',
         name: 'NewHope',
-        description: 'a very nice game',
+        description: `Etiam vulputate cursus hendrerit. Etiam ut justo non nisi 
+        tempor semper quis fermentum leo. Donec eget libero nulla. Integer et 
+        ante libero. Aliquam erat volutpat. Nunc quam ligula, vulputate et 
+        mattis tristique, vehicula non mi. Aliquam erat volutpat. Maecenas 
+        ultrices sodales quam. Aliquam erat volutpat. Nunc in pharetra erat. 
+        Vivamus pretium tincidunt molestie. Vivamus luctus elementum ipsum et v
+        estibulum. Donec sit amet nunc eu ligula dignissim posuere vitae eget tellus.
+        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac 
+        turpis egestas. Praesent non sem in justo hendrerit fringilla. Ut rutrum leo 
+        ac dui tempus, sed sodales nisl auctor. Pellentesque blandit, nisi ut fermentum 
+        lobortis, justo nisi elementum nibh, vel cursus enim ex sit amet nunc. Praesent 
+        nisi ligula, cursus accumsan commodo dictum, bibendum lacinia nisl. Aenean consectetur 
+        risus at nunc pharetra luctus. Maecenas rutrum molestie quam nec molestie. Nunc id ante mauris.`,
         price: 19.99,
         imageUrl: '../../../assets/1.jpg'
       },

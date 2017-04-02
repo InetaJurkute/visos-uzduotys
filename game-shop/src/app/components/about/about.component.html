@@ -1,0 +1,18 @@
+<div class="light-block" *ngIf='game'>
+  <div>
+    <img src="{{game.imageUrl}}" width="100%" />
+  </div>
+  <div class="flex">
+    <div>
+      <h3>{{game.name}}</h3>
+      <h4>{{game.price}}</h4>
+    </div>
+    <div style="">
+      <button class="btn btn-success">Add to cart</button>
+      <a class="btn btn-default" [routerLink]="['/game-list']">Back</a>
+    </div>
+  </div>
+  <p class="well">
+    {{game.description}}
+  </p>
+</div>

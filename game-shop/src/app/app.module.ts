@@ -10,13 +10,15 @@ import { AddGameComponent } from './components/add-game/add-game.component';
 import { GameListComponent } from './components/game-list/game-list.component';
 import { InMemoryDataService } from "app/services/in-memory-data.service";
 import { routing } from './app.routing';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GameComponent,
     AddGameComponent,
-    GameListComponent
+    GameListComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

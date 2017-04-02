@@ -16,4 +16,12 @@ export class DataService {
         return response.json().data as Game[];
       });
   }
+  
+  getGame(id: string): Promise<Game> {
+    return this.http.get('/api/games/' + id)
+      .toPromise()
+      .then(response => {
+        return response.json().data as Game;
+      });
+  }
 }

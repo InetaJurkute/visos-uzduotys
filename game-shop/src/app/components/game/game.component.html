@@ -7,8 +7,8 @@
     <h5>{{game.price}}</h5>
   </div>
   <div>
-    <button class="btn-info">About</button>
-    <button class="btn-primary">Edit</button>
-    <button class="btn-success">To cart</button>
+    <a class="btn btn-info" [routerLink]="['/game', game.id]">About</a>
+    <button class="btn btn-primary">Edit</button>
+    <button class="btn btn-success">To cart</button>
   </div>
 </div>
