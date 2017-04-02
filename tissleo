@@ -1,0 +1,164 @@
+[33mcommit 91b2e5fabc9feae9a51e34d73734b30f7346c498[m
+Author: Ineta Jurkutė <jurkute.ineta@gmail.com>
+Date:   Sun Apr 2 21:18:29 2017 +0300
+
+    improve toggle with jquery
+
+[33mcommit d77871a4c4adbff198fe87da12573df8274e8a57[m
+Author: Ineta Jurkutė <jurkute.ineta@gmail.com>
+Date:   Sun Apr 2 20:50:14 2017 +0300
+
+    count people's height and weight (averages)
+
+[33mcommit c743b4e7118f1cde49b7ac7ce30f4e633ef74cca[m
+Author: Ineta Jurkutė <jurkute.ineta@gmail.com>
+Date:   Sun Apr 2 20:05:09 2017 +0300
+
+    added info about every person on button click
+
+[33mcommit 0a6f9aac3b3de878741d8ac71db01997b6154059[m
+Merge: 555875c f59cc3e
+Author: edvinasba <edvinas.balciunass@gmail.com>
+Date:   Sun Apr 2 19:11:56 2017 +0300
+
+    Merge branch 'master' of https://github.com/InetaJurkute/visos-uzduotys
+
+[33mcommit 555875cef27aa9de5eb107d4ac99c318154500ee[m
+Author: edvinasba <edvinas.balciunass@gmail.com>
+Date:   Sun Apr 2 19:11:37 2017 +0300
+
+    added skliaust.
+
+[33mcommit f59cc3eceec79b5cc5796e4af8d99e89b4b8e556[m
+Author: Evaldas <xevalxdasx8@gmail.com>
+Date:   Sun Apr 2 19:07:09 2017 +0300
+
+    Ajax
+
+[33mcommit 81cbefed75b1e7a2566d75a19159434828e3d83a[m
+Merge: 9a41097 e663824
+Author: edvinasba <edvinas.balciunass@gmail.com>
+Date:   Sun Apr 2 18:38:35 2017 +0300
+
+    Merge branch 'master' of https://github.com/InetaJurkute/visos-uzduotys
+
+[33mcommit 9a41097dc5c1db7257af9059321b885edd35667d[m
+Author: edvinasba <edvinas.balciunass@gmail.com>
+Date:   Sun Apr 2 18:21:44 2017 +0300
+
+    usage of attribute selector
+
+[33mcommit e663824b359e713247327206bdfee54027394c50[m
+Merge: 276b01e 6e4c11b
+Author: Ineta Jurkutė <jurkute.ineta@gmail.com>
+Date:   Sun Apr 2 17:10:18 2017 +0300
+
+    Merge branch 'master' of https://github.com/InetaJurkute/visos-uzduotys
+
+[33mcommit 276b01e9654129b1509817db01e0cd64b0be6d00[m
+Author: Ineta Jurkutė <jurkute.ineta@gmail.com>
+Date:   Sun Apr 2 17:08:40 2017 +0300
+
+    add manage-games skeleton
+
+[33mcommit 6e4c11b326fdde8f701077fd57de0a1901d44a57[m
+Author: edvinasba <edvinas.balciunass@gmail.com>
+Date:   Sun Apr 2 17:07:54 2017 +0300
+
+    longer fadein
+
+[33mcommit 4e6a4a7967d2efde8595c264c9ec4b969f1f76c5[m
+Author: edvinasba <edvinas.balciunass@gmail.com>
+Date:   Sun Apr 2 17:06:10 2017 +0300
+
+    added animations (for functions used ofc!)
+
+[33mcommit ed4fe59db22a1185798bf878ead2ee3e947adcd2[m
+Author: Ineta Jurkutė <jurkute.ineta@gmail.com>
+Date:   Sun Apr 2 15:34:06 2017 +0300
+
+    added "about" component for games
+
+[33mcommit ffb727bcde79190cd7a38d6006c57dcfd8b4c0e7[m
+Author: Ineta Jurkutė <jurkute.ineta@gmail.com>
+Date:   Sun Apr 2 14:31:38 2017 +0300
+
+    starter angular project for the game shop
+
+[33mcommit 4aa895f28488e48fdb84ba7dbf9f54d1089bfe02[m
+Author: edvinasba <edvinas.balciunass@gmail.com>
+Date:   Sat Apr 1 19:00:09 2017 +0300
+
+    added barely working game duplication
+
+[33mcommit 531b0c031de2e020dbf478d8a09a80d2a1d413f1[m
+Author: edvinasba <edvinas.balciunass@gmail.com>
+Date:   Sat Apr 1 17:31:32 2017 +0300
+
+    game page structure explanation
+
+[33mcommit 212d04f08a3bcfc9a512d6951ad782576952c470[m
+Author: edvinasba <edvinas.balciunass@gmail.com>
+Date:   Sat Apr 1 14:47:00 2017 +0300
+
+    Added game page mockup, needs fixing
+
+[33mcommit 4bcda140d619fcba8dcb172c9a1e21d5f6e1c8d0[m
+Author: Ineta Jurkutė <jurkute.ineta@gmail.com>
+Date:   Fri Mar 31 02:08:44 2017 +0300
+
+    minor refactoring
+
+[33mcommit 5c105c985afd98f139773c6ac0630bb51f284215[m
+Author: Ineta Jurkutė <jurkute.ineta@gmail.com>
+Date:   Fri Mar 31 01:57:12 2017 +0300
+
+    wrapped name table
+
+[33mcommit 479a27274e63ad6184addd3aa1ee736d7164dde6[m
+Author: Ineta Jurkutė <jurkute.ineta@gmail.com>
+Date:   Fri Mar 31 01:54:49 2017 +0300
+
+    added a page for an ajax request
+
+[33mcommit f1937b9d68c01d34f8c6ab7d1b22d116c3758fcd[m
+Author: Ineta Jurkutė <jurkute.ineta@gmail.com>
+Date:   Fri Mar 31 01:04:40 2017 +0300
+
+    added animations with jquery, minor refactoring
+
+[33mcommit 654ff1b4d28eacb0728365549917989b99fa51ea[m
+Author: Ineta Jurkutė <jurkute.ineta@gmail.com>
+Date:   Thu Mar 30 23:27:13 2017 +0300
+
+    refactor index with jquery
+
+[33mcommit f0833769100c9fcb396c6a358dc8e4ca5ab98c8a[m
+Author: Ineta Jurkutė <jurkute.ineta@gmail.com>
+Date:   Thu Mar 30 22:31:24 2017 +0300
+
+    added jquery hover on table rows in "addOrder"
+
+[33mcommit a602886c993f02d67e0ecbed79d80213376ee2ba[m
+Author: Ineta Jurkutė <jurkute.ineta@gmail.com>
+Date:   Thu Mar 30 22:14:30 2017 +0300
+
+    refactor "nameTable" with jquery
+
+[33mcommit 9bcd881b281406b4664bdb1686b21f022ed12cae[m
+Author: Ineta Jurkutė <jurkute.ineta@gmail.com>
+Date:   Thu Mar 30 21:46:53 2017 +0300
+
+    add folder for the jquery task; refactor "addOrder" with jquery; fix jquery include; remove menu dropdown
+
+[33mcommit 16dba051b2f31b88715ae47e37ee2d249a96a859[m
+Author: Ineta Jurkutė <jurkute.ineta@gmail.com>
+Date:   Mon Mar 27 02:18:29 2017 +0300
+
+    add html & css task, bootstrap & js task
+
+[33mcommit be9e5aa9ffb64a4bb5227b1fec1bed67a4b6b8aa[m
+Author: InetaJurkute <jurkute.ineta@gmail.com>
+Date:   Mon Mar 27 02:13:05 2017 +0300
+
+    Initial commit

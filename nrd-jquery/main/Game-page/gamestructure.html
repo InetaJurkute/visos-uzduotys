@@ -1,0 +1,75 @@
+Game structure:
+
+	.gamePage{
+		.game{
+			// Header
+			#gameName
+			#date
+			// Image
+			#gameImage
+			// description
+			#description{
+				p
+				// Galima ir kelis paragrafus.
+			}
+			//footer
+			#price
+			#platform
+		}
+	}
+    <div class="gamePage">
+        <div class="game hasShadow">
+            
+            <!--TITLE/RELEASE DATE-->
+
+            <header class="hasShadow">
+                <h1 id="gameName" class="mainTitle"><!--TITLE GOES HERE--></h1>
+                <h3 id="date" class="subTitle"><!--DATE GOES GHERE--></h3> 
+            </header>
+
+            <!--IMAGE(S)-->
+            <div id="gameImage">
+                <img src="overwatch.png" alt="Overwatch heroes" class="hasShadow roundBorders">
+            </div>
+            
+            <!--DESCRIPTION-->
+            <div class="description hasShadow roundBorders">
+            	<p></p>
+            </div>
+            
+            <footer>
+                <div id="addToCart" class="hasShadow roundBorders">
+                    <span>
+                        <!--PRIDES I VEZIMELI TODO-->
+                        Add To Cart
+                    </span>
+                    <div class="buttonBox">
+                        <!--Horizontal cross-->
+                        <div class="crossX">
+
+                        </div>
+                        <!--Vertical cross-->
+                        <div class="crossY">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div id="priceContainer" class="hasShadow roundBorders" >
+                    <span id = "price">
+                        <!--KAINA-->
+                    </span>
+                </div>
+
+                <div id="platformSelection" class="hasShadow roundBorders">
+                    <span>
+                        Platform
+                    </span>
+                    <div class="buttonBox">
+                        <!--PLATFORMA, TODO (LISTAS)-->
+                        <span id = "platform">PC</span>
+                    </div>
+                </div>
+            </footer>
+
+        </div>

@@ -1,0 +1,28 @@
+/* Universal Titles/ containers */
+.mainTitle{
+    position:absolute;
+    top:20px;
+    left:50%;
+    transform:translate(-50%, 0);
+    color:#818181;
+}
+.titleContainer{
+    position:relative;
+    width:inherit;
+    height:100px;
+    background:#fff;
+}
+.subTitle{
+    position:absolute;
+    bottom: 15px;
+    left:50%;
+    transform:translate(-50%, 0);
+    color:#999999;
+}
+/* Effects */
+.hasShadow{
+    box-shadow: 0px 5px 6px rgba(0,0,0,0.16);
+}
+.roundBorders{
+    border-radius:5px;
+}

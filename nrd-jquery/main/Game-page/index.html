@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Games</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="universals.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sidebar.css">
+
+</head>
+<body>
+    <div class="gamePage">
+        <div class="game hasShadow">
+            
+            <!--TITLE/RELEASE DATE-->
+            <header class="hasShadow">
+                <h1 id="gameName" class="mainTitle">Overwatch</h1>
+                <h3 id="date" class="subTitle">2015-11-10</h3> 
+            </header>
+
+            <!--IMAGE(S)-->
+            <div id="gameImage">
+                <img src="overwatch.png" alt="Overwatch heroes" class="hasShadow roundBorders">
+            </div>
+            
+            <!--DESCRIPTION-->
+            <div id = "description" class="hasShadow roundBorders">
+                <p>
+                In a time of global crisis, an international task force of heroes banded 
+                together to restore peace to a war-torn world. This organization, known as Overwatch, ended the crisis 
+                and helped maintain peace for a generation, inspiring an era of exploration, innovation, and discovery. 
+                After many years, Overwatch's influence waned and it was eventually disbanded. Now in the wake of its dismantling, 
+                conflict is rising once again. Overwatch may be gone... but the world still needs heroes.
+                </p>
+
+                <p>
+                Choose A Hero: Overwatch features a wide array of unique Heroes, ranging from a 
+                time-jumping adventurer, to an armored, rocket-hammer-wielding warrior, to a transcendent robot monk. 
+                Every hero plays differently, and mastering their Abilities is the key to unlocking their potential. No two heroes are the same.
+                </p>
+
+                <p>
+                Play Your Role: Whether you're engaging in combat on the front line, providing defensive cover with your energy shield, 
+                or supporting your allies by amplifying their damage, every hero's abilities are designed to be effective as part of a team. 
+                Learning to utilize your Abilities in concert with your teammates' is the key to victory.
+                </p>
+
+                <p>
+                Overwatch is currently available for purchase here, and was released on May 24th, 2016.
+                </p>
+            </div>
+            
+            <footer>
+                <div id="addToCart" class="hasShadow roundBorders">
+                    <span>
+                        <!--PRIDES I VEZIMELI TODO-->
+                        Add To Cart
+                    </span>
+                    <div class="buttonBox">
+                        <!--Horizontal cross-->
+                        <div class="crossX">
+
+                        </div>
+                        <!--Vertical cross-->
+                        <div class="crossY">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div id="priceContainer" class="hasShadow roundBorders" >
+                    <span id="price">
+                        <!--KAINA-->
+                        €99
+                    </span>
+                </div>
+
+                <div id="platformSelection" class="hasShadow roundBorders">
+                    <span>
+                        Platform
+                    </span>
+                    <div class="buttonBox">
+                        <!--PLATFORMA, TODO (LISTAS)-->
+                        <span id = "platform">PC</span>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+        <div class="gameListContainer">
+            <!-- Categories -->
+            <div id="categoryTop" class="titleContainer hasShadow">
+                <h1 class="mainTitle">Category</h1>
+                <h3 id="currentCategory" class="subTitle">Action</h3>
+            </div>
+
+            <a href="#" id="showCategories" onclick="toggleCategories()">
+                <h3 class="subTitle">Show categories</h3>
+            </a>
+
+            <!--Use the same list styling as gameList for categories-->
+            <div id="categories" class="gameList">
+                    <a href="#" class="gameListItem activeTitle">
+                        <h3 class="subTitle">Action</h3>
+                    </a>
+                    <a href="#" class="gameListItem">
+                        <h3 class="subTitle">IDK MAN</h3>
+                    </a>
+            </div>
+
+            <!-- Game list -->
+            <div id="listTop" class="hasShadow titleContainer">
+                <h1 class="mainTitle">Games</h1>
+                <h3 class="subTitle">Overwatch</h3>
+            </div>
+            
+            <div  id = "allGames" class="gameList hasShadow">
+                <a href="#" class="gameListItem">
+                    <h3 class="subTitle">I'm an action game</h3>
+                </a>
+                
+                <a href="#" class="gameListItem">
+                    <h3 class="subTitle">That other game</h3>
+                </a>
+                
+                <a href="#" class="gameListItem activeTitle">
+                    <h3 class="subTitle">Overwatch</h3>
+                </a>
+                
+                <a href="#" class="gameListItem">
+                    <h3 class="subTitle">Yee</h3>
+                </a>
+                
+                <a href="#" class="gameListItem">
+                    <h3 class="subTitle">IMAGAME</h3>
+                </a>
+
+                <a href="#" class="gameListItem">
+                    <h3 class="subTitle">IMAGAME TOO</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!--JQUERRY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="toggleCategories.js"></script>
+    <script src="fadeInOuts.js"></script>
+</body>
+</html>
