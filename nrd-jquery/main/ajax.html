@@ -87,7 +87,7 @@
                 <td>Vardenis</td>
                 <td>Pavardenis</td>
                 <td class="flex">
-                    <button type='button' class='btn btn-info show' onclick='showPerson(this)' >info</button>
+                    <button type='button' class='btn btn-info info' onclick='showPerson(this)' >info</button>
                     <button class="btn btn-danger" onclick='removePerson(this)'>Trinti</button>
                 </td>
             </tr>
@@ -100,7 +100,7 @@
                 <td>Name</td>
                 <td>LastName</td>
                 <td class="flex">
-                    <button type='button' class='btn btn-info show' onclick='showPerson(this)' >info</button>
+                    <button type='button' class='btn btn-info info' onclick='showPerson(this)' >info</button>
                     <button class="btn btn-danger" onclick='removePerson(this)'>Trinti</button>
                 </td>
             </tr>
@@ -113,7 +113,7 @@
                 <td>Name2</td>
                 <td>LastName2</td>
                 <td class="flex">
-                    <button type='button' class='btn btn-info show' onclick='showPerson(this)' >info</button>
+                    <button type='button' class='btn btn-info info' onclick='showPerson(this)' >info</button>
                     <button class="btn btn-danger" onclick='removePerson(this)'>Trinti</button>
                 </td>
             </tr>
@@ -130,6 +130,9 @@
 
 <script> window.jQuery || document.write('<script src="../js/jquery-3.2.0.min.js"><\/script>')</script>
 <script>
+    //
+    // closest(), next(), remove(), parent(), next(), toggle(), each(), data(), val(), on(), append(), hide()
+    //
     function removePerson(r) {
         $(r).closest("tr").next().remove();
         $(r).closest("tr").remove();
@@ -187,14 +190,14 @@
                       .append("<tr><td>" +
                           resp[i].name+"</td><td>"+
                           resp[i].lastName+"</td><td class='flex'>"+
-                          "<button type='button' class='btn btn-info show' onclick='showPerson(this)' >info</button>"+
+                          "<button type='button' class='btn btn-info info' onclick='showPerson(this)' >info</button>"+
                           "<button class='btn btn-danger' onclick='removePerson(this)'>Trinti</button> </td></tr>"+
                           "<tr class='trpad'>"+
                           "<td data-height=" + resp[i].height + ">" + "Ugis:" + resp[i].height + " cm" + "</td>"+
                           "<td data-weight=" + resp[i].weight + ">" + "Svoris:" + resp[i].weight + " kg" + "</td></tr>"
                           );
                 }
-                $(".show").parent().parent().next().hide();
+                $(".info").parent().parent().next().hide();
                 updateAverages();
             }
         });

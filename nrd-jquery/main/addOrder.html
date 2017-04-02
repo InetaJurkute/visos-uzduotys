@@ -147,6 +147,9 @@
 
 <script> window.jQuery || document.write('<script src="../js/jquery-3.2.0.min.js"><\/script>')</script>
 <script>
+    //
+    // closest(), remove(), index(), clone(), text(), val(), toggleClass(), mouseenter, mouseleave events
+    //
     var sum = 0;
 
     function Game(name, genre, price) {
@@ -180,7 +183,6 @@
         console.log(price.text().replace('€',''));
         // Parse to float
         var priceFloat = parseFloat($(price).text().replace('€',''));
-        console.log(priceFloat);
         starterGames.push(new Game(name.text(),genre.text(),priceFloat));
         updatePrice();
     }
