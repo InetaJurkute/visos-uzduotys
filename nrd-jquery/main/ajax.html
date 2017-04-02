@@ -95,11 +95,9 @@
     function removePerson(r) {
         $(r).closest("tr").remove();
     }
-
     $(function () {
         var url = "http://mankaz4.stud.if.ktu.lt/people.php";
         var resp;
-
         $("#insert").on('click', function () {
             var r = +$("#rows").val();
             console.log(r);
@@ -116,27 +114,39 @@
                     resp = response;
                 }
             });
-
             function addToTable(resp){
-                for (i = 0; i < resp.length; i++) {
-                    $('#peopleTable')
-                        .append("<tr><td>" +
-                            resp[i].name + "</td><td>" +
-                            resp[i].lastName + "</td><td>" +
-                            "<button class='btn btn-danger' onclick='removePerson(this)'>Trinti</button></td></tr>");
-                }
-            }
+                      for (i = 0; i < resp.length; i++) {
+                          $('#peopleTable')
+                              .append("<tr><td>"
+      			                     +resp[i].name+"</td><td>"+
+      			                       resp[i].lastName+"</td><td>"+
+                         "<button type='button' class='btn btn-info show' data-weight='" + resp[i].weight + "' data-height='"+resp[i].height +" onclick='showPerson()' >info</button>"+
+                              "<button class='btn btn-danger' onclick='removePerson(this)'>Trinti</button> </td></tr>"+
+                              "<tr class='p'>"+
+                              "<td>"+'Ugis:'+resp[i].height+"</td>"+
+                          "<td>"+'Svoris:'+ +resp[i].weight+"</td></tr>"
+                              );
+                      }
+                      $(document).ready(function(){
+                        $('.p').hide();
+                        $('.btn-info').click(function(){
+                          $(".p").toggle();
+
+                         var ugis = $(this).data("height"),
+                                svoris = $(this).data("weight");
+
+     console.log("sio zmogaus ugis yra "+ ugis +" , svoris yra " + svoris );
+                        })
+
+                      })
+                    }
+
+
 
         });
     });
-
 </script>
 <script> window.jQuery || document.write('<script src="../js/jquery-3.2.0.min.js"><\/script>')</script>
 <script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
-
-
-
-
-
