@@ -6525,7 +6525,7 @@ button.close {
 .hide {
   display: none !important;
 }
-.show {
+.info {
   display: block !important;
 }
 .invisible {
