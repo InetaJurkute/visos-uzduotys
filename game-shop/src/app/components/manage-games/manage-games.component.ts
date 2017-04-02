@@ -3,15 +3,15 @@ import { DataService } from "app/services/data.service";
 import { Game } from 'app/models/game';
 
 @Component({
-  selector: 'app-game-list',
-  templateUrl: './game-list.component.html',
-  styleUrls: ['./game-list.component.css'],
+  selector: 'app-manage-games',
+  templateUrl: './manage-games.component.html',
+  styleUrls: ['./manage-games.component.css'],
   providers: [DataService]
 })
-export class GameListComponent implements OnInit {
+export class ManageGamesComponent implements OnInit {
   gameList: Game[];
   isLoading: boolean = false;
-  
+
   constructor(private dataService: DataService) { }
 
   ngOnInit() {

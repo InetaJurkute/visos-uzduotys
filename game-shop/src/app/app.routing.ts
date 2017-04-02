@@ -2,8 +2,8 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { GameListComponent } from './components/game-list/game-list.component';
-import { AddGameComponent } from './components/add-game/add-game.component';
 import { AboutComponent } from './components/about/about.component';
+import { ManageGamesComponent } from './components/manage-games/manage-games.component';
 
 const appRoutes: Routes = [
     {
@@ -15,8 +15,8 @@ const appRoutes: Routes = [
         component: GameListComponent
     },
     {
-        path: 'add-game',
-        component: AddGameComponent
+        path: 'manage-games',
+        component: ManageGamesComponent
     },
     {
         path: 'game/:id',

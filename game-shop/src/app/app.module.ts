@@ -6,19 +6,19 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppComponent } from './app.component';
 import { GameComponent } from './components/game/game.component';
-import { AddGameComponent } from './components/add-game/add-game.component';
 import { GameListComponent } from './components/game-list/game-list.component';
 import { InMemoryDataService } from "app/services/in-memory-data.service";
 import { routing } from './app.routing';
 import { AboutComponent } from './components/about/about.component';
+import { ManageGamesComponent } from './components/manage-games/manage-games.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GameComponent,
-    AddGameComponent,
     GameListComponent,
-    AboutComponent
+    AboutComponent,
+    ManageGamesComponent
   ],
   imports: [
     BrowserModule,
