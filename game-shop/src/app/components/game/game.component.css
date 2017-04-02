@@ -1,0 +1,6 @@
+.gamebox{
+    display: flex;
+    flex-wrap: wrap;
+    width: 220px;
+    padding: 10px;
+}
