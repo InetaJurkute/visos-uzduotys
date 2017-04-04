@@ -41,6 +41,41 @@ CREATE TABLE Ownerships(
 	FOREIGN KEY (userID) references Users(userID)	-- 1. b)    Du Foreign Key (2)
 );
 
+
+
+--2.a 
+
+insert into Games(gameName,releaseOn,category,recommendedAge)values('Battlefield1','2016-10-21','shooter',18);
+insert into Games(gameName,releaseOn,category,recommendedAge)values('ResidenEvil7','2017-01-24','Scary',21);
+
+insert into Users(username,passwd,age)values('Zaibas','zaibiugs123',28);
+insert into Users(username,passwd,age)values('Pukis','kazkoks123', 35);
+
+--2.b
+
+select *from Games where gameName='Battlefield' or recommendedAge=21;
+select*from Users where username='Zaibas' and age=28;
+
+--2.c
+select*from games where category in ('shooter','scary');
+select*from games where category>=16;
+--2.d
+select users.username,Ownerships.orderDate from users left join ownerships on users.userID=ownerships=gameID order by users.username;
+
+--3.
+select count(gameID),category from Game group by category;
+Select count(userID),username from users group by username order by count(userID) desc;
+
+--4.
+ Drop table Games;
+ Drop table Users;
+ Drop table ownerships; 
+
+
+
+
+
+
 -- 1. Pateikite skriptą, kuris sukurtų trijų lentelių schemą pasirinkta tema. Kuriant schemą būtų panaudota:
 -- 		a)    Trys Primary key	3t. Yra
 -- 		b)    Du Foreign Key	2t. Yra
