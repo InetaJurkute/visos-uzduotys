@@ -65,6 +65,7 @@ insert into Users (username, passwd, age) values ('Zaibas', 'zaibiugs123', 28);
 insert into Users (username, passwd, age) values ('Pukis', 'kazkoks123', 35);
 insert into Users (username, passwd, age) values ('AwesomeMe', 'awsq789', 18);
 insert into Users (username, passwd, age) values ('YourBro', 'mance', 24);
+insert into Users (username, passwd, age) values ('test', 'test', 77);
 
 insert into Ownerships (gameID, userID) values (1, 1);
 insert into Ownerships (gameID, userID) values (2, 1);
@@ -75,6 +76,7 @@ insert into Ownerships (gameID, userID) values (3, 3);
 insert into Ownerships (gameID, userID) values (1, 4);
 insert into Ownerships (gameID, userID) values (3, 4);
 insert into Ownerships (gameID, userID) values (4, 4);
+insert into Ownerships (gameID, userID) values (1, 5);
 
 --2.b
 select * from Games 
@@ -88,7 +90,16 @@ select * from games
 where category in (1,2);
 
 select * from games 
-where recommendedAge>=18;
+where recommendedAge >= 18;
+
+select * from games 
+where recommendedAge BETWEEN 18 and 21;
+
+select username, age from users 
+where username <> 'test'
+
+select c.categoryName as category, c.minimumAge from categories as c 
+where categoryName like '%oo%'
 
 --2.d
 --show all the games that the users have
@@ -120,7 +131,7 @@ on users.userID = ownerships.userID
 join games
 on  ownerships.gameID = games.gameID
 group by users.username, users.userID
-order by users.username desc;
+order by gamesOwned desc;
 
 --4.
 alter table games drop constraint FK_category
