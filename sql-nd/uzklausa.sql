@@ -29,7 +29,7 @@ CREATE TABLE Games(
 	recommendedAge int default 0,
 	-- Unique identifier, automatically not null
 	PRIMARY KEY (gameID),					-- 1. a)    Trys Primary key (2)
-	FOREIGN KEY (category) references Categories(categoryID)
+	CONSTRAINT FK_category FOREIGN KEY (category) references Categories(categoryID)
 );
 
 CREATE TABLE Users(
@@ -46,8 +46,8 @@ CREATE TABLE Ownerships(
 	gameID int,
 	userID int,
 	orderDate date DEFAULT GETDATE(),				-- 1. d)    Default constraint
-	FOREIGN KEY (gameID) references Games(gameID),	-- 1. b)    Du Foreign Key (1)
-	FOREIGN KEY (userID) references Users(userID)	-- 1. b)    Du Foreign Key (2)
+	CONSTRAINT FK_gameID FOREIGN KEY (gameID) references Games(gameID),	-- 1. b)    Du Foreign Key (1)
+	CONSTRAINT FK_userID FOREIGN KEY (userID) references Users(userID)	-- 1. b)    Du Foreign Key (2)
 );
 
 
@@ -123,10 +123,19 @@ group by users.username, users.userID
 order by users.username desc;
 
 --4.
- Drop table Games;
- Drop table Users;
- Drop table ownerships; 
+alter table games drop constraint FK_category
+alter table ownerships drop constraint FK_gameID
+alter table ownerships drop constraint FK_userID
 
+delete from ownerships;
+delete from games;
+delete from categories;
+delete from users;
+
+Drop table games;
+Drop table categories;
+Drop table ownerships; 
+Drop table users;
 
 
 
