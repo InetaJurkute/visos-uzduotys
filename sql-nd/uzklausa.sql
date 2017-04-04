@@ -51,7 +51,6 @@ CREATE TABLE Ownerships(
 );
 
 
-
 --2.a 
 insert into Categories (categoryName, minimumAge) values ('action', 12);
 insert into Categories (categoryName, minimumAge) values ('shooter', 14);
@@ -86,34 +85,47 @@ where username='Zaibas' and age=28;
 
 --2.c
 select * from games 
-where category in ('shooter','horror');
+where category in (1,2);
 
 select * from games 
-where recommendedAge>=16;
+where recommendedAge>=18;
 
 --2.d
-select users.username,Ownerships.orderDate 
+--show all the games that the users have
+select username, games.gameID, gameName, categoryName
 from users 
-left join ownerships 
-on users.userID=ownerships.gameID 
+join ownerships 
+on users.userID = ownerships.userID 
+join games
+on  ownerships.gameID = games.gameID
+join categories
+on games.category = categories.categoryID
 order by users.username;
 
---3.
-select count(gameID),category 
-from Game 
-group by category;
 
-Select count(userID),username 
+--3.
+--count how many games there are in different categories
+select category as categoryID, categoryName, count(gameID) as gameCount
+from games
+join categories
+on games.category = categories.categoryID
+group by category, categoryName
+
+
+--count how many games each user has
+select users.userID, username, count(games.gameID) as gamesOwned
 from users 
-group by username 
-order by count(userID) desc;
+join ownerships 
+on users.userID = ownerships.userID 
+join games
+on  ownerships.gameID = games.gameID
+group by users.username, users.userID
+order by users.username desc;
 
 --4.
  Drop table Games;
  Drop table Users;
  Drop table ownerships; 
-
-
 
 
 
