@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Game } from "app/models/game";
+import { User } from "app/models/user";
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
@@ -8,7 +9,8 @@ import 'rxjs/add/operator/toPromise';
 export class InMemoryDataService extends InMemoryDbService {
   createDb(){
     return {
-      games: cArrayGames
+      games: cArrayGames,
+      users: cArrayUsers
     };
   }
 }
@@ -62,3 +64,21 @@ const cArrayGames: Game[] =[
         imageUrl: '../../../assets/5.jpg'
       }
     ];
+
+
+const cArrayUsers: User[] =[
+  {
+    id: '1',
+    username: 'test',
+    password: 'test',
+    email: 'test@email.com',
+    level: 1
+  },
+  {
+    id: '2',
+    username: 'admin',
+    password: 'admin',
+    email: 'admin@email.com',
+    level: 10
+  }
+];

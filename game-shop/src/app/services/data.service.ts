@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { Game } from "app/models/game";
@@ -16,7 +15,7 @@ export class DataService {
         return response.json().data as Game[];
       });
   }
-  
+
   getGame(id: string): Promise<Game> {
     return this.http.get('/api/games/' + id)
       .toPromise()

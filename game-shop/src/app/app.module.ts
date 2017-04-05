@@ -11,6 +11,8 @@ import { InMemoryDataService } from "app/services/in-memory-data.service";
 import { routing } from './app.routing';
 import { AboutComponent } from './components/about/about.component';
 import { ManageGamesComponent } from './components/manage-games/manage-games.component';
+import { LoginComponent } from './components/login/login.component';
+import {UserService} from "./services/user.service";
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { ManageGamesComponent } from './components/manage-games/manage-games.com
     GameComponent,
     GameListComponent,
     AboutComponent,
-    ManageGamesComponent
+    ManageGamesComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,7 @@ import { ManageGamesComponent } from './components/manage-games/manage-games.com
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     routing
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
