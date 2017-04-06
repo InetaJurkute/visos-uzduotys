@@ -8,7 +8,7 @@ import { ManageGamesComponent } from './components/manage-games/manage-games.com
 
 const appRoutes: Routes = [
     {
-        path: '/',
+        path: '*',
         redirectTo: '/game-list'
     },
     {
