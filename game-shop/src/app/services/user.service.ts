@@ -17,8 +17,12 @@ export class UserService {
       this.currentUser = userList.find( user => { //currentUser = user (if it is found in the userList)
         return user.username == name && user.password == psw;
       });
-      if(!this.getCurrentUser()){ //if no such user is found, throw error
-        throw new Error("Login failed");
+      try{
+        if(!this.getCurrentUser()){ //if no such user is found, throw error
+          throw new Error("Login failed");
+        }
+      }catch (err){
+        console.log("Login failed");
       }
     });
   }
