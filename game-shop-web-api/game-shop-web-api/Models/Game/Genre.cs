@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace game_shop_web_api.Models.Genre
+namespace game_shop_web_api.Models
 {
     public class Genre
     {
