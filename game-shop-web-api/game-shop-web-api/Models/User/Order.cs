@@ -10,6 +10,6 @@ namespace game_shop_web_api.Models.User
         public DateTime CreationDate { get; set; }
         public double Sum { get; set; }
         // Is the order completed
-        public bool Complete { get; set; }
+        public OrderState State { get; set; }
     }
 }
