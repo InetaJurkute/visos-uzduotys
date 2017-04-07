@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -13,7 +14,7 @@ namespace game_shop_web_api.Models.User
 
         OrderState()
         {
-            States = new string[] { "Pc", "Xbox360", "XboxOne", "Ps3", "Ps4", "Nintendo" };
+            States = new string[] { "Draft" , "Completed" };
         }
 
         public void SetCurrentGenre(string state)
