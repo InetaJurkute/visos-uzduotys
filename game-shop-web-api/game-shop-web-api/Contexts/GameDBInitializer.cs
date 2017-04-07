@@ -57,6 +57,24 @@ namespace game_shop_web_api.Contexts
                      Price = 19.99,
                      ImageUrl = "../../../assets/5.jpg"
                  });
+            context.Users.Add(
+                 new User
+                 {
+                     Id = 1,
+                     Username = "test",
+                     Password = "test",
+                     Email = "test@email.com",
+                     Level = 1
+                 });
+            context.Users.Add(
+                 new User
+                 {
+                     Id = 2,
+                     Username = "admin",
+                     Password = "admin",
+                     Email = "admin@email.com",
+                     Level = 10
+                 });
 
             context.SaveChanges();
 
