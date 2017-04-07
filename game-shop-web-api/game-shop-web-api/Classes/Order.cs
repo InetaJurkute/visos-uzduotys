@@ -13,7 +13,6 @@ namespace game_shop_web_api.Models
         // Is the order completed
         public OrderState State { get; set; }
         public List<Item> Items { get; set; }
-
         public void UpdateTotal()
         {
             Total = 0;

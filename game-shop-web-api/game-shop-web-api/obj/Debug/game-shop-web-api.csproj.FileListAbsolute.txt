@@ -152,3 +152,4 @@ E:\mokslam\nrd\visos-uzduotys\game-shop-web-api\game-shop-web-api\bin\Microsoft.
 E:\mokslam\nrd\visos-uzduotys\game-shop-web-api\game-shop-web-api\obj\Debug\game-shop-web-api.csprojResolveAssemblyReference.cache
 E:\mokslam\nrd\visos-uzduotys\game-shop-web-api\game-shop-web-api\obj\Debug\game-shop-web-api.dll
 E:\mokslam\nrd\visos-uzduotys\game-shop-web-api\game-shop-web-api\obj\Debug\game-shop-web-api.pdb
+C:\Users\edvinas\Documents\NRD-Visos\visos-uzduotys\game-shop-web-api\game-shop-web-api\obj\Debug\game-shop-web-api.csprojResolveAssemblyReference.cache
