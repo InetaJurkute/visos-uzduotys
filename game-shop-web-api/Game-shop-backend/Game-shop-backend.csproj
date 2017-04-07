@@ -187,9 +187,11 @@
     <Compile Include="Classes\Order.cs" />
     <Compile Include="Classes\Platform.cs" />
     <Compile Include="Classes\State.cs" />
+    <Compile Include="Contexts\UserContext.cs" />
     <Compile Include="Contexts\GameContext.cs" />
     <Compile Include="Contexts\GameDBInitializer.cs" />
     <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
