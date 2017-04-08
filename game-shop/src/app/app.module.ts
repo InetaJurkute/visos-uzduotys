@@ -16,7 +16,8 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { InMemoryDataService } from "app/services/in-memory-data.service";
 import {UserService} from "./services/user.service";
 // Jeigu čia importini gali naudot visi moduliai.
-import { ShoppingCartService } from "./services/shopping-cart.service"
+import { ShoppingCartService } from "./services/shopping-cart.service";
+import { GameItemComponent } from './components/game-item/game-item.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ShoppingCartService } from "./services/shopping-cart.service"
     AboutComponent,
     ManageGamesComponent,
     LoginComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    GameItemComponent
   ],
   imports: [
     BrowserModule,

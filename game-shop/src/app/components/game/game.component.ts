@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Game } from 'app/models/game';
 import { ShoppingCartService } from "../../services/shopping-cart.service"
+import { Game } from 'app/models/game';
 
 @Component({
   selector: 'app-game',
@@ -8,11 +8,8 @@ import { ShoppingCartService } from "../../services/shopping-cart.service"
   styleUrls: ['./game.component.css'],
 })
 export class GameComponent implements OnInit {
-  gameList : Game[] = [];
-  constructor(private shoppingCartService: ShoppingCartService) 
-  { 
-    
-  }
+  
+  constructor(private shoppingCartService: ShoppingCartService)  { }
 
   ngOnInit() {
     

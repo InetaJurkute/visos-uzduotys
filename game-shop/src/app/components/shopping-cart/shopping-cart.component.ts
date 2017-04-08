@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Game } from 'app/models/game';
+import { GameItem } from 'app/models/gameItem';
 import { ShoppingCartService } from "../../services/shopping-cart.service"
 
 @Component({
@@ -10,7 +10,7 @@ import { ShoppingCartService } from "../../services/shopping-cart.service"
 export class ShoppingCartComponent implements OnInit {
 
   // = [] kad būtų... defined what
-  gameList: Game[] = [];
+  gameList: GameItem[] = [];
 
   // Private kad nereiktų rašyti vėliau this._dataService ir pan.
   // Private sukuria var čia viduje 
@@ -19,5 +19,6 @@ export class ShoppingCartComponent implements OnInit {
   ngOnInit() {
     this.gameList = this.shoppingCartService.getItems();
   }
+  
 
 }
