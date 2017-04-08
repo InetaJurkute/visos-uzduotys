@@ -20,7 +20,6 @@ export class ShoppingCartComponent implements OnInit {
 
   // Private kad nereiktų rašyti vėliau this._dataService ir pan.
   // Private sukuria var čia viduje 
-  // 
   constructor(private dataService: DataService, private shoppingCartService: ShoppingCartService) { }
 
   ngOnInit() {

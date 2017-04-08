@@ -8,7 +8,7 @@
       <h4>{{game.price}}</h4>
     </div>
     <div style="">
-      <button class="btn btn-success">Add to cart</button>
+      <button class="btn btn-success" (click) ="addItem()" >Add To Cart</button>
       <a class="btn btn-default" [routerLink]="['/game-list']">Back</a>
     </div>
   </div>
