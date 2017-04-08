@@ -8,6 +8,7 @@ export class DataService {
 
   constructor(private http: Http) { }
 
+  // Gauna žaidimų sąrašą
   getGameList(): Promise<Game[]>{
     return this.http.get('/api/games')
       .toPromise()
@@ -15,7 +16,8 @@ export class DataService {
         return response.json().data as Game[];
       });
   }
-
+  
+  // Gauna žaidimą pagal ID
   getGame(id: string): Promise<Game> {
     return this.http.get('/api/games/' + id)
       .toPromise()
