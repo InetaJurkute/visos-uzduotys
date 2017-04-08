@@ -15,6 +15,8 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 
 import { InMemoryDataService } from "app/services/in-memory-data.service";
 import {UserService} from "./services/user.service";
+// Jeigu čia importini gali naudot visi moduliai.
+import { ShoppingCartService } from "./services/shopping-cart.service"
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import {UserService} from "./services/user.service";
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     routing
   ],
-  providers: [UserService],
+  // Jeigu tik čia providini, tada naudoja vieną visoj aplikacijoj
+  providers: [UserService, ShoppingCartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

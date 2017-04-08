@@ -4,14 +4,14 @@ import { Game } from 'app/models/game';
 // API service:
 import { DataService } from "app/services/data.service";
 // Carto service skaičiavimams:
-import { ShoppingCartService } from "../../services/shopping-cart/shopping-cart.service"
+import { ShoppingCartService } from "../../services/shopping-cart.service"
 import { forEach } from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.css'],
-  providers: [DataService, ShoppingCartService]
+  providers: [DataService]
 })
 export class ShoppingCartComponent implements OnInit {
   // Loading game info tiesiog iš Game modelio
@@ -24,14 +24,14 @@ export class ShoppingCartComponent implements OnInit {
   constructor(private dataService: DataService, private shoppingCartService: ShoppingCartService) { }
 
   ngOnInit() {
-    this.updateList();
-    this.shoppingCartService.getPrice(this.gameList);
+    this.gameList = this.shoppingCartService.getItems();
   }
 
   // Priskiria iš api parimtą stuff į gameList
   // this.dataService.getGameList().then(g => {this.gameList = g} );
-  updateList(){
-    this.dataService.getGameList().then(g => {this.gameList = g} );
-  }
+  // updateList(){
+  //   this.dataService.getGameList().then(g => {this.gameList = g} );
+  // }
+
 
 }
