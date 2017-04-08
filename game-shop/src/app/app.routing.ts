@@ -5,6 +5,7 @@ import { GameListComponent } from './components/game-list/game-list.component';
 import { AboutComponent } from './components/about/about.component';
 import { LoginComponent } from './components/login/login.component';
 import { ManageGamesComponent } from './components/manage-games/manage-games.component';
+import {ShoppingCartComponent} from './components/shopping-cart/shopping-cart.component'
 
 const appRoutes: Routes = [
     {
@@ -26,6 +27,10 @@ const appRoutes: Routes = [
     {
       path: 'login',
       component: LoginComponent
+    },
+    {
+        path: 'shoppingCart',
+        component: ShoppingCartComponent
     }
 ];
 

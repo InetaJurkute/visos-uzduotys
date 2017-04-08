@@ -18,6 +18,9 @@
         <li *ngIf="loggedInUser && loggedInUser.level == 10">
           <a routerLink="/manage-games" routerLinkActive="active">Manage games</a>
         </li>
+        <li *ngIf="loggedInUser && loggedInUser.level == 1">
+          <a routerLink="/shoppingCart" routerLinkActive="active">Cart</a>
+        </li>
       </ul>
     </div>
     <!--/.nav-collapse -->
