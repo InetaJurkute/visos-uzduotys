@@ -6,7 +6,7 @@ import { Game } from 'app/models/game';
   selector: 'app-manage-games',
   templateUrl: './manage-games.component.html',
   styleUrls: ['./manage-games.component.css'],
-  providers: [DataService]
+  // providers: [DataService]
 })
 export class ManageGamesComponent implements OnInit {
   gameList: Game[];

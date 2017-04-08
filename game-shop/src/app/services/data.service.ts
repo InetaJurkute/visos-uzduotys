@@ -7,7 +7,7 @@ import { Game } from "app/models/game";
 export class DataService {
 
   constructor(private http: Http) { }
-
+  
   // Gauna žaidimų sąrašą
   getGameList(): Promise<Game[]>{
     return this.http.get('/api/games')
