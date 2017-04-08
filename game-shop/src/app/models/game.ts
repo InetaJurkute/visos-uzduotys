@@ -4,4 +4,8 @@ export class Game {
     description: string;
     price: number;
     imageUrl: string;
+
+    get Price():number{
+        return this.price;
+    }
 }
