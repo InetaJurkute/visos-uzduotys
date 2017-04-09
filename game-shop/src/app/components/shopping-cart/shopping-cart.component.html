@@ -1,15 +1,7 @@
-<div>  
-  <table class="table table-striped table-hover">
-    <thead>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Amount</th>
-      <th>Action</th>
-      <th></th>
-    </thead>
-    <tbody>
-      <app-game-item *ngFor="let g of gameList" [item]="g"></app-game-item>
-    </tbody>
-  </table>
+<div class="card-deck">
+  <!--<div class="row">-->
+    <!--<div class="col-md-3 col-sm-6 col-xs-12">-->
+      <app-game-item *ngFor="let g of gameList" [item]="g" class="card" style="width: 20rem;"></app-game-item>
+  <!--</div>-->
+  <!--</div>-->
 </div>
-<!--LOPADING IS GAME ITEM O NE PO VIENA-->

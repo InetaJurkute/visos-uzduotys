@@ -18,6 +18,10 @@ export class GameItemComponent implements OnInit {
   ngOnInit() {
   }
   // So i can use this.item
+
+  getTotal(){
+    return this.item.Item.price * this.item.Amount;
+  }
   @Input()
   item: GameItem;
 }

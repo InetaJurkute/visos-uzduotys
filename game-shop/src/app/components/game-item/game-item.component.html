@@ -1,8 +1,25 @@
-<tbody>
+<!--<tbody>
   <tr>
       <td>Name: {{item.Item.name}}</td>
       <td>Price: {{item.Item.price}}</td>
       <td>Amount : {{item.Amount}}</td>
       <td><button class="btn btn-danger" (click) ="this.shoppingCartService.removeItem(item.Item)">Remove from cart</button></td>
   </tr>
-</tbody>
+</tbody>-->
+<!--
+<div class="card" style="width: 20rem;">-->
+  <img class="card-img-top" src={{item.Item.imageUrl}} alt={{item.Item.name}} style="width:100%;">
+  <div class="card-block">
+    <h4 class="card-title">{{item.Item.name}}</h4>
+    <p class="card-text">Action</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Price: {{item.Item.price}}</li>
+    <li class="list-group-item"><td>Amount : {{item.Amount}}</td></li>
+    <li class="list-group-item">Total: {{getTotal()}}</li>
+  </ul>
+  <div class="card-block">
+    <a type="button" class="btn btn-outline-warning" [routerLink]="['/game', this.item.Item.id]">About</a>
+    <a type="button" (click) ="this.shoppingCartService.removeItem(item.Item)" class="btn btn-outline-danger">Remove One</a>
+  </div>
+<!--</div>-->
