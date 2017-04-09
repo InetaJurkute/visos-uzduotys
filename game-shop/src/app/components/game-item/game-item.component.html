@@ -1,0 +1,8 @@
+<tbody>
+  <tr>
+      <td>Name: {{item.Item.name}}</td>
+      <td>Price: {{item.Item.price}}</td>
+      <td>Amount : {{item.Amount}}</td>
+      <td><button class="btn btn-danger" (click) ="this.shoppingCartService.removeItem(item.Item)">Remove from cart</button></td>
+  </tr>
+</tbody>

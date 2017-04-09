@@ -7,12 +7,17 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppComponent } from './app.component';
 import { GameComponent } from './components/game/game.component';
 import { GameListComponent } from './components/game-list/game-list.component';
-import { InMemoryDataService } from "app/services/in-memory-data.service";
 import { routing } from './app.routing';
 import { AboutComponent } from './components/about/about.component';
 import { ManageGamesComponent } from './components/manage-games/manage-games.component';
 import { LoginComponent } from './components/login/login.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+
+import { InMemoryDataService } from "app/services/in-memory-data.service";
 import {UserService} from "./services/user.service";
+// Jeigu čia importini gali naudot visi moduliai.
+import { ShoppingCartService } from "./services/shopping-cart.service";
+import { GameItemComponent } from './components/game-item/game-item.component'
 
 @NgModule({
   declarations: [
@@ -21,7 +26,9 @@ import {UserService} from "./services/user.service";
     GameListComponent,
     AboutComponent,
     ManageGamesComponent,
-    LoginComponent
+    LoginComponent,
+    ShoppingCartComponent,
+    GameItemComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +37,8 @@ import {UserService} from "./services/user.service";
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     routing
   ],
-  providers: [UserService],
+  // Jeigu tik čia providini, tada naudoja vieną visoj aplikacijoj
+  providers: [UserService, ShoppingCartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
