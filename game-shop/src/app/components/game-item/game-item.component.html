@@ -1,6 +1,30 @@
-  <div>
-      <li>Name: {{item.Item.name}}</li>
-      <li>Price: {{item.Item.price}}</li>
-      <li>Amount : {{item.Amount}}</li>
-      <li><button class="btn btn-danger" (click) ="this.shoppingCartService.removeItem(item.Item)">Remove from cart</button></li>
-  </div>
+  <!--<div>
+    <md-list>
+      <h3 md-subheader>Games in cart: </h3>
+      <h4 md-line>{{}}</h4>
+      <p md-line> Price: {{item.Item.price}} |  Amount: {{item.Amount}} | Total: {{item.Amount * item.Item.price}}</p>
+      <button (click) ="this.shoppingCartService.removeItem(item.Item)" md-raised-button>Remove from cart</button>
+    </md-list>
+  </div>-->
+  
+
+<md-card class="example-card">
+  <md-card-header>
+    <md-card-title>{{item.Item.name}}</md-card-title>
+    <md-card-subtitle>Category</md-card-subtitle>
+  </md-card-header>
+  <!--<img md-card-image src={{item.Item.imageUrl}}>-->
+  <md-card-content>
+    <p>
+      {{item.Item.description}}
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button (click) ="this.shoppingCartService.removeItem(item.Item)" md-raised-button>Remove from cart</button>
+  </md-card-actions>
+</md-card>
+
+
+
+
+

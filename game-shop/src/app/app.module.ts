@@ -18,7 +18,9 @@ import {UserService} from "./services/user.service";
 // Jeigu čia importini gali naudot visi moduliai.
 import { ShoppingCartService } from "./services/shopping-cart.service";
 import { GameItemComponent } from './components/game-item/game-item.component'
-
+// Material
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MdButtonModule, MdCheckboxModule,MdListModule,MdGridListModule} from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +37,11 @@ import { GameItemComponent } from './components/game-item/game-item.component'
     FormsModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
-    routing
+    routing,
+    BrowserAnimationsModule,
+    MdButtonModule, 
+    MdCheckboxModule,
+    MdGridListModule
   ],
   // Jeigu tik čia providini, tada naudoja vieną visoj aplikacijoj
   providers: [UserService, ShoppingCartService],
