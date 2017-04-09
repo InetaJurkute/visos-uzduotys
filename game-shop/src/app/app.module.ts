@@ -34,7 +34,9 @@ import { GameItemComponent } from './components/game-item/game-item.component'
     BrowserModule,
     FormsModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    InMemoryWebApiModule.forRoot(InMemoryDataService, {
+      passThruUnknownUrl: true
+    }),
     routing
   ],
   // Jeigu tik čia providini, tada naudoja vieną visoj aplikacijoj

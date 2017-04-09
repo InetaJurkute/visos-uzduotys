@@ -9,7 +9,7 @@ import 'rxjs/add/operator/toPromise';
 export class InMemoryDataService extends InMemoryDbService {
   createDb(){
     return {
-      games: cArrayGames,
+      //games: cArrayGames,
       users: cArrayUsers
     };
   }

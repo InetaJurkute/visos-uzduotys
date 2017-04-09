@@ -147,8 +147,9 @@ namespace game_shop_backend.Models
                 }
 
                 context.SaveChanges();
+                */
             }
-            */
+            
             catch (Exception ex)
             {
                 var str = ex.Message;

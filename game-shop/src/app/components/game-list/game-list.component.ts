@@ -11,12 +11,14 @@ import { Game } from 'app/models/game';
 export class GameListComponent implements OnInit {
   gameList: Game[];
   isLoading: boolean = false;
-  
+
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
     this.isLoading = true;
-    this.dataService.getGameList().then(g => { this.gameList = g; this.isLoading = false; });
+    this.dataService.getGameList().then(g => {
+      this.gameList = g; this.isLoading = false; }
+      );
   }
 
 }
