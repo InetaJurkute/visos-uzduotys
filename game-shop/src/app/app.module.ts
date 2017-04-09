@@ -20,7 +20,7 @@ import { ShoppingCartService } from "./services/shopping-cart.service";
 import { GameItemComponent } from './components/game-item/game-item.component'
 // Material
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MdButtonModule, MdCheckboxModule,MdListModule,MdGridListModule} from '@angular/material';
+import {MdButtonModule, MdCheckboxModule,MdListModule,MdGridListModule,MdTabsModule} from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +41,8 @@ import {MdButtonModule, MdCheckboxModule,MdListModule,MdGridListModule} from '@a
     BrowserAnimationsModule,
     MdButtonModule, 
     MdCheckboxModule,
-    MdGridListModule
+    MdGridListModule,
+    MdTabsModule
   ],
   // Jeigu tik čia providini, tada naudoja vieną visoj aplikacijoj
   providers: [UserService, ShoppingCartService],
