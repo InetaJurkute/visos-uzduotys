@@ -1,15 +1,32 @@
-<div>  
-  <table class="table table-striped table-hover">
-    <thead>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Amount</th>
-      <th>Action</th>
-      <th></th>
-    </thead>
-    <tbody>
-      <app-game-item *ngFor="let g of gameList" [item]="g"></app-game-item>
-    </tbody>
-  </table>
+<div class="row row-eq-height">
+  <div class="col-sm-8">
+    <div class="card cartTop">
+        <div class="card-block">
+          <h2 class="card-title">Item cart</h2>
+          <!--<div *ngIf="this.shoppingCartService.getPrice() !== 0; then displayPrices; else emptyCart"></div>-->
+          <!--<div #displayPrices>-->
+            <h6 class="card-subtitle mb-2 text-muted">Price for everything: </h6>
+            <h4 class="card-text">{{this.shoppingCartService.getPrice()}}</h4>
+          <!--</div>-->
+          <!--<h4 #emptyCart>The cart is empty</h4>-->
+        </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card cartTop">
+        <div class="card-block">
+          <h2 class="card-title">Checkout</h2>
+          <a type="button" class="btn btn-outline-success" (click) ="this.shoppingCartService.removeItem(item.Item)" >Checkout</a>
+        </div>
+    </div>
+  </div>
+
 </div>
-<!--LOPADING IS GAME ITEM O NE PO VIENA-->
+
+<div class="card-deck">
+  <!--<div class="row">-->
+    <!--<div class="col-md-3 col-sm-6 col-xs-12">-->
+      <app-game-item *ngFor="let g of gameList" [item]="g" class="card" style="width: 20rem;"></app-game-item>
+  <!--</div>-->
+  <!--</div>-->
+</div>
