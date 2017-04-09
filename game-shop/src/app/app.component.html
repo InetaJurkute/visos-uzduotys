@@ -34,13 +34,23 @@
   <li class="nav-item">
     <a class="nav-link" href="#cart" role="tab" data-toggle="tab">Cart</a>
   </li>
+  <li class="nav-item rightMenu">
+    <a class="nav-link" href="#gameManager" role="tab" data-toggle="tab">Manage games</a>
+  </li>
+  <div class="ml-auto">
+    <button class= "btn btn-outline-success">Login</button>
+    <button class= "btn btn-outline-danger">Register</button>
+  </div>
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
+
   <div role="tabpanel" class="tab-pane fade in active" id="gameList"><app-game-list></app-game-list></div>
 
   <div role="tabpanel" class="tab-pane fade" id="cart"><app-shopping-cart></app-shopping-cart></div>
+
+  <div role="tabpanel" class="tab-pane fade" id="gameManager"><app-manage-games></app-manage-games></div>
 
 </div>
 

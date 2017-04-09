@@ -1,0 +1,4 @@
+.rightMenu {  align-self: flex-end; align-content: flex-end; }
+ul .nav-tabs{
+    flex-direction: row;
+}
