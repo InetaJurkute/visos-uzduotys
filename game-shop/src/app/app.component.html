@@ -1,4 +1,4 @@
-<!---->
+
 
 
 
@@ -18,8 +18,44 @@
       <li *ngIf="loggedInUser && loggedInUser.level == 10" class="nav-item">
         <a class="nav-link" routerLink="/manage-games" routerLinkActive="active">Mange games</a>
       </li>
+      <li *ngIf="!loggedInUser" class="nav-item">
+        <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+      </li>
     </ul>
   </div>
 </nav>
+
+
+<!-- Bootstrap CSS -->
+<!-- jQuery first, then Bootstrap JS. -->
+<!-- Nav tabs -->
+
+<!--<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" href="#gameList" role="tab" data-toggle="tab">Games</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#cart" role="tab" data-toggle="tab">Cart</a>
+  </li>
+  <li class="nav-item rightMenu">
+    <a class="nav-link" href="#gameManager" role="tab" data-toggle="tab">Manage games</a>
+  </li>
+  <div class="ml-auto">
+    <button class= "btn btn-outline-success">Login</button>
+    <button class= "btn btn-outline-danger">Register</button>
+  </div>
+</ul>
+
+<! Tab panes -->
+<!--<div class="tab-content">
+
+  <div role="tabpanel" class="tab-pane fade in active" id="gameList"><app-game-list></app-game-list></div>
+
+  <div role="tabpanel" class="tab-pane fade" id="cart"><app-shopping-cart></app-shopping-cart></div>
+
+  <div role="tabpanel" class="tab-pane fade" id="gameManager"><app-manage-games></app-manage-games></div>
+
+</div>-->
+
 
 <router-outlet></router-outlet>
