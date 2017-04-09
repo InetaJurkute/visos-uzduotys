@@ -29,9 +29,18 @@ namespace game_shop_backend
             config.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
 
             Mapper.Initialize(cfg => {
+                
                 cfg.CreateMap<Platform, int>().ConstructUsing(source => source.Id);
                 cfg.CreateMap<Genre, int>().ConstructUsing(source => source.Id);
+                
+                cfg.CreateMap<Platform, string>().ConstructUsing(source => source.Name);
+                cfg.CreateMap<Genre, string>().ConstructUsing(source => source.Name);
+
+                cfg.CreateMap<Platform, PlatformDto>();
+                cfg.CreateMap<Genre, GenreDto>();
+
                 cfg.CreateMap<Game, GameDto>();
+                cfg.CreateMap<Game, ViewGameDto>();
 
                 cfg.CreateMap<GenreDto, Genre>();
                 cfg.CreateMap<PlatformDto, Platform>();

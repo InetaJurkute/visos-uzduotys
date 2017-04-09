@@ -11,7 +11,10 @@
           <td>{{g.id}}</td>
           <td>{{g.name}}</td>
           <td>{{g.price}}</td>
-          <td><button>Edit</button><button>Delete</button></td>
+          <td>
+            <a type="button" class="btn btn-outline-primary" [routerLink]="['/editGame', game.id]">Edit</a>
+            <a type="button" class="btn btn-outline-primary" [routerLink]="['/deleteGame', game.id]">Delete</a>
+          </td>
         </tr>
     </tbody>
   </table>

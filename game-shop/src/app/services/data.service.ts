@@ -19,10 +19,10 @@ export class DataService {
 
   // Gauna žaidimą pagal ID
   getGame(id: string): Promise<Game> {
-    return this.http.get('/api/games/' + id)
+    return this.http.get('http://localhost:64128/api/games/' + id)
       .toPromise()
       .then(response => {
-        return response.json().data as Game;
+        return response.json() as Game;
       });
   }
 }

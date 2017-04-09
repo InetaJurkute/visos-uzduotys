@@ -19,10 +19,10 @@ namespace game_shop_backend.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: api/Games
-        public List<GameDto> GetGames()
+        public List<ViewGameDto> GetGames()
         {
             var games = db.Games.ToList();
-            return AutoMapper.Mapper.Map<List<GameDto>>(games);
+            return AutoMapper.Mapper.Map<List<ViewGameDto>>(games);
         }
 
         // GET: api/Games/5
@@ -130,7 +130,7 @@ namespace game_shop_backend.Controllers
             db.Games.Add(game);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = game.Id }, game);
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
         // DELETE: api/Games/5
