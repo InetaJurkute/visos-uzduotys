@@ -1,4 +1,4 @@
-<div class="gamebox">
+<!--<div class="gamebox">
   <div>
     <img src="{{game.imageUrl}}" width="200px" />
   </div>
@@ -7,9 +7,23 @@
     <h5>{{game.price}}</h5>
   </div>
   <div>
-    <!-- Nuveda į žaidimo sąrašą -->
+
     <a class="btn btn-info" [routerLink]="['/game', game.id]">About</a>
     
     <button class="btn btn-success" (click) ="addItem()" >Add To Cart</button>
   </div>
-</div>
+</div>-->
+<!--<div class="card">-->
+  <img class="card-img-top" src={{game.imageUrl}} alt={{game.name}} style="width:100%;">
+  <div class="card-block">
+    <h4 class="card-title">{{game.name}}</h4>
+    <p class="card-text">Action</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Price: {{game.price}}</li>
+  </ul>
+  <div class="card-block text-center">
+    <a type="button" class="btn btn-outline-primary" [routerLink]="['/game', game.id]">Description</a>
+    <a type="button" class="btn btn-outline-success" (click) ="addItem()" >Add to cart</a>
+  </div>
+  <!--</div>-->

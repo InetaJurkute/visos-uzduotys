@@ -7,7 +7,7 @@
   </tr>
 </tbody>-->
 <!--
-<div class="card" style="width: 20rem;">-->
+div class="card" style="width: 20rem;">-->
   <img class="card-img-top" src={{item.Item.imageUrl}} alt={{item.Item.name}} style="width:100%;">
   <div class="card-block">
     <h4 class="card-title">{{item.Item.name}}</h4>
@@ -18,8 +18,8 @@
     <li class="list-group-item"><td>Amount : {{item.Amount}}</td></li>
     <li class="list-group-item">Total: {{getTotal()}}</li>
   </ul>
-  <div class="card-block">
-    <a type="button" class="btn btn-outline-warning" [routerLink]="['/game', this.item.Item.id]">About</a>
-    <a type="button" (click) ="this.shoppingCartService.removeItem(item.Item)" class="btn btn-outline-danger">Remove One</a>
+  <div class="card-block text-center">
+    <a type="button" class="btn btn-outline-primary" [routerLink]="['/game', this.item.Item.id]">Description</a>
+    <a type="button" class="btn btn-outline-danger" (click) ="this.shoppingCartService.removeItem(item.Item)" >Remove One</a>
   </div>
 <!--</div>-->
