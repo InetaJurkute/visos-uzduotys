@@ -9,7 +9,7 @@
   <div>
 
     <a class="btn btn-info" [routerLink]="['/game', game.id]">About</a>
-    
+
     <button class="btn btn-success" (click) ="addItem()" >Add To Cart</button>
   </div>
 </div>-->
@@ -17,7 +17,7 @@
   <img class="card-img-top" src={{game.imageUrl}} alt={{game.name}} style="width:100%;">
   <div class="card-block">
     <h4 class="card-title">{{game.name}}</h4>
-    <p class="card-text">Action</p>
+    <p class="card-text">{{game.genre}}</p>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Price: {{game.price}}</li>

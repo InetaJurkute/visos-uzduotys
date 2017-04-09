@@ -9,7 +9,7 @@ import 'rxjs/add/operator/toPromise';
 export class InMemoryDataService extends InMemoryDbService {
   createDb(){
     return {
-      games: cArrayGames,
+      //games: cArrayGames,
       users: cArrayUsers
     };
   }
@@ -33,35 +33,45 @@ const cArrayGames: Game[] =[
         nisi ligula, cursus accumsan commodo dictum, bibendum lacinia nisl. Aenean consectetur 
         risus at nunc pharetra luctus. Maecenas rutrum molestie quam nec molestie. Nunc id ante mauris.`,
         price: 19.99,
-        imageUrl: '../../../assets/1.jpg'
+        imageUrl: '../../../assets/1.jpg',
+        platforms: [1, 3],
+        genre: 2
       },
       {
         id: '2',
         name: 'NewHope2',
         description: 'also a nice game',
         price: 22.99,
-        imageUrl: '../../../assets/2.jpg'
+        imageUrl: '../../../assets/2.jpg',
+        platforms: [1, 2],
+        genre: 1
       },
       {
         id: '3',
         name: 'ShootyShoot',
         description: 'pew pew pew!',
         price: 12.99,
-        imageUrl: '../../../assets/3.jpg'
+        imageUrl: '../../../assets/3.jpg',
+        platforms: [1, 4],
+        genre: 3
       },
       {
         id: '4',
         name: 'Galaxy Overlords',
         description: 'control the galaxy!',
         price: 49.99,
-        imageUrl: '../../../assets/4.jpg'
+        imageUrl: '../../../assets/4.jpg',
+        platforms: [1, 5],
+        genre: 5
       },
       {
         id: '5',
         name: 'The Puzzle Game',
         description: 'solve some puzzles',
         price: 14.99,
-        imageUrl: '../../../assets/5.jpg'
+        imageUrl: '../../../assets/5.jpg',
+        platforms: [1],
+        genre: 1
       }
     ];
 
