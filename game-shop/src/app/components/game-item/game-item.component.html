@@ -8,23 +8,26 @@
   </div>-->
   
 
-<md-card class="example-card">
-  <md-card-header>
-    <md-card-title>{{item.Item.name}}</md-card-title>
-    <md-card-subtitle>Category</md-card-subtitle>
-  </md-card-header>
-  <!--<img md-card-image src={{item.Item.imageUrl}}>-->
-  <md-card-content>
-    <p>
-      {{item.Item.description}}
-    </p>
-  </md-card-content>
-  <md-card-actions>
-    <button (click) ="this.shoppingCartService.removeItem(item.Item)" md-raised-button>Remove from cart</button>
-  </md-card-actions>
+<md-card class="example-card flexCard">
+    <md-card-header>
+      <md-card-title>{{item.Item.name}}</md-card-title>
+      <md-card-subtitle>game-category</md-card-subtitle>
+    </md-card-header>
+    <!--<img md-card-image src={{item.Item.imageUrl}}>-->
+    <md-card-content>
+      <p>
+        You're buying: {{item.Amount}} <br>
+        Each for: {{item.Item.price}}
+        <!--{{item.Item.description}}-->
+      </p>
+    </md-card-content>
+    <md-card-actions>
+      <button (click) ="this.shoppingCartService.removeItem(item.Item)" md-raised-button color = "warn">Remove from cart</button>
+      <button  md-raised-button color = "warn">
+      <a [routerLink]="['/game', item.Item.id]">About</a>
+      </button>
+    </md-card-actions>
 </md-card>
 
 
-
-
-
+<!--<a class="btn btn-info" [routerLink]="['/game', game.id]">About</a>-->
