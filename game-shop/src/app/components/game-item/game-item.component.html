@@ -1,33 +1,8 @@
-  <!--<div>
-    <md-list>
-      <h3 md-subheader>Games in cart: </h3>
-      <h4 md-line>{{}}</h4>
-      <p md-line> Price: {{item.Item.price}} |  Amount: {{item.Amount}} | Total: {{item.Amount * item.Item.price}}</p>
-      <button (click) ="this.shoppingCartService.removeItem(item.Item)" md-raised-button>Remove from cart</button>
-    </md-list>
-  </div>-->
-  
-
-<md-card class="example-card flexCard">
-    <md-card-header>
-      <md-card-title>{{item.Item.name}}</md-card-title>
-      <md-card-subtitle>game-category</md-card-subtitle>
-    </md-card-header>
-    <!--<img md-card-image src={{item.Item.imageUrl}}>-->
-    <md-card-content>
-      <p>
-        You're buying: {{item.Amount}} <br>
-        Each for: {{item.Item.price}}
-        <!--{{item.Item.description}}-->
-      </p>
-    </md-card-content>
-    <md-card-actions>
-      <button (click) ="this.shoppingCartService.removeItem(item.Item)" md-raised-button color = "warn">Remove from cart</button>
-      <button  md-raised-button color = "warn">
-      <a [routerLink]="['/game', item.Item.id]">About</a>
-      </button>
-    </md-card-actions>
-</md-card>
-
-
-<!--<a class="btn btn-info" [routerLink]="['/game', game.id]">About</a>-->
+<tbody>
+  <tr>
+      <td>Name: {{item.Item.name}}</td>
+      <td>Price: {{item.Item.price}}</td>
+      <td>Amount : {{item.Amount}}</td>
+      <td><button class="btn btn-danger" (click) ="this.shoppingCartService.removeItem(item.Item)">Remove from cart</button></td>
+  </tr>
+</tbody>
