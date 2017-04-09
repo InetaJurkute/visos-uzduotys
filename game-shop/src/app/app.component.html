@@ -16,7 +16,7 @@
         <a class="nav-link" routerLink="/shoppingCart" routerLinkActive="active">Cart</a>
       </li>
       <li *ngIf="loggedInUser && loggedInUser.level == 10" class="nav-item">
-        <a class="nav-link" routerLink="/manage-games" routerLinkActive="active">Mange games</a>
+        <a class="nav-link" routerLink="/manage-games" routerLinkActive="active">Manage games</a>
       </li>
       <li *ngIf="!loggedInUser" class="nav-item">
         <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
