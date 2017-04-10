@@ -19,7 +19,7 @@ div class="card" style="width: 20rem;">-->
     <li class="list-group-item">Total: {{getTotal()}}</li>
   </ul>
   <div class="card-block text-center">
-    <a type="button" class="btn btn-outline-primary" [routerLink]="['/game', this.item.Item.id]">Description</a>
-    <a type="button" class="btn btn-outline-danger" (click) ="this.shoppingCartService.removeItem(item.Item)" >Remove One</a>
+    <a class="btn btn-outline-primary" [routerLink]="['/game', this.item.Item.id]">Description</a>
+    <a class="btn btn-outline-danger" (click) ="this.shoppingCartService.removeItem(item.Item)" >Remove One</a>
   </div>
 <!--</div>-->
