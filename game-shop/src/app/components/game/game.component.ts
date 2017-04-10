@@ -20,7 +20,19 @@ export class GameComponent implements OnInit {
     this.shoppingCartService.addItem(this.game);
     console.log(this.shoppingCartService.getPrice());
   }
-
+  getPlatforms(){
+    var platf : string = '';
+    for(var i = 0; i < this.game.platforms.length; i++){
+      if(this.game.platforms[i] === null)
+        return;
+      if (i = 0){
+        platf += this.game.platforms[i];
+      }
+      else
+        platf += this.game.platforms[i] + ", ";
+    }
+    return platf;
+  }
   @Input()
   game: Game;
 }

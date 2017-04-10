@@ -17,10 +17,12 @@
   <img class="card-img-top" src={{game.imageUrl}} alt={{game.name}} style="width:100%;">
   <div class="card-block">
     <h4 class="card-title">{{game.name}}</h4>
-    <p class="card-text">{{this.genres[game.genre]}}</p>
+    <p class="card-text">{{this.genres[game.genre]}}</p>    
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Price: {{game.price}}</li>
+    <!--Crashes the browser-->
+    <!--<li class="list-group-item">Platforms: {{this.getPlatforms()}}</li>-->
   </ul>
   <div class="card-block text-center">
     <a  class="btn btn-outline-primary" [routerLink]="['/game', game.id]">Description</a>
