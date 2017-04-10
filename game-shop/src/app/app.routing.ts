@@ -21,7 +21,7 @@ const appRoutes: Routes = [
         canActivate: [CustomerRouteGuard]
     },
     {
-        path: '/manage-games',
+        path: 'manage-games',
         component: ManageGamesComponent,
         canActivate: [AdminRouteGuard]
     },

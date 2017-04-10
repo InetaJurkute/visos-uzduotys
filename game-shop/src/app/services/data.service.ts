@@ -8,14 +8,14 @@ import { AuthHttp } from "ng2-bearer" //auth
 
 @Injectable()
 export class DataService {
-
+  private backendURL: string = "http://localhost:64128";
   //constructor(private http: Http) { }
   constructor(private http: Http, private authHttp: AuthHttp) { //auth
   }
 
   // Gauna žaidimų sąrašą
   getGameList(): Promise<Game[]>{
-    return this.authHttp.get('http://localhost:64128/api/games/')
+    return this.authHttp.get(this.backendURL + '/api/games/')
       .toPromise()
       .then(response => {
         return response.json() as Game[];
@@ -24,7 +24,7 @@ export class DataService {
 
   // Gauna žaidimą pagal ID
   getGame(id: string): Promise<Game> {
-    return this.authHttp.get('http://localhost:64128/api/games/' + id)
+    return this.authHttp.get(this.backendURL + '/api/games/' + id)
       .toPromise()
       .then(response => {
         return response.json() as Game;
@@ -32,7 +32,7 @@ export class DataService {
   }
 
   getGenres(): Promise<Genre[]>{
-    return this.http.get('http://localhost:64128/api/genres/')
+    return this.http.get(this.backendURL + '/api/genres/')
       .toPromise()
       .then(response => {
         return response.json() as Genre[];
@@ -40,7 +40,7 @@ export class DataService {
   }
 
   getPlatforms(): Promise<Platform[]>{
-    return this.http.get('http://localhost:64128/api/platforms/')
+    return this.http.get(this.backendURL + '/api/platforms/')
       .toPromise()
       .then(response => {
         return response.json() as Platform[];
@@ -48,7 +48,7 @@ export class DataService {
   }
 
   addGame(game: Game): Promise<void> {
-    return this.authHttp.post('http://localhost:64128/api/games/', game)
+    return this.authHttp.post(this.backendURL + '/api/games/', game)
       .toPromise()
       .then(response => {
         return response.json();

@@ -14,8 +14,6 @@ export class UserService {
   }
 
   login(username: string, password: string){
-    console.log("logging in...");
-
     var headers = new Headers();
     headers.append("Content-Type", "application/x-www-form-urlencoded");
 
@@ -28,7 +26,6 @@ export class UserService {
     return this.http.post('http://localhost:64128/api/token', body, {headers: headers})
       .toPromise()
       .then(response => {
-        console.log(response);
         if(response.json().access_token){
           localStorage.setItem('access_token', response.json().access_token);
           localStorage.setItem('roles', JSON.parse(response.json().roles));
