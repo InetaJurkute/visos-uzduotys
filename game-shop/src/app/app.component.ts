@@ -1,8 +1,5 @@
-
 import { Component, OnInit } from '@angular/core';
 import { UserService } from "app/services/user.service";
-import {Router, NavigationEnd} from "@angular/router";
-import {User} from "./models/user";
 
 @Component({
   selector: 'app-root',
@@ -11,16 +8,7 @@ import {User} from "./models/user";
 })
 export class AppComponent implements OnInit {
 
-  constructor(private userService: UserService, router: Router) {
-    /*
-    router.events.subscribe( (event) => { //each time url changes catch that event
-      if(event instanceof NavigationEnd){  //NavigationEnd - url change event
-        if( !(this.loggedInUser = this.userService.getCurrentUser()) ){
-          router.navigate(['/login']); // change route to /login if no currentUser
-        }
-      }
-    });
-    */
+  constructor(private userService: UserService) {
   }
 
   ngOnInit() {

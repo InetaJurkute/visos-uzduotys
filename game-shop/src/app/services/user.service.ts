@@ -33,7 +33,11 @@ export class UserService {
           localStorage.setItem('access_token', response.json().access_token);
           localStorage.setItem('roles', JSON.parse(response.json().roles));
         }
-        this.router.navigate(['game-list']);
+        if(localStorage.getItem('roles') == 'Customer'){
+          this.router.navigate(['game-list']);
+        } else if (localStorage.getItem('roles') == 'Admin') {
+          this.router.navigate(['manage-games']);
+        }
       });
   }
 

@@ -6,10 +6,12 @@ import { Http,RequestOptions } from '@angular/http'; //auth
 import { AuthHttp, AuthConfig} from "ng2-bearer"; //auth
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
+import { routing } from './app.routing';
+import { CustomerRouteGuard, AdminRouteGuard } from "app/services/route.guard";
+
 import { AppComponent } from './app.component';
 import { GameComponent } from './components/game/game.component';
 import { GameListComponent } from './components/game-list/game-list.component';
-import { routing } from './app.routing';
 import { AboutComponent } from './components/about/about.component';
 import { ManageGamesComponent } from './components/manage-games/manage-games.component';
 import { LoginComponent } from './components/login/login.component';
@@ -52,6 +54,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions){ //a
   providers: [
     UserService,
     ShoppingCartService,
+    CustomerRouteGuard,
+    AdminRouteGuard,
     {
     provide: AuthHttp,
     useFactory: authHttpServiceFactory,

@@ -7,19 +7,23 @@ import { LoginComponent } from './components/login/login.component';
 import { ManageGamesComponent } from './components/manage-games/manage-games.component';
 import {ShoppingCartComponent} from './components/shopping-cart/shopping-cart.component'
 import {GameFormComponent} from "./components/game-form/game-form.component";
+import {AdminRouteGuard, CustomerRouteGuard} from "./services/route.guard";
 
 const appRoutes: Routes = [
     {
         path: '*',
-        redirectTo: '/game-list'
+        redirectTo: '/game-list',
+        canActivate: [CustomerRouteGuard]
     },
     {
         path: 'game-list',
-        component: GameListComponent
+        component: GameListComponent,
+        canActivate: [CustomerRouteGuard]
     },
     {
-        path: 'manage-games',
-        component: ManageGamesComponent
+        path: '/manage-games',
+        component: ManageGamesComponent,
+        canActivate: [AdminRouteGuard]
     },
     {
         path: 'game/:id',
@@ -30,12 +34,13 @@ const appRoutes: Routes = [
       component: LoginComponent
     },
     {
-        path: 'shoppingCart',
-        component: ShoppingCartComponent
+      path: 'shoppingCart',
+      component: ShoppingCartComponent
     },
     {
       path: 'addGame',
-      component: GameFormComponent
+      component: GameFormComponent,
+      canActivate: [AdminRouteGuard]
     }
 ];
 
