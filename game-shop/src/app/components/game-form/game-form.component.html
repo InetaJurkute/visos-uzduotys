@@ -1,0 +1,42 @@
+<h3>Add a new game</h3>
+<div *ngIf="!isLoading">
+  <div class="form-group">
+    <label for="gameTitle">Title</label>
+    <input [(ngModel)]="game.name" id="gameTitle" class="form-control" type="text" name="name" maxlength="40" placeholder="Title" required autofocus>
+  </div>
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input [(ngModel)]="game.price" type="number" class="form-control" name="price" id="price" min="0.0" step="0.01" required>
+  </div>
+  <div class="form-group">
+    <label for="genre">Genre</label>
+    <select [(ngModel)]="game.genre"  name="genre" class="form-control" id="genre" required>
+      <option *ngFor = "let g of genres" [value]="g.id" [selected]="game.genre == g.id" >{{g.name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="platforms">Platforms</label>
+    <div *ngFor="let p of platforms; let i = index">
+      <label>
+        <input id="platforms"
+               type="checkbox"
+               name="platforms"
+               value="{{p}}"
+               [checked]="optionsMap[p.id]"
+               (change)="updateCheckedOptions(p, $event)"/>
+        {{p.name}}
+      </label>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="imageUrl">Image URL</label>
+    <input [(ngModel)]="game.imageUrl" id="imageUrl" class="form-control" type="text" name="imageUrl" maxlength="40" placeholder="ImageUrl" required autofocus>
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea [(ngModel)]="game.description" class="form-control" name="description" id="description" required="" minlength="10" maxlength="2000"
+              placeholder="Minimum 10 symbols"></textarea>
+  </div>
+  <input type="submit" class="btn btn-primary" (click)="addNewGame()" value="Add Game">
+
+</div>

@@ -1,18 +1,25 @@
-<div>
-  <table class="table table-striped table-hover">
-    <thead>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Price</th>
-      <th></th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let g of gameList">
-          <td>{{g.id}}</td>
-          <td>{{g.name}}</td>
-          <td>{{g.price}}</td>
-          <td><button>Edit</button><button>Delete</button></td>
-        </tr>
-    </tbody>
-  </table>
+
+<div *ngIf="!isLoading">
+  <div>
+    <a type="button" class="btn btn-outline-primary" [routerLink]="['/addGame']">Add new</a>
+    <table class="table table-striped table-hover">
+      <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th></th>
+      </thead>
+      <tbody>
+          <tr *ngFor="let g of gameList">
+            <td>{{g.id}}</td>
+            <td>{{g.name}}</td>
+            <td>{{g.price}} €</td>
+            <td>
+              <a type="button" class="btn btn-outline-primary" [routerLink]="['/addGame', g.id]">Edit</a>
+              <a type="button" class="btn btn-outline-primary" (click)="deleteGame(g.id)">Delete</a>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

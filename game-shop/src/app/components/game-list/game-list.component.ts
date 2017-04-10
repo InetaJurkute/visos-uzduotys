@@ -16,9 +16,7 @@ export class GameListComponent implements OnInit {
 
   ngOnInit() {
     this.isLoading = true;
-    this.dataService.getGameList().then(g => {
-      this.gameList = g; this.isLoading = false; }
-      );
+    this.dataService.getGameList().then(g => { this.gameList = g; this.isLoading = false; });
   }
 
 }

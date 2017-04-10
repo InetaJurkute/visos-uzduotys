@@ -11,6 +11,7 @@ import { Game } from 'app/models/game';
 export class ManageGamesComponent implements OnInit {
   gameList: Game[];
   isLoading: boolean = false;
+  emptyGame: Game[];
 
   constructor(private dataService: DataService) { }
 
@@ -19,4 +20,10 @@ export class ManageGamesComponent implements OnInit {
     this.dataService.getGameList().then(g => { this.gameList = g; this.isLoading = false; });
   }
 
+  deleteGame(id){
+    this.isLoading = true;
+    this.dataService.deleteGame(id).then(()=> {
+      this.dataService.getGameList().then(g => { this.gameList = g; this.isLoading = false; });
+    });
+  }
 }

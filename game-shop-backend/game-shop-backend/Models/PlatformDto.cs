@@ -8,6 +8,6 @@ namespace game_shop_backend.Models
     public class PlatformDto
     {
         public int Id { get; set; }
-        //public string Name { get; set; }
+        public string Name { get; set; }
     }
 }
