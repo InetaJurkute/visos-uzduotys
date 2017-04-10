@@ -1,45 +1,45 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import { User } from "app/models/user";
+import {Router} from "@angular/router";
+import { Headers, URLSearchParams } from '@angular/http'; //auth
+import { tokenIsPresent } from 'ng2-bearer'
 
 @Injectable()
 export class UserService {
-  currentUser: User;
-  constructor(private http: Http) { }
+  constructor(private http: Http, private router: Router) { }
 
-  getCurrentUser():User{
-    return this.currentUser;
+  isLoggedIn(){
+    return tokenIsPresent();
   }
 
-  checkLogin(name: string, psw: string){
-    return this.getUserList().then( (userList) => {
-      this.currentUser = userList.find( user => { //currentUser = user (if it is found in the userList)
-        return user.username == name && user.password == psw;
-      });
-      try{
-        if(!this.getCurrentUser()){ //if no such user is found, throw error
-          throw new Error("Login failed");
+  login(username: string, password: string){
+    console.log("logging in...");
+
+    var headers = new Headers();
+    headers.append("Content-Type", "application/x-www-form-urlencoded");
+
+    var body = new URLSearchParams();
+
+    body.set("username", username);
+    body.set("password", password);
+    body.set("grant_type", "password");
+
+    return this.http.post('http://localhost:64128/api/token', body, {headers: headers})
+      .toPromise()
+      .then(response => {
+        console.log(response);
+        if(response.json().access_token){
+          localStorage.setItem('access_token', response.json().access_token);
+          localStorage.setItem('roles', JSON.parse(response.json().roles));
         }
-      }catch (err){
-        console.log("Login failed");
-      }
-    });
-  }
-
-  getUserList(): Promise<User[]>{
-    return this.http.get('/api/users')
-      .toPromise()
-      .then(response => {
-        return response.json().data as User[];
+        this.router.navigate(['game-list']);
       });
   }
 
-  getUser(id: string): Promise<User> { //not used yet
-    return this.http.get('/api/users/' + id)
-      .toPromise()
-      .then(response => {
-        return response.json().data as User;
-      });
+  logout(){
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('roles');
+    this.router.navigate(['login']);
   }
 }

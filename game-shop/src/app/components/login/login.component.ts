@@ -11,14 +11,12 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
   }
 
   login(){
-    this.userService.checkLogin(this.username, this.password).then( () => {
-      this.router.navigate(['/game-list'])
-    });
+    this.userService.login(this.username, this.password);
   }
 }

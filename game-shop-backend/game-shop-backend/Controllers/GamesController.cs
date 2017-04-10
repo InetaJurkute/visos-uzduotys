@@ -14,10 +14,12 @@ using game_shop_backend.Models;
 namespace game_shop_backend.Controllers
 {
     [EnableCors("http://localhost:4200", "*", "*")]
+    //[Authorize]
     public class GamesController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        [Authorize(Roles = "Admin,Customer")]
         // GET: api/Games
         public List<ViewGameDto> GetGames()
         {
@@ -25,6 +27,7 @@ namespace game_shop_backend.Controllers
             return AutoMapper.Mapper.Map<List<ViewGameDto>>(games);
         }
 
+        [Authorize(Roles = "Admin,Customer")]
         // GET: api/Games/5
         [ResponseType(typeof(Game))]
         public IHttpActionResult GetGame(int id)
@@ -38,8 +41,10 @@ namespace game_shop_backend.Controllers
             return Ok(AutoMapper.Mapper.Map<GameDto>(game));
         }
 
+
         // PUT: api/Games/5
         // NOT WORKING
+        [Authorize(Roles = "Admin")]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutGame(int id, [FromBody]GameDto gamedto)
         {
@@ -109,6 +114,7 @@ namespace game_shop_backend.Controllers
         }
 
         // POST: api/Games
+        [Authorize(Roles = "Admin")]
         [ResponseType(typeof(GameDto))]
         public IHttpActionResult PostGame(GameDto gamedto)
         {
@@ -135,6 +141,7 @@ namespace game_shop_backend.Controllers
 
         // DELETE: api/Games/5
         [ResponseType(typeof(Game))]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult DeleteGame(int id)
         {
             Game game = db.Games.Find(id);

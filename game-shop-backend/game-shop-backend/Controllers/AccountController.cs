@@ -221,6 +221,7 @@ namespace game_shop_backend.Controllers
         }
 
         // GET api/Account/ExternalLogin
+        /*
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalCookie)]
         [AllowAnonymous]
@@ -276,7 +277,7 @@ namespace game_shop_backend.Controllers
 
             return Ok();
         }
-
+        */
         // GET api/Account/ExternalLogins?returnUrl=%2F&generateState=true
         [AllowAnonymous]
         [Route("ExternalLogins")]

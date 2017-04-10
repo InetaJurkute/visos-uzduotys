@@ -10,9 +10,9 @@ import {User} from "./models/user";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  loggedInUser: User;
 
   constructor(private userService: UserService, router: Router) {
+    /*
     router.events.subscribe( (event) => { //each time url changes catch that event
       if(event instanceof NavigationEnd){  //NavigationEnd - url change event
         if( !(this.loggedInUser = this.userService.getCurrentUser()) ){
@@ -20,10 +20,18 @@ export class AppComponent implements OnInit {
         }
       }
     });
+    */
   }
-
 
   ngOnInit() {
 
+  }
+
+  getRole(): string{
+    return localStorage.getItem('roles');
+  }
+
+  logout(){
+    this.userService.logout();
   }
 }
