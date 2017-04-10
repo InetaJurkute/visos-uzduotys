@@ -1,3 +1,9 @@
 .btn{
     margin:5px 0 5px 0;
 }
+#cartAdder::before{
+    content:'Add to cart';
+}
+#cartAdder:active::before{
+    content:'Added';
+}

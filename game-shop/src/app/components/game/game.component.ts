@@ -8,9 +8,9 @@ import { Game } from 'app/models/game';
   styleUrls: ['./game.component.css'],
 })
 export class GameComponent implements OnInit {
-  
-  constructor(private shoppingCartService: ShoppingCartService)  { }
 
+  constructor(private shoppingCartService: ShoppingCartService)  { }
+  
   ngOnInit() {
     
   }

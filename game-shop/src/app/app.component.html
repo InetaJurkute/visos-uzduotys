@@ -9,7 +9,7 @@
   <a class="navbar-brand" href="#">NRD-Shop</a>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li *ngIf="loggedInUser && (loggedInUser.level == 1)" class="nav-item">
+      <li *ngIf="loggedInUser && loggedInUser.level == 1" class="nav-item">
         <a class="nav-link" routerLink="/game-list" routerLinkActive="active">Games</a>
       </li>
       <li *ngIf="loggedInUser && loggedInUser.level == 1" class="nav-item">
