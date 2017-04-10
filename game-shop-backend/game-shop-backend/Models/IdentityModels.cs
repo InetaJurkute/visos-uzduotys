@@ -36,5 +36,7 @@ namespace game_shop_backend.Models
         public DbSet<Game> Games { get; set; }
         public DbSet<Platform> Platforms { get; set; }
         public DbSet<Genre> Genres { get; set; }
+        public DbSet<Item> Items { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }

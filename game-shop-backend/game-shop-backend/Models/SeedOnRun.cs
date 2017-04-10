@@ -14,28 +14,19 @@ namespace game_shop_backend.Models
         protected override void Seed(ApplicationDbContext context)
         {
             try
-            {/*
+            {
+                /*
                 var plat1 = new Platform { Name = "PC" };
                 var plat2 = new Platform { Name = "Xbox" };
                 var plat3 = new Platform { Name = "PlayStation" };
                 var plat4 = new Platform { Name = "Nintendo" };
 
-                context.Platforms.Add(plat1);
-                context.Platforms.Add(plat2);
-                context.Platforms.Add(plat3);
-                context.Platforms.Add(plat4);
-                */
-                /*
-                context.Platforms.AddRange(new List<Platform>()
-                {
-                    new Platform { Name = "PC"},
-                    new Platform { Name = "Xbox"},
-                    new Platform { Name = "PlayStation"},
-                    new Platform { Name = "Nintendo"}
-                });
-                */
-                
-                /*
+                var genre1 = new Genre { Name = "Action" };
+                var genre2 = new Genre { Name = "Shooter" };
+                var genre3 = new Genre { Name = "Horror" };
+                var genre4 = new Genre { Name = "Strategy" };
+                var genre5 = new Genre { Name = "RPG" };
+
                 var game1 = new Game
                 {
                     Name = "NewHope",
@@ -43,10 +34,6 @@ namespace game_shop_backend.Models
                     Price = 19.99,
                     ImageUrl = "../../../assets/1.jpg"
                 };
-                game1.Platforms.Add(context.Platforms.FirstOrDefault(p => p.Id == 1));
-                game1.Platforms.Add(context.Platforms.FirstOrDefault(p => p.Id == 2));
-                context.Games.Add(game1);
-
                 var game2 = new Game
                 {
                     Name = "NewHope2",
@@ -54,10 +41,6 @@ namespace game_shop_backend.Models
                     Price = 23.99,
                     ImageUrl = "../../../assets/2.jpg"
                 };
-                game2.Platforms.Add(context.Platforms.FirstOrDefault(p => p.Id == 2));
-                game2.Platforms.Add(context.Platforms.FirstOrDefault(p => p.Id == 3));
-                context.Games.Add(game2);
-
                 var game3 = new Game
                 {
                     Name = "battlefield",
@@ -65,9 +48,6 @@ namespace game_shop_backend.Models
                     Price = 12.99,
                     ImageUrl = "../../../assets/3.jpg"
                 };
-                game3.Platforms.Add(context.Platforms.FirstOrDefault(p => p.Id == 4));
-                context.Games.Add(game3);
-
                 var game4 = new Game
                 {
                     Name = "galaxy wars",
@@ -75,9 +55,6 @@ namespace game_shop_backend.Models
                     Price = 39.99,
                     ImageUrl = "../../../assets/4.jpg"
                 };
-                game4.Platforms.Add(context.Platforms.FirstOrDefault(p => p.Id == 1));
-                context.Games.Add(game4);
-
                 var game5 = new Game
                 {
                     Name = "Destiny",
@@ -85,14 +62,44 @@ namespace game_shop_backend.Models
                     Price = 19.99,
                     ImageUrl = "../../../assets/5.jpg"
                 };
-                game5.Platforms.Add(context.Platforms.FirstOrDefault(p => p.Id == 1));
-                game5.Platforms.Add(context.Platforms.FirstOrDefault(p => p.Id == 3));
+
+                context.Platforms.Add(plat1);
+                context.Platforms.Add(plat2);
+                context.Platforms.Add(plat3);
+                context.Platforms.Add(plat4);
+
+                context.Genres.Add(genre1);
+                context.Genres.Add(genre2);
+                context.Genres.Add(genre3);
+                context.Genres.Add(genre4);
+                context.Genres.Add(genre5);
+
+                game1.Genre = genre1;
+                game1.Platforms.Add(plat1);
+
+                game2.Genre = genre2;
+                game2.Platforms.Add(plat4);
+                game2.Platforms.Add(plat2);
+
+                game3.Genre = genre2;
+                game3.Platforms.Add(plat1);
+                game3.Platforms.Add(plat2);
+
+                game4.Genre = genre4;
+                game4.Platforms.Add(plat4);
+
+                game5.Genre = genre5;
+                game5.Platforms.Add(plat1);
+                game5.Platforms.Add(plat2);
+
+                context.Games.Add(game1);
+                context.Games.Add(game2);
+                context.Games.Add(game3);
+                context.Games.Add(game4);
                 context.Games.Add(game5);
-                */
-
-
-
-                /*
+                
+                var admin = new ApplicationUser();
+                var test = new ApplicationUser();
                 var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
                 var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
@@ -115,13 +122,13 @@ namespace game_shop_backend.Models
                     user.Email = "admin@admin.com";
                     user.EmailConfirmed = true;
                     string userPWD = "admin";
+                    admin = user;
 
                     var chkUser = UserManager.Create(user, userPWD);
 
                     if (chkUser.Succeeded)
                     {
                         var result1 = UserManager.AddToRole(user.Id, "Admin");
-
                     }
                 }
 
@@ -136,25 +143,74 @@ namespace game_shop_backend.Models
                     user.Email = "test@test.com";
                     user.EmailConfirmed = true;
                     string userPWD = "test";
+                    test = user;
 
                     var chkUser = UserManager.Create(user, userPWD);
 
                     if (chkUser.Succeeded)
                     {
                         var result1 = UserManager.AddToRole(user.Id, "Customer");
-
                     }
                 }
+
+                var item1 = new Item { Price = game1.Price };
+                item1.Game = game1;
+
+                var item2 = new Item { Price = game2.Price };
+                item2.Game = game2;
+
+                var item3 = new Item { Price = game3.Price };
+                item3.Game = game3;
+
+                var item4 = new Item { Price = game5.Price };
+                item4.Game = game5;
+
+                var item5 = new Item { Price = game4.Price };
+                item5.Game = game4;
+
+                var item6 = new Item { Price = game4.Price };
+                item6.Game = game4;
+
+                context.Items.Add(item1);
+                context.Items.Add(item2);
+                context.Items.Add(item3);
+                context.Items.Add(item4);
+                context.Items.Add(item5);
+                context.Items.Add(item6);
+
+                var order1 = new Order { };
+                var order2 = new Order { };
+
+                order1.User = test;
+                order1.Items.Add(item2);
+                order1.Items.Add(item4);
+                order1.Items.Add(item3);
+                order1.Items.Add(item6);
+                foreach (Item item in order1.Items)
+                {
+                    order1.Sum += item.Price;
+                }
+
+                order2.User = test;
+                order2.Items.Add(item1);
+                order2.Items.Add(item3);
+                order2.Items.Add(item5);
+                foreach (Item item in order2.Items)
+                {
+                    order2.Sum += item.Price;
+                }
+
+                context.Orders.Add(order1);
+                context.Orders.Add(order2);
 
                 context.SaveChanges();
                 */
             }
-            
             catch (Exception ex)
             {
                 var str = ex.Message;
             }
-            
         }
+    
     }
 }

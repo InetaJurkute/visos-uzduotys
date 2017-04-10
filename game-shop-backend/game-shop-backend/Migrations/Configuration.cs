@@ -104,37 +104,9 @@ namespace game_shop_backend.Migrations
                 context.Games.Add(game3);
                 context.Games.Add(game4);
                 context.Games.Add(game5);
-
-                context.SaveChanges();
-                /*
-                if (!context.Platforms.Any())
-                {
-                    context.Platforms.AddRange(new List<Platform>() {
-                    new Platform { Name = "PC"},
-                    new Platform { Name = "Xbox"},
-                    new Platform { Name = "PlayStation"},
-                    new Platform { Name = "Nintendo"}
-                });
-                }
-
-                if (!context.Games.Any())
-                {
-                    var game = new Game()
-                    {
-                        Name = "NewHope",
-                        Description = "db new hope 1 miiiine",
-                        Price = 19.99,
-                        ImageUrl = "../../../assets/1.jpg"
-                    };
-                    game.Platforms.Add(context.Platforms.FirstOrDefault(p => p.Id == 1));
-                    game.Platforms.Add(context.Platforms.FirstOrDefault(p => p.Id == 2));
-                    game.Platforms.Add(context.Platforms.FirstOrDefault(p => p.Id == 3));
-                    game.Platforms.Add(context.Platforms.FirstOrDefault(p => p.Id == 4));
-
-                    context.Games.Add(game);
-                }
-                */
                 
+                var admin = new ApplicationUser();
+                var test = new ApplicationUser();
                 var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
                 var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
@@ -157,13 +129,13 @@ namespace game_shop_backend.Migrations
                     user.Email = "admin@admin.com";
                     user.EmailConfirmed = true;
                     string userPWD = "admin";
+                    admin = user;
 
                     var chkUser = UserManager.Create(user, userPWD);
 
                     if (chkUser.Succeeded)
                     {
                         var result1 = UserManager.AddToRole(user.Id, "Admin");
-
                     }
                 }
 
@@ -178,15 +150,67 @@ namespace game_shop_backend.Migrations
                     user.Email = "test@test.com";
                     user.EmailConfirmed = true;
                     string userPWD = "test";
+                    test = user;
 
                     var chkUser = UserManager.Create(user, userPWD);
 
                     if (chkUser.Succeeded)
                     {
                         var result1 = UserManager.AddToRole(user.Id, "Customer");
-
                     }
                 }
+
+                var item1 = new Item { Price = game1.Price };
+                item1.Game = game1;
+
+                var item2 = new Item { Price = game2.Price };
+                item2.Game = game2;
+
+                var item3 = new Item { Price = game3.Price };
+                item3.Game = game3;
+
+                var item4 = new Item { Price = game5.Price };
+                item4.Game = game5;
+
+                var item5 = new Item { Price = game4.Price };
+                item5.Game = game4;
+
+                var item6 = new Item { Price = game4.Price };
+                item6.Game = game4;
+
+                context.Items.Add(item1);
+                context.Items.Add(item2);
+                context.Items.Add(item3);
+                context.Items.Add(item4);
+                context.Items.Add(item5);
+                context.Items.Add(item6);
+
+                var order1 = new Order { };
+                var order2 = new Order { };
+
+                order1.User = test;
+                order1.Items.Add(item2);
+                order1.Items.Add(item4);
+                order1.Items.Add(item3);
+                order1.Items.Add(item6);
+                foreach (Item item in order1.Items)
+                {
+                    order1.Sum += item.Price;
+                }
+
+                order2.User = test;
+                order2.Items.Add(item1);
+                order2.Items.Add(item3);
+                order2.Items.Add(item5);
+                foreach (Item item in order2.Items)
+                {
+                    order2.Sum += item.Price;
+                }
+
+                context.Orders.Add(order1);
+                context.Orders.Add(order2);
+
+                context.SaveChanges();
             }
             catch (Exception ex)
             {
