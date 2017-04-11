@@ -2,3 +2,35 @@
   width: 80px;
   height: auto;
 }
+
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+.tag{
+  border: 1px solid #efefef;
+  margin: 0 2px 0 2px;
+  padding: 0 4px 0 4px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  background-color: #86858A;
+  color: white;
+}
+.pc{
+  background-color: dimgrey;
+}
+.xbox{
+  background-color: green;
+}
+.playstation{
+  background-color: blue;
+}
+.nintendo{
+  background-color: red;
+}
+
+.genre{
+  font-size: 15px;
+  letter-spacing: 2px;
+}

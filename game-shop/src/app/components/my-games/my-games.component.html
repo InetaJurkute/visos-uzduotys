@@ -5,13 +5,20 @@
       <th>Game</th>
       <th>Name</th>
       <th>Price</th>
-      <th></th>
+      <th>Genre</th>
+      <th>Platforms</th>
       </thead>
       <tbody>
       <tr *ngFor="let g of myGames">
         <td> <img class="imgSmall" src={{g.imageUrl}} alt={{g.name}}> </td>
         <td>{{g.name}}</td>
         <td>{{g.price}} €</td>
+        <td>{{g.genre}}</td>
+        <td>
+          <div class="flex">
+            <div class="tag" *ngFor="let p of g.platforms" [ngClass]="p.toLowerCase()">{{p}}</div>
+          </div>
+        </td>
       </tr>
       </tbody>
     </table>

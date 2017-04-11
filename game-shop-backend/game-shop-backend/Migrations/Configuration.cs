@@ -94,6 +94,7 @@ namespace game_shop_backend.Migrations
 
                     game1.Genre = genre1;
                     game1.Platforms.Add(plat1);
+                    game1.Platforms.Add(plat3);
 
                     game2.Genre = genre2;
                     game2.Platforms.Add(plat4);
@@ -101,14 +102,14 @@ namespace game_shop_backend.Migrations
 
                     game3.Genre = genre2;
                     game3.Platforms.Add(plat1);
-                    game3.Platforms.Add(plat2);
+                    game3.Platforms.Add(plat3);
 
                     game4.Genre = genre4;
                     game4.Platforms.Add(plat4);
 
                     game5.Genre = genre5;
                     game5.Platforms.Add(plat1);
-                    game5.Platforms.Add(plat2);
+                    game5.Platforms.Add(plat3);
 
                     game6.Genre = genre5;
                     game6.Platforms.Add(plat1);
