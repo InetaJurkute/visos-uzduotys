@@ -24,18 +24,33 @@ export class ShoppingCartService {
   // Local storage end
 
   // Create and return order
+  // createOrder(){
+  //   // Create vars:
+  //   // Get user id
+  //   var userId = userId = localStorage.getItem('id');
+  //   // Add order items
+  //   var orderItems : OrderItem[] = [];
+
+  //   this.gameList.forEach(game => {
+  //     orderItems.push({"amount" : game.Amount, "id" : parseInt(game.Item.id)});
+  //   });
+  //   // Create order
+  //   var order : Order = {"userId" : userId, "orderItem" : orderItems};
+  //   return order;
+  // }
+  // Create and return order (dictionary)
   createOrder(){
     // Create vars:
     // Get user id
-    var userId = userId = localStorage.getItem('id');
+    var userId = localStorage.getItem('id');
     // Add order items
-    var orderItems : OrderItem[] = [];
-
+    // Dict
+    var orderItems : { [id : string]: number ;} = {};
     this.gameList.forEach(game => {
-      orderItems.push({"amount" : game.Amount, "id" : parseInt(game.Item.id)});
+      orderItems[game.Item.id] = game.Amount;
     });
     // Create order
-    var order : Order = {"userId" : userId, "orderItem" : orderItems};
+    var order : {} = {"userId" : userId, "orderItem" : orderItems};
     return order;
   }
   // Returns all games price
