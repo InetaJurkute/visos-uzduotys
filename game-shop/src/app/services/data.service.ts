@@ -67,7 +67,7 @@ export class DataService {
   }
   addOrder(orders: Order[]): Promise<void> {
     console.log(orders);
-    return this.authHttp.post(this.backendURL + '/api/games/', orders)
+    return this.authHttp.post(this.backendURL + '/api/order/', orders)
       .toPromise()
       .then(response => {
         return response.json();

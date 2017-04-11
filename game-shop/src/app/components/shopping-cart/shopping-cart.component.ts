@@ -23,8 +23,17 @@ export class ShoppingCartComponent implements OnInit {
 
   ngOnInit() {
     this.gameList = this.shoppingCartService.getItems();
+    if (this.gameList.length === 0)
+      this.loadLocalStorage();
+    else
+      this.saveLocalStorage();
   }
-  
+  loadLocalStorage(){
+    this.gameList = JSON.parse(localStorage.getItem("cartItems"));
+  }
+  saveLocalStorage(){
+    localStorage.setItem("cartItems", JSON.stringify(this.gameList));
+  }
   updateOrder(){
     this.gameList.forEach(game => {
       this.orders.push({"amount" : game.Amount, "id" : game.Item.id});
