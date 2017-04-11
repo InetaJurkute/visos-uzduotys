@@ -23,8 +23,10 @@ export class ShoppingCartComponent implements OnInit {
 
   ngOnInit() {
     this.gameList = this.shoppingCartService.getItems();
-    if (this.gameList.length === 0)
+    if (this.gameList.length === 0){
       this.loadLocalStorage();
+      this.updateOrder();
+    }
     else
       this.saveLocalStorage();
   }
