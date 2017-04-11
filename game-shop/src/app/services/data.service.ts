@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+// Models:
 import { Game } from "app/models/game";
 import { Genre } from "app/models/genre";
+import { Order } from "app/models/order";
+// --- End of models
 import { Platform } from "app/models/platform";
 import { AuthHttp } from "ng2-bearer" //auth
 
@@ -57,6 +60,14 @@ export class DataService {
 
   deleteGame(id: number): Promise<void> {
     return this.authHttp.delete('http://localhost:64128/api/games/' + id)
+      .toPromise()
+      .then(response => {
+        return response.json();
+      });
+  }
+  addOrder(orders: Order[]): Promise<void> {
+    console.log(orders);
+    return this.authHttp.post(this.backendURL + '/api/games/', orders)
       .toPromise()
       .then(response => {
         return response.json();

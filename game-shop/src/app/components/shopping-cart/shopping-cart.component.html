@@ -16,7 +16,7 @@
     <div class="card cartTop">
         <div class="card-block">
           <h2 class="card-title">Checkout</h2>
-          <a class="btn btn-outline-success" (click) ="this.shoppingCartService.removeItem(item.Item)" >Checkout</a>
+          <a class="btn btn-outline-success" (click) ="this.sendAll()" >Checkout</a>
         </div>
     </div>
   </div>
@@ -24,9 +24,5 @@
 </div>
 
 <div class="card-deck">
-  <!--<div class="row">-->
-    <!--<div class="col-md-3 col-sm-6 col-xs-12">-->
       <app-game-item *ngFor="let g of gameList" [item]="g" class="card"></app-game-item>
-  <!--</div>-->
-  <!--</div>-->
 </div>
