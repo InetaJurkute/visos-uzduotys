@@ -44,8 +44,8 @@ namespace game_shop_backend
 
                 cfg.CreateMap<GenreDto, Genre>();
                 cfg.CreateMap<PlatformDto, Platform>();
-            /*
-            cfg.CreateMap<GameDto, Game>();*/
+
+                cfg.CreateMap<Order, ViewOrderDto>();
 
                 cfg.CreateMap<GameDto, Game>()
                     .ForMember( x => x.Genre, m => m.Ignore() )
