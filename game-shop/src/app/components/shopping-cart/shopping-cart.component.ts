@@ -16,33 +16,26 @@ export class ShoppingCartComponent implements OnInit {
 
   // = [] kad būtų... defined what
   gameList: GameItem[] = [];
-  orders: Order[] = [];
+  // orders: Order[] = [];
   // Private kad nereiktų rašyti vėliau this._dataService ir pan.
   // Private sukuria var čia viduje 
   constructor(private shoppingCartService: ShoppingCartService, private dataService: DataService) { }
 
   ngOnInit() {
     this.gameList = this.shoppingCartService.getItems();
-    if (this.gameList.length === 0){
-      this.loadLocalStorage();
-      this.updateOrder();
+     if (this.gameList.length === 0){
+       this.shoppingCartService.loadLocalStorage();
+       this.gameList = this.shoppingCartService.getItems();
+     }
+     else{
+       this.shoppingCartService.saveLocalStorage();
+       this.gameList = this.shoppingCartService.getItems();
     }
-    else
-      this.saveLocalStorage();
-  }
-  loadLocalStorage(){
-    this.gameList = JSON.parse(localStorage.getItem("cartItems"));
-  }
-  saveLocalStorage(){
-    localStorage.setItem("cartItems", JSON.stringify(this.gameList));
-  }
-  updateOrder(){
-    this.gameList.forEach(game => {
-      this.orders.push({"amount" : game.Amount, "id" : game.Item.id});
-    });
-  }
+}
+  
+  // Send Order
   sendAll(){
-    this.updateOrder();
-    this.dataService.addOrder(this.orders);
+    // this.updateOrder();
+    this.dataService.addOrder(this.shoppingCartService.createOrder());
   }
 }

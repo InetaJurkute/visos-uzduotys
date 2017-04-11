@@ -1,4 +1,5 @@
+import {OrderItem} from 'app/models/OrderItem';
 export class Order {
-    id: string;
-    amount: number;
+    userId: string;
+    orderItem : OrderItem[];
 }

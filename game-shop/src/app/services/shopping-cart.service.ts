@@ -1,60 +1,90 @@
 import { Injectable } from '@angular/core';
+// Models
 import { Game } from 'app/models/game';
 import { GameItem } from 'app/models/gameItem';
+import {Order} from 'app/models/Order';
+import {OrderItem} from 'app/models/OrderItem';
+
 @Injectable()
 export class ShoppingCartService {
   
-  games : GameItem[] = [];
-
+  gameList : GameItem[] = [];
+  // orders : Order;
   constructor() { }
-  // Update and display price
+  
+  // Local storage saving/loading
+  
+  loadLocalStorage(){
+    this.gameList = JSON.parse(localStorage.getItem("cartItems"));
+  }
+  saveLocalStorage(){
+    localStorage.setItem("cartItems", JSON.stringify(this.gameList));
+  }
+  
+  // Local storage end
+
+  // Create and return order
+  createOrder(){
+    // Create vars:
+    // Get user id
+    var userId = userId = localStorage.getItem('id');
+    // Add order items
+    var orderItems : OrderItem[] = [];
+
+    this.gameList.forEach(game => {
+      orderItems.push({"amount" : game.Amount, "id" : parseInt(game.Item.id)});
+    });
+    // Create order
+    var order : Order = {"userId" : userId, "orderItem" : orderItems};
+    return order;
+  }
+  // Returns all games price
   getPrice(){
     var price : number = 0;
-    for( var i = 0; i < this.games.length; i++){
-      price += this.games[i].Item.price * this.games[i].Amount; 
+    for( var i = 0; i < this.gameList.length; i++){
+      price += this.gameList[i].Item.price * this.gameList[i].Amount; 
     }
     return price.toFixed(2);
   }
-  // Get all games that are in the cart
+  // Get all gameList that are in the cart
   getItems() : GameItem[]{
-    return this.games;
+    return this.gameList;
   }
-  
   // Add one game to the cart or add to the amount
   addItem(game : Game){
-    for (var i = 0; i < this.games.length; i++){
+    for (var i = 0; i < this.gameList.length; i++){
 
       var gameExists : Boolean = false;
 
-      if (this.games[i].Item.id === game.id){
+      if (this.gameList[i].Item.id === game.id){
         gameExists = true;
-        this.games[i].Amount++;
+        this.gameList[i].Amount++;
         // 
         break;
       }
     }
     if(!gameExists)
-        this.games.push( { Item : game, Amount : 1} );
+        this.gameList.push( { Item : game, Amount : 1} );
   }
-
+  // Remove game
   removeItem(game : Game){
-    if (this.games.length == 0)
+    if (this.gameList.length == 0)
       return;
     console.log("Given id:")
     console.log(game.id);
       console.log("Game Ids:");
-    for (var i = 0; i < this.games.length; i++){
-      console.log(this.games[i].Item.id);
-      if (this.games[i].Item.id == game.id){
+    for (var i = 0; i < this.gameList.length; i++){
+      console.log(this.gameList[i].Item.id);
+      if (this.gameList[i].Item.id == game.id){
         console.log("ID MATCH");
-        if (this.games[i].Amount > 1){
-          this.games[i].Amount --;
-          console.log(this.games[i].Amount);
+        if (this.gameList[i].Amount > 1){
+          this.gameList[i].Amount --;
+          console.log(this.gameList[i].Amount);
           return;
         }
         else{
-          this.games.splice(i,1);
-          console.log(this.games[i].Amount);
+          this.gameList.splice(i,1);
+          console.log(this.gameList[i].Amount);
           return;
         }
       }
