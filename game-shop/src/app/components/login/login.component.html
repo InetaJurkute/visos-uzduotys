@@ -8,8 +8,8 @@
     <label for="inputPassword" class="sr-only">Password</label>
     <input [(ngModel)]="password" type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
-    <a type="button" class="btn btn-outline-primary" (click)="login()">Sign in</a>
+    <a  class="btn btn-outline-primary" (click)="login()">Sign in</a>
 
-    <h2 class="registration">Or go register <a href="#"> here</a> </h2>
+    <h2 class="registration">Or go register <a [routerLink]="['/registration']"> here</a> </h2>
 
   </form>

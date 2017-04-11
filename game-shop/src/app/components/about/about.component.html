@@ -9,7 +9,7 @@
     </div>
     <div style="">
       <button class="btn btn-success" (click) ="addItem()" >Add To Cart</button>
-      <a class="btn btn-default" [routerLink]="['/game-list']">Back</a>
+      <a class="btn btn-default" (click)="this._location.back()">Back</a>
     </div>
   </div>
   <p class="well">

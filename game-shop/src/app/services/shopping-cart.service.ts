@@ -13,7 +13,7 @@ export class ShoppingCartService {
     for( var i = 0; i < this.games.length; i++){
       price += this.games[i].Item.price * this.games[i].Amount; 
     }
-    return price;
+    return price.toFixed(2);
   }
   // Get all games that are in the cart
   getItems() : GameItem[]{

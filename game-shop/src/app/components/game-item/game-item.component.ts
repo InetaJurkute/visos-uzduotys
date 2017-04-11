@@ -20,7 +20,7 @@ export class GameItemComponent implements OnInit {
   // So i can use this.item
 
   getTotal(){
-    return this.item.Item.price * this.item.Amount;
+    return (this.item.Item.price * this.item.Amount).toFixed(2);
   }
   @Input()
   item: GameItem;

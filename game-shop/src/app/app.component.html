@@ -18,8 +18,7 @@
         <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
       </li>
       <li *ngIf="getRole() == 'Admin' || getRole() == 'Customer'">
-        <a class="nav-link" (click)="logout()"> Logout </a>
-      </li>
+        <a class="nav-link" (click)="logout()"> Logout </a>"
     </ul>
   </div>
 </nav>
