@@ -69,7 +69,14 @@ namespace game_shop_backend.Migrations
                     Price = 19.99,
                     ImageUrl = "../../../assets/5.jpg"
                 };
-
+                var game6 = new Game
+                {
+                    Name = "Besiege",
+                    Description = "Besiege is a physics based building game in which you construct medieval siege engines and lay waste to immense fortresses and peaceful hamlets. Build a machine which can crush windmills, wipe out battalions of brave soldiers and transport valuable resources, defending your creation against cannons, archers and whatever else the desperate enemies have at their disposal. Create a trundling behemoth, or take clumsily to the skies, and cause carnage in fully destructible environments. Ultimately, you must conquer every Kingdom by crippling their castles and killing their men and livestock, in as creative or clinical a manner as possible! ",
+                    Price = 5.59,
+                    ImageUrl = "../../../assets/6.jpg"
+                };
+              
                 context.Platforms.Add(plat1);
                 context.Platforms.Add(plat2);
                 context.Platforms.Add(plat3);
@@ -99,12 +106,16 @@ namespace game_shop_backend.Migrations
                 game5.Platforms.Add(plat1);
                 game5.Platforms.Add(plat2);
 
+                game6.Genre = genre5;
+                game6.Platforms.Add(plat1);
+                game6.Platforms.Add(plat2);
+
                 context.Games.Add(game1);
                 context.Games.Add(game2);
                 context.Games.Add(game3);
                 context.Games.Add(game4);
                 context.Games.Add(game5);
-                
+                context.Games.Add(game6);
                 var admin = new ApplicationUser();
                 var test = new ApplicationUser();
                 var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));

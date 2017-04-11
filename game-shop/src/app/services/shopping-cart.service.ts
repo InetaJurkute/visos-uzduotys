@@ -74,24 +74,16 @@ export class ShoppingCartService {
       if (this.gameList[i].Item.id === game.id){
         gameExists = true;
         this.gameList[i].Amount++;
-        // 
-        break;
       }
     }
     if(!gameExists)
         this.gameList.push( { Item : game, Amount : 1} );
+    this.saveLocalStorage();
   }
   // Remove game
   removeItem(game : Game){
-    if (this.gameList.length == 0)
-      return;
-    console.log("Given id:")
-    console.log(game.id);
-      console.log("Game Ids:");
     for (var i = 0; i < this.gameList.length; i++){
-      console.log(this.gameList[i].Item.id);
       if (this.gameList[i].Item.id == game.id){
-        console.log("ID MATCH");
         if (this.gameList[i].Amount > 1){
           this.gameList[i].Amount --;
           console.log(this.gameList[i].Amount);
@@ -99,13 +91,15 @@ export class ShoppingCartService {
         }
         else{
           this.gameList.splice(i,1);
-          console.log(this.gameList[i].Amount);
+          this.saveLocalStorage();
           return;
         }
       }
+
     }
-    console.log("New amount");
-    
+    this.saveLocalStorage();
+    // console.log("New amount");
+     
   }
   
 }
