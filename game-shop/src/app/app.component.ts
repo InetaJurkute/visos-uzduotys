@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
     router.events.subscribe( (event) => { //each time url changes catch that event
       if(event instanceof NavigationEnd){  //NavigationEnd - url change event
         if( !(this.loggedInUser = this.userService.getCurrentUser()) ){
-          router.navigate(['/login']); // change route to /login if no currentUser
+          // router.navigate(['/registration']); // change route to /login if no currentUser
         }
       }
     });

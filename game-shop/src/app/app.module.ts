@@ -19,6 +19,7 @@ import {UserService} from "./services/user.service";
 import { ShoppingCartService } from "./services/shopping-cart.service";
 import { GameItemComponent } from './components/game-item/game-item.component';
 import { GameFormComponent } from './components/game-form/game-form.component'
+import { RegistrationComponent } from './components/registration/registration.component'
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { GameFormComponent } from './components/game-form/game-form.component'
     LoginComponent,
     ShoppingCartComponent,
     GameItemComponent,
-    GameFormComponent
+    GameFormComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

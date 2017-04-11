@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ManageGamesComponent } from './components/manage-games/manage-games.component';
 import {ShoppingCartComponent} from './components/shopping-cart/shopping-cart.component'
 import {GameFormComponent} from "./components/game-form/game-form.component";
+import {RegistrationComponent} from "./components/registration/registration.component";
 
 const appRoutes: Routes = [
     {
@@ -36,7 +37,12 @@ const appRoutes: Routes = [
     {
       path: 'addGame',
       component: GameFormComponent
+    },
+    {
+      path: 'registration',
+      component: RegistrationComponent
     }
 ];
+
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
