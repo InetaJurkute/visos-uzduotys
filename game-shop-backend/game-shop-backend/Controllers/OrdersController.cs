@@ -30,7 +30,7 @@ namespace game_shop_backend.Controllers
 
 
         // POST: api/Orders
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Customer")]
         [ResponseType(typeof(GetOrderDto))]
         public IHttpActionResult PostOrder(GetOrderDto getOrderDto)
         {

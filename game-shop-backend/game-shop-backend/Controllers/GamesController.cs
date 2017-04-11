@@ -10,11 +10,12 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using game_shop_backend.Entities;
 using game_shop_backend.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace game_shop_backend.Controllers
 {
     [EnableCors("http://localhost:4200", "*", "*")]
-    //[Authorize]
     public class GamesController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -24,6 +25,39 @@ namespace game_shop_backend.Controllers
         public List<ViewGameDto> GetGames()
         {
             var games = db.Games.ToList();
+            return AutoMapper.Mapper.Map<List<ViewGameDto>>(games);
+        }
+        
+        [Route("api/games/mygames")]
+        //[Authorize(Roles = "Customer")]
+        public List<ViewGameDto> GetMyGames()
+        {
+            var re = Request;
+            var headers = re.Headers;
+            string headerId = "";
+            if (headers.Contains("id"))
+            {
+                headerId = headers.GetValues("id").First();
+            }
+            var games = new List<Game>();
+            games = db.Games.SqlQuery
+                (@"select games.id, 
+                        games.name, 
+                        games.description, 
+                        games.imageUrl,
+                        games.CreateDate,
+                        games.CreateUser,
+                        games.ModifiedDate,
+                        games.ModifiedUser,
+                        games.Genre_Id,
+                        items.price 
+                    from items 
+                    join orders 
+                    on items.order_Id = orders.id
+                    join games 
+                    on games.id = game_id
+                where user_id = '" + headerId +"'").ToList();
+
             return AutoMapper.Mapper.Map<List<ViewGameDto>>(games);
         }
 
