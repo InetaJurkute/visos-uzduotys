@@ -39,6 +39,26 @@ export class UserService {
       });
   }
 
+   register(username: string, password: string, confirmPass: string, email: string){
+    var headers = new Headers();
+    headers.append("Content-Type", "application/x-www-form-urlencoded");
+    
+    var body = new URLSearchParams();
+
+    body.set("username", username);
+    body.set("password", password);
+    body.set("confirmPassword", confirmPass)
+    body.set("email", email);
+
+    console.log(username,password,confirmPass,email);
+
+    return this.http.post('http://localhost:64128/api/Account/Register', body)
+      .toPromise()
+      .then(response => {
+        this.login(username,password);
+      });
+  }
+
   logout(){
     localStorage.removeItem('id');
     localStorage.removeItem('access_token');

@@ -1,14 +1,20 @@
 
   <form class="form-signin">
     <h2 class="form-signin-heading">Register</h2>
-
+    <!--Username-->
     <label for="inputUsername" class="sr-only">Username</label>
     <input [(ngModel)]="username" type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
-
+    <!--Password-->
     <label for="inputPassword" class="sr-only">Password</label>
     <input [(ngModel)]="password" type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <!--Confirm password-->
+     <label for="confirmPass" class="sr-only">Confirm Password</label>
+    <input [(ngModel)]="confirmPassword" type="password" name="passwordConfirm" id="confirmPass" class="form-control" placeholder="Confirm pass" required>
+    <!--Email-->
+    <label for="inputPassword" class="sr-only">Email</label>
+    <input [(ngModel)]="email" type="text" name="password" id="inputPassword" class="form-control" placeholder="email" required>
 
-    <a  class="btn btn-outline-primary" (click)="login()">Register</a>
+    <a  class="btn btn-outline-primary" (click)="this.register()">Register</a>
 
     <h2 class="registration">Or go login <a [routerLink]="['/login']"> here</a> </h2>
 

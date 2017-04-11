@@ -16,11 +16,13 @@ using Microsoft.Owin.Security.OAuth;
 using game_shop_backend.Models;
 using game_shop_backend.Providers;
 using game_shop_backend.Results;
+using System.Web.Http.Cors;
 
 namespace game_shop_backend.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]
+    [EnableCors("http://localhost:4200", "*", "*")]
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
