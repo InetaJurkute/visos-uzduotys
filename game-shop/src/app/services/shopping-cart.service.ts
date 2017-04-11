@@ -101,5 +101,8 @@ export class ShoppingCartService {
     // console.log("New amount");
      
   }
+  removeAll(){
+      this.gameList.splice(0,this.gameList.length);
+  }
   
 }
