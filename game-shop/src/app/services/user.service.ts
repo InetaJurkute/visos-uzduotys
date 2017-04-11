@@ -29,6 +29,7 @@ export class UserService {
         if(response.json().access_token){
           localStorage.setItem('access_token', response.json().access_token);
           localStorage.setItem('roles', JSON.parse(response.json().roles));
+          localStorage.setItem('id', response.json().access_token);
         }
         if(localStorage.getItem('roles') == 'Customer'){
           this.router.navigate(['game-list']);
@@ -39,6 +40,7 @@ export class UserService {
   }
 
   logout(){
+    localStorage.removeItem('id');
     localStorage.removeItem('access_token');
     localStorage.removeItem('roles');
     this.router.navigate(['login']);

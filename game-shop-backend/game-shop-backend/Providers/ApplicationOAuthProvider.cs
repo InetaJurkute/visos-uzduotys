@@ -46,7 +46,7 @@ namespace game_shop_backend.Providers
                 CookieAuthenticationDefaults.AuthenticationType);
 
             List<Claim> roles = oAuthIdentity.Claims.Where(c => c.Type == ClaimTypes.Role).ToList();
-            AuthenticationProperties properties = CreateProperties(user.UserName, Newtonsoft.Json.JsonConvert.SerializeObject(roles.Select(x => x.Value)));
+            AuthenticationProperties properties = CreateProperties(user.Id, user.UserName, Newtonsoft.Json.JsonConvert.SerializeObject(roles.Select(x => x.Value)));
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
@@ -88,10 +88,11 @@ namespace game_shop_backend.Providers
             return Task.FromResult<object>(null);
         }
         
-        public static AuthenticationProperties CreateProperties(string userName, string Roles)
+        public static AuthenticationProperties CreateProperties(string id, string userName, string Roles)
         {
             IDictionary<string, string> data = new Dictionary<string, string>
             {
+                { "id", id},
                 { "userName", userName },
                 { "roles", Roles}
             };
