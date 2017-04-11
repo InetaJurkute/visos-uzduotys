@@ -3,6 +3,7 @@ import { DataService } from "app/services/data.service";
 import { Game } from 'app/models/game';
 import { Genre } from 'app/models/genre';
 import { Platform } from 'app/models/platform';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-game-form',
@@ -19,7 +20,7 @@ export class GameFormComponent implements OnInit {
   optionsMap = {};
   optionsChecked = [];
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private router: Router) { }
 
   ngOnInit() {
     this.isLoading = true;
@@ -47,6 +48,6 @@ export class GameFormComponent implements OnInit {
     }
     this.game.genre = parseInt(this.game.genre);
     this.game.platforms = this.game.platforms.map(m => parseInt(m));
-    this.dataService.addGame(this.game);
+    this.dataService.addGame(this.game).then( () => this.router.navigate(['manage-games']) );
   }
 }
