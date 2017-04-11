@@ -50,7 +50,7 @@ export class ShoppingCartService {
       orderItems[game.Item.id] = game.Amount;
     });
     // Create order
-    var order : {} = {"userId" : userId, "orderItem" : orderItems};
+    var order : {} = {"userId" : userId, "orderItems" : orderItems};
     return order;
   }
   // Returns all games price
