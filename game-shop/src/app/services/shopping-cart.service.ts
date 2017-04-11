@@ -103,6 +103,7 @@ export class ShoppingCartService {
   }
   removeAll(){
       this.gameList.splice(0,this.gameList.length);
+      this.saveLocalStorage();
   }
   
 }
