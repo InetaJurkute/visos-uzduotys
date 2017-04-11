@@ -1,0 +1,19 @@
+<div *ngIf="!isLoading">
+  <div>
+    <table class="table table-striped table-hover">
+      <thead>
+      <th>Game</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th></th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let g of myGames">
+        <td> <img class="imgSmall" src={{g.imageUrl}} alt={{g.name}}> </td>
+        <td>{{g.name}}</td>
+        <td>{{g.price}} €</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

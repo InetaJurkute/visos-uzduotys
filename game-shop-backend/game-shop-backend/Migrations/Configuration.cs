@@ -152,7 +152,6 @@ namespace game_shop_backend.Migrations
                         user2.Email = "demo@demo.com";
                         user2.EmailConfirmed = true;
                         string user2PWD = "demo";
-                        test = user2;
 
                         var chkUser1 = UserManager.Create(user1, user1PWD);
                         var chkUser2 = UserManager.Create(user2, user2PWD);

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import { Headers } from '@angular/http';
 // Models:
 import { Game } from "app/models/game";
 import { Genre } from "app/models/genre";
@@ -19,6 +20,17 @@ export class DataService {
   // Gauna žaidimų sąrašą
   getGameList(): Promise<Game[]>{
     return this.authHttp.get(this.backendURL + '/api/games/')
+      .toPromise()
+      .then(response => {
+        return response.json() as Game[];
+      });
+  }
+
+  getMyGameList(): Promise<Game[]>{
+    var headers = new Headers();
+    var userid = localStorage.getItem('id');
+    headers.append('id', userid);
+    return this.authHttp.get(this.backendURL + '/api/games/myGames', {headers: headers})
       .toPromise()
       .then(response => {
         return response.json() as Game[];
@@ -70,7 +82,7 @@ export class DataService {
     return this.authHttp.post(this.backendURL + '/api/orders/', order)
       .toPromise()
       .then(response => {
-        
+
         return response.json();
       });
   }

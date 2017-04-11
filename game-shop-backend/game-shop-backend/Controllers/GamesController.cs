@@ -56,7 +56,7 @@ namespace game_shop_backend.Controllers
                     on items.order_Id = orders.id
                     join games 
                     on games.id = game_id
-                where user_id = '" + headerId +"'").ToList();
+                where user_id = '" + headerId + "'").ToList();
 
             return AutoMapper.Mapper.Map<List<ViewGameDto>>(games);
         }

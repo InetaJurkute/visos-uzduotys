@@ -23,7 +23,8 @@ import {UserService} from "./services/user.service";
 import { ShoppingCartService } from "./services/shopping-cart.service";
 import { GameItemComponent } from './components/game-item/game-item.component';
 import { GameFormComponent } from './components/game-form/game-form.component'
-import { RegistrationComponent } from './components/registration/registration.component'
+import { RegistrationComponent } from './components/registration/registration.component';
+import { MyGamesComponent } from './components/my-games/my-games.component'
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions){ //auth
   return new AuthHttp(new AuthConfig(), http, options);
@@ -40,7 +41,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions){ //a
     ShoppingCartComponent,
     GameItemComponent,
     GameFormComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    MyGamesComponent
   ],
   imports: [
     BrowserModule,
