@@ -2,24 +2,35 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#">NRD-Shop</a>
+  <a class="navbar-brand" routerLink="/login" routerLinkActive="active">NRD-Shop</a>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
+
       <li *ngIf="getRole() == 'Customer'" class="nav-item">
         <a class="nav-link" routerLink="/game-list" routerLinkActive="active">Games</a>
       </li>
+
       <li *ngIf="getRole() == 'Customer'" class="nav-item">
         <a class="nav-link" routerLink="/shoppingCart" routerLinkActive="active">Cart</a>
       </li>
+
       <li *ngIf="getRole() == 'Admin'" class="nav-item">
         <a class="nav-link" routerLink="/manage-games" routerLinkActive="active">Manage games</a>
       </li>
-      <li *ngIf="getRole() == ''" class="nav-item">
+
+      <li *ngIf="getRole() == null" class="nav-item">
         <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
       </li>
+
+      
+      <li *ngIf="getRole() == null" class="nav-item">
+        <a class="nav-link" routerLink="/registration" routerLinkActive="active">Register</a>
+      </li>
+
       <li *ngIf="getRole() == 'Admin' || getRole() == 'Customer'">
-        <a class="nav-link" (click)="logout()"> Logout </a>"
+        <a class="nav-link" (click)="logout()"> Logout </a>
     </ul>
+
   </div>
 </nav>
 

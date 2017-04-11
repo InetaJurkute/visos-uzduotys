@@ -1,0 +1,15 @@
+.form-signin{
+    margin: 0 auto;
+    margin-top:50px;
+    text-align:center;
+    width:50%;
+}
+.btn{
+    margin-top:10px;
+}
+input{
+    margin:10px 0px;
+}
+.registration{
+    margin-top:50px;
+}
