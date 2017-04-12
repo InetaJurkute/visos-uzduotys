@@ -2,3 +2,7 @@
 .card{
     margin:15px;
 }
+.btn{
+    cursor: pointer; 
+    cursor: hand;
+}
