@@ -41,7 +41,7 @@ export class UserService {
 
    register(username: string, password: string, confirmPass: string, email: string){
     var headers = new Headers();
-    // headers.append("Content-Type", "application/json");
+    headers.append("Content-Type", "application/json");
 
     var body = new URLSearchParams();
 
