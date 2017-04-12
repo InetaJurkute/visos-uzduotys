@@ -20,7 +20,7 @@ namespace game_shop_backend.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        [Authorize(Roles = "Admin,Customer")]
+        //[Authorize(Roles = "Admin,Customer")]
         // GET: api/Games
         public List<ViewGameDto> GetGames()
         {
@@ -61,7 +61,7 @@ namespace game_shop_backend.Controllers
             return AutoMapper.Mapper.Map<List<ViewGameDto>>(games);
         }
 
-        [Authorize(Roles = "Admin,Customer")]
+        //[Authorize(Roles = "Admin,Customer")]
         // GET: api/Games/5
         [ResponseType(typeof(Game))]
         public IHttpActionResult GetGame(int id)
@@ -78,7 +78,7 @@ namespace game_shop_backend.Controllers
 
         // PUT: api/Games/5
         // NOT WORKING
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutGame(int id, [FromBody]GameDto gamedto)
         {
@@ -94,16 +94,18 @@ namespace game_shop_backend.Controllers
                     return BadRequest();
                 }
 
-                var game = AutoMapper.Mapper.Map<Game>(gamedto);
+                var game = db.Games.FirstOrDefault(p => p.Id == gamedto.Id);
+                if (game == null)
+                {
+                    return NotFound();
+                }
 
-                //game.Platforms.Clear();
+                AutoMapper.Mapper.Map(gamedto, game);
+
+                game.Platforms.Clear();
+
                 Int32 genreID = gamedto.Genre;
-                //var gameDtoGenre = db.Genres.Find(genreID);
                 Genre gameDtoGenre = db.Genres.Find(genreID);
-                /*
-                var randomGame = db.Games.FirstOrDefault(p => p.Id == 5);
-                var gameDtoGenre = db.Genres.FirstOrDefault(p => p.Id == genreID);
-                */
                 game.Genre = gameDtoGenre;
                 foreach (var p in gamedto.Platforms)
                 {
@@ -111,16 +113,6 @@ namespace game_shop_backend.Controllers
                     game.Platforms.Add(plat);
                 }
 
-                db.Games.Attach(game);
-                var entry = db.Entry(game);
-
-                /*
-                db.Games.Attach(game);
-                var entry = db.Entry(game);
-                entry.State = EntityState.Modified;
-                */
-
-                //db.Entry(game).State = EntityState.Modified;
             }
             catch (Exception ex)
             {
@@ -148,7 +140,7 @@ namespace game_shop_backend.Controllers
         }
 
         // POST: api/Games
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [ResponseType(typeof(GameDto))]
         public IHttpActionResult PostGame(GameDto gamedto)
         {
@@ -158,6 +150,7 @@ namespace game_shop_backend.Controllers
             }
 
             var game = AutoMapper.Mapper.Map<Game>(gamedto);
+            
             Int32 genreID = gamedto.Genre;
             Genre gameDtoGenre = db.Genres.Find(genreID);
             game.Genre = gameDtoGenre;
@@ -166,7 +159,7 @@ namespace game_shop_backend.Controllers
                 var plat = db.Platforms.Find(p);
                 game.Platforms.Add(plat);
             }
-
+            
             db.Games.Add(game);
             db.SaveChanges();
 

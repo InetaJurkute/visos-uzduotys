@@ -15,8 +15,11 @@ namespace game_shop_backend.Models
 
         public double Price { get; set; }
         public string ImageUrl { get; set; }
-        
+
         public virtual ICollection<int> Platforms { get; set; } = new List<int>();
         public virtual int Genre { get; set; }
+
+        //public virtual ICollection<Platform> Platforms { get; set; } = new List<Platform>();
+        //public virtual Genre Genre { get; set; }
     }
 }

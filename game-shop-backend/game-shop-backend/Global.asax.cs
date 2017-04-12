@@ -8,8 +8,9 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using AutoMapper;
 using Newtonsoft.Json.Serialization;
-using game_shop_backend.Entities;
 using game_shop_backend.Models;
+using game_shop_backend.Entities;
+//using System.Linq;
 
 namespace game_shop_backend
 {
@@ -29,7 +30,8 @@ namespace game_shop_backend
             config.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
 
             Mapper.Initialize(cfg => {
-                
+                //ApplicationDbContext db = new ApplicationDbContext();
+
                 cfg.CreateMap<Platform, int>().ConstructUsing(source => source.Id);
                 cfg.CreateMap<Genre, int>().ConstructUsing(source => source.Id);
                 
@@ -46,11 +48,33 @@ namespace game_shop_backend
                 cfg.CreateMap<PlatformDto, Platform>();
 
                 cfg.CreateMap<Order, ViewOrderDto>();
-
+                
                 cfg.CreateMap<GameDto, Game>()
                     .ForMember( x => x.Genre, m => m.Ignore() )
-                    .ForMember( x => x.Platforms, m => m.Ignore() );
+                    .ForMember(x => x.Platforms, m => m.Ignore());
 
+                /*
+                .BeforeMap((src, dest) => {
+                    foreach (Platform i in dest.Platforms)
+                    {
+                        if (!src.Platforms.Contains(i))
+                        {
+                            //remove
+                            Platform plat = dest.Platforms.FirstOrDefault((p) => p.Id == i.Id);
+                            dest.Platforms.Remove(plat);
+                        }
+                    }
+                    foreach (Platform i in src.Platforms)
+                    {
+                        //i -> DTO ir jei dest -> DB neturi
+                        if(dest.Platforms.Count(prop => prop.Id == i.Id) == 0)
+                        {
+                            //add
+                            Platform plat = db.Platforms.Find(i.Id);
+                            dest.Platforms.Add(plat);
+                            //context
+                        }
+                    }*/
             });
         }
     }
