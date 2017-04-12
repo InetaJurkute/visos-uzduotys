@@ -16,5 +16,9 @@ export class LoginComponent implements OnInit {
 
   login(){
     this.userService.login(this.username, this.password);
+    localStorage.setItem("userName", this.username);
+    console.log(this.username);
   }
+
+  
 }

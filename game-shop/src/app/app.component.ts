@@ -21,5 +21,10 @@ export class AppComponent implements OnInit {
 
   logout(){
     this.userService.logout();
+    localStorage.setItem("userName", "");
+  }
+
+  getUserName(){
+    return localStorage.getItem("userName");
   }
 }

@@ -16,5 +16,7 @@ export class RegistrationComponent implements OnInit {
   }
   register(){
     this.userService.register(this.username,this.password,this.confirmPassword,this.email);
+    localStorage.setItem("userName", this.username);
   }
+  
 }
