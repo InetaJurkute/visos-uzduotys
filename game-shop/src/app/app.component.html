@@ -2,10 +2,9 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand">NRD-Shop</a>
+  <a class="navbar-brand" style="cursor: default;">NRD-Shop</a>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-
+    <ul class="navbar-nav mr-auto">
       <li *ngIf="getRole() == 'Customer'" class="nav-item">
         <a class="nav-link" routerLink="/game-list" routerLinkActive="active">Games</a>
       </li>
@@ -21,7 +20,9 @@
       <li *ngIf="getRole() == 'Admin'" class="nav-item">
         <a class="nav-link" routerLink="/manage-games" routerLinkActive="active">Manage games</a>
       </li>
+    </ul>
 
+    <ul class="navbar-nav">
       <li *ngIf="getRole() == null" class="nav-item">
         <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
       </li>
@@ -29,11 +30,10 @@
       <li *ngIf="getRole() == null" class="nav-item">
         <a class="nav-link" routerLink="/registration" routerLinkActive="active">Register</a>
       </li>
-
       <li *ngIf="getRole() == 'Admin' || getRole() == 'Customer'">
-        <a class="nav-link" (click)="logout()"> Logout </a>
+        <a class="nav-link" (click)="logout()" style="cursor: pointer;"> Logout </a>
+      </li>
     </ul>
-
   </div>
 </nav>
 

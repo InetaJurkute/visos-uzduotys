@@ -1,5 +1,5 @@
 <div *ngIf="!isLoading">
-  <div>
+  <div *ngIf="myGames.length > 0">
     <table class="table table-striped table-hover">
       <thead>
       <th>Game</th>
@@ -22,5 +22,10 @@
       </tr>
       </tbody>
     </table>
+  </div>
+  <div *ngIf="myGames.length == 0">
+    <div class="alert alert-info" style="margin-top: 20px;">
+      <strong>Oops!</strong> You do not own any games yet.
+    </div>
   </div>
 </div>
