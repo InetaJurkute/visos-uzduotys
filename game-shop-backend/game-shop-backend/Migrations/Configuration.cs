@@ -47,21 +47,21 @@ namespace game_shop_backend.Migrations
                     };
                     var game2 = new Game
                     {
-                        Name = "NewHope2",
+                        Name = "NewHope 2",
                         Description = "db new hope 2",
                         Price = 23.99,
                         ImageUrl = "../../../assets/2.jpg"
                     };
                     var game3 = new Game
                     {
-                        Name = "battlefield",
+                        Name = "Battlefield 3",
                         Description = "shooty shoot",
                         Price = 12.99,
                         ImageUrl = "../../../assets/3.jpg"
                     };
                     var game4 = new Game
                     {
-                        Name = "galaxy wars",
+                        Name = "Galaxy Wars",
                         Description = "control the galaxy!",
                         Price = 39.99,
                         ImageUrl = "../../../assets/4.jpg"
@@ -79,6 +79,13 @@ namespace game_shop_backend.Migrations
                         Description = "Besiege is a physics based building game in which you construct medieval siege engines and lay waste to immense fortresses and peaceful hamlets. Build a machine which can crush windmills, wipe out battalions of brave soldiers and transport valuable resources, defending your creation against cannons, archers and whatever else the desperate enemies have at their disposal. Create a trundling behemoth, or take clumsily to the skies, and cause carnage in fully destructible environments. Ultimately, you must conquer every Kingdom by crippling their castles and killing their men and livestock, in as creative or clinical a manner as possible! ",
                         Price = 5.59,
                         ImageUrl = "../../../assets/6.jpg"
+                    };
+                    var game7 = new Game
+                    {
+                        Name = "BeamNG.Drive",
+                        Description = "BeamNG.drive is a realistic, immersive driving game offering near-limitless possibilities. Our soft-body physics engine simulates every component of a vehicle in real time, resulting in realistic, dynamic behavior.  The driving feel is authentic and visceral, and crashes are realistic and violent; yet the physics are accessible enough to drive with a keyboard or gamepad while still being authentic with a full racing wheel with uncompromising realism.",
+                        Price = 22.99,
+                        ImageUrl = "../../../assets/7.jpg"
                     };
 
                     context.Platforms.Add(plat1);
@@ -115,12 +122,18 @@ namespace game_shop_backend.Migrations
                     game6.Platforms.Add(plat1);
                     game6.Platforms.Add(plat2);
 
+                    game7.Genre = genre5;
+                    game7.Platforms.Add(plat1);
+                    game7.Platforms.Add(plat2);
+
                     context.Games.Add(game1);
                     context.Games.Add(game2);
                     context.Games.Add(game3);
                     context.Games.Add(game4);
                     context.Games.Add(game5);
                     context.Games.Add(game6);
+                    context.Games.Add(game7);
+
                     var admin = new ApplicationUser();
                     var test = new ApplicationUser();
                     var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));

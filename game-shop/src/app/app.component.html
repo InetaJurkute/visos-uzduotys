@@ -31,7 +31,7 @@
         <a class="nav-link" routerLink="/registration" routerLinkActive="active">Register</a>
       </li>
       <li *ngIf="getRole() == 'Admin' || getRole() == 'Customer'">
-        <a class="nav-link" (click)="logout()" style="cursor: pointer;"> Logout </a>
+        <a class="nav-link" (click)="logout()" style="cursor: pointer;"> Logout ({{}}) </a>
       </li>
     </ul>
   </div>
