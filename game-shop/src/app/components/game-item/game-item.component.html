@@ -14,9 +14,9 @@ div class="card" style="width: 20rem;">-->
     <p class="card-text">Action</p>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Price: {{item.Item.price}}</li>
+    <li class="list-group-item">Price: {{item.Item.price}} €</li>
     <li class="list-group-item"><td>Amount : {{item.Amount}}</td></li>
-    <li class="list-group-item">Total: {{getTotal()}}</li>
+    <li class="list-group-item" style="font-weight: 700;">Total: {{getTotal()}} €</li>
   </ul>
   <div class="card-block text-center">
     <a class="btn btn-outline-primary" [routerLink]="['/game', this.item.Item.id]">Description</a>
