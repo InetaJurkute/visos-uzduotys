@@ -11,6 +11,10 @@
       </li>
 
       <li *ngIf="getRole() == 'Customer'" class="nav-item">
+        <a class="nav-link" routerLink="/my-games" routerLinkActive="active">My games</a>
+      </li>
+
+      <li *ngIf="getRole() == 'Customer'" class="nav-item">
         <a class="nav-link" routerLink="/shoppingCart" routerLinkActive="active">Cart</a>
       </li>
 
@@ -22,7 +26,6 @@
         <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
       </li>
 
-      
       <li *ngIf="getRole() == null" class="nav-item">
         <a class="nav-link" routerLink="/registration" routerLinkActive="active">Register</a>
       </li>

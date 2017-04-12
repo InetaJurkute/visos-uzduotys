@@ -29,7 +29,7 @@ export class UserService {
         if(response.json().access_token){
           localStorage.setItem('access_token', response.json().access_token);
           localStorage.setItem('roles', JSON.parse(response.json().roles));
-          localStorage.setItem('id', response.json().access_token);
+          localStorage.setItem('id', response.json().id);
         }
         if(localStorage.getItem('roles') == 'Customer'){
           this.router.navigate(['game-list']);
@@ -42,7 +42,7 @@ export class UserService {
    register(username: string, password: string, confirmPass: string, email: string){
     var headers = new Headers();
     headers.append("Content-Type", "application/json");
-    
+
     var body = new URLSearchParams();
 
     body.set("username", username);

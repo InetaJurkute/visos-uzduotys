@@ -339,7 +339,7 @@ namespace game_shop_backend.Controllers
                 var roleStore = new RoleStore<IdentityRole>(context);
                 var roleManager = new RoleManager<IdentityRole>(roleStore);
 
-                await roleManager.CreateAsync(new IdentityRole() { Name = "Admin" });
+                await roleManager.CreateAsync(new IdentityRole() { Name = "Customer" });
 
                 var userStore = new UserStore<ApplicationUser>(context);
                 var userManager = new UserManager<ApplicationUser>(userStore);
@@ -347,7 +347,7 @@ namespace game_shop_backend.Controllers
                 var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
 
                 result = await UserManager.CreateAsync(user, model.Password);
-                await userManager.AddToRoleAsync(user.Id, "Admin");
+                await userManager.AddToRoleAsync(user.Id, "Customer");
 
             }
 

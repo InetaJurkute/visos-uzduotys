@@ -1,12 +1,8 @@
-.btn{
-    margin:5px 0 5px 0;
+.imgSmall{
+  width: 80px;
+  height: auto;
 }
-#cartAdder::before{
-    content:'Add to cart';
-}
-#cartAdder:active::before{
-    content:'Added';
-}
+
 .flex{
   display: flex;
   flex-wrap: wrap;
@@ -21,7 +17,6 @@
   background-color: #86858A;
   color: white;
 }
-
 .pc{
   background-color: dimgrey;
 }

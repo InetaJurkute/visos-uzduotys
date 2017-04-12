@@ -1,32 +1,15 @@
-<!--<div class="gamebox">
-  <div>
-    <img src="{{game.imageUrl}}" width="200px" />
-  </div>
-  <div>
-    <h4>{{game.name}}</h4>
-    <h5>{{game.price}}</h5>
-  </div>
-  <div>
-
-    <a class="btn btn-info" [routerLink]="['/game', game.id]">About</a>
-
-    <button class="btn btn-success" (click) ="addItem()" >Add To Cart</button>
-  </div>
-</div>-->
-<!--<div class="card">-->
-  <img class="card-img-top" src={{game.imageUrl}} alt={{game.name}} style="width:100%;">
+ <img class="card-img-top" src={{game.imageUrl}} alt={{game.name}} style="width:100%;">
   <div class="card-block">
     <h4 class="card-title">{{game.name}}</h4>
-
-    <p class = "card-text" style="font-weight: 700;" *ngFor="let p of game.platforms">{{p}}</p>    
+    <div class="flex">
+      <div class = "card-text tag" *ngFor="let p of game.platforms" [ngClass]="p.toLowerCase()">{{p}}</div>
+    </div>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Price: {{game.price}}</li>
-    <!--<li class="list-group-item ">{{this.genres[game.genre]}}</li>-->
-    <li class="list-group-item">Genre: {{game.genre}}</li>
+    <li class="list-group-item" style="font-weight: 700;">{{game.price}} €</li>
+    <li class="list-group-item genre">{{game.genre}}</li>
   </ul>
   <div class="card-block text-center">
     <a  class="btn btn-outline-primary" [routerLink]="['/game', game.id]">Description</a>
     <a  id="cartAdder" class="btn btn-outline-success" (click) ="addItem()" ></a>
   </div>
-  <!--</div>-->

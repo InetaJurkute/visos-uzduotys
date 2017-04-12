@@ -111,26 +111,6 @@ namespace game_shop_backend.Models
                     RequireLowercase = false,
                     RequireUppercase = false,
                 };
-                if (!roleManager.RoleExists("Admin"))
-                {
-                    var role = new IdentityRole();
-                    role.Name = "Admin";
-                    roleManager.Create(role);
-
-                    var user = new ApplicationUser();
-                    user.UserName = "admin";
-                    user.Email = "admin@admin.com";
-                    user.EmailConfirmed = true;
-                    string userPWD = "admin";
-                    admin = user;
-
-                    var chkUser = UserManager.Create(user, userPWD);
-
-                    if (chkUser.Succeeded)
-                    {
-                        var result1 = UserManager.AddToRole(user.Id, "Admin");
-                    }
-                }
 
                 if (!roleManager.RoleExists("Customer"))
                 {
@@ -150,6 +130,27 @@ namespace game_shop_backend.Models
                     if (chkUser.Succeeded)
                     {
                         var result1 = UserManager.AddToRole(user.Id, "Customer");
+                    }
+                }
+
+                if (!roleManager.RoleExists("Admin"))
+                {
+                    var role = new IdentityRole();
+                    role.Name = "Admin";
+                    roleManager.Create(role);
+
+                    var user = new ApplicationUser();
+                    user.UserName = "admin";
+                    user.Email = "admin@admin.com";
+                    user.EmailConfirmed = true;
+                    string userPWD = "admin";
+                    admin = user;
+
+                    var chkUser = UserManager.Create(user, userPWD);
+
+                    if (chkUser.Succeeded)
+                    {
+                        var result1 = UserManager.AddToRole(user.Id, "Admin");
                     }
                 }
 
