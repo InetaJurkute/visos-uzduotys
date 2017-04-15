@@ -344,7 +344,7 @@ namespace game_shop_backend.Controllers
                 var userStore = new UserStore<ApplicationUser>(context);
                 var userManager = new UserManager<ApplicationUser>(userStore);
 
-                var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser() { UserName = model.Username, Email = model.Email };
 
                 result = await UserManager.CreateAsync(user, model.Password);
                 await userManager.AddToRoleAsync(user.Id, "Customer");

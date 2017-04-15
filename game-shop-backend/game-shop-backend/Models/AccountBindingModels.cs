@@ -35,6 +35,10 @@ namespace game_shop_backend.Models
     public class RegisterBindingModel
     {
         [Required]
+        [Display(Name = "Username")]
+        public string Username { get; set; }
+
+        [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
