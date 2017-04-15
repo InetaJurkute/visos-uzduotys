@@ -3,6 +3,7 @@
     margin:15px;
 }
 .btn{
-    cursor: pointer; 
+    cursor: pointer;
     cursor: hand;
 }
+input.ng-invalid { border: solid red 1px; }
