@@ -25,6 +25,11 @@ import { GameItemComponent } from './components/game-item/game-item.component';
 import { GameFormComponent } from './components/game-form/game-form.component'
 import { RegistrationComponent } from './components/registration/registration.component';
 import { MyGamesComponent } from './components/my-games/my-games.component'
+// Toasts
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ToastrShopOptions } from './toast-options';
+import {ToastOptions} from 'ng2-toastr';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions){ //auth
   return new AuthHttp(new AuthConfig(), http, options);
@@ -45,6 +50,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions){ //a
     MyGamesComponent
   ],
   imports: [
+    BrowserModule, BrowserAnimationsModule, ToastModule.forRoot(),
     BrowserModule,
     FormsModule,
     HttpModule,
@@ -64,7 +70,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions){ //a
     provide: AuthHttp,
     useFactory: authHttpServiceFactory,
     deps: [Http, RequestOptions]
-    }
+  },
+  {provide: ToastOptions, useClass: ToastrShopOptions},
   ],
   bootstrap: [AppComponent]
 })

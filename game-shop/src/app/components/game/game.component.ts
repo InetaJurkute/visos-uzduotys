@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewContainerRef } from '@angular/core';
 import { ShoppingCartService } from "../../services/shopping-cart.service"
 import { Game } from 'app/models/game';
+// Toasts
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'app-game',
@@ -9,7 +11,10 @@ import { Game } from 'app/models/game';
 })
 export class GameComponent implements OnInit {
 
-  constructor(private shoppingCartService: ShoppingCartService)  { }
+  constructor(private shoppingCartService: ShoppingCartService, public toastr: ToastsManager, vcr: ViewContainerRef)  
+  { 
+    this.toastr.setRootViewContainerRef(vcr);
+  }
   
   ngOnInit() {
     
@@ -18,8 +23,11 @@ export class GameComponent implements OnInit {
   addItem(){
     this.shoppingCartService.addItem(this.game);
     console.log(this.shoppingCartService.getPrice());
+    this.showSuccess();
   }
-
+  showSuccess() {
+        this.toastr.success('Game has been added to your cart.', 'Game added!');
+  }
   @Input()
   game: Game;
 }
