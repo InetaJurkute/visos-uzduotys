@@ -25,7 +25,7 @@ export class GameComponent implements OnInit {
     this.showSuccess();
   }
   showSuccess() {
-        this.toastr.success("The game \'" + this.game.name + "\'has been added to your cart.", 'Game added to cart!');
+        this.toastr.success("The game \'" + this.game.name + "\' has been added to your cart.", 'Game added to cart!');
   }
   @Input()
   game: Game;
