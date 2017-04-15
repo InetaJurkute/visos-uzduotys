@@ -11,22 +11,21 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 })
 export class GameComponent implements OnInit {
 
-  constructor(private shoppingCartService: ShoppingCartService, public toastr: ToastsManager, vcr: ViewContainerRef)  
-  { 
+  constructor(private shoppingCartService: ShoppingCartService, public toastr: ToastsManager, vcr: ViewContainerRef)
+  {
     this.toastr.setRootViewContainerRef(vcr);
   }
-  
+
   ngOnInit() {
-    
+
   }
 
   addItem(){
     this.shoppingCartService.addItem(this.game);
-    console.log(this.shoppingCartService.getPrice());
     this.showSuccess();
   }
   showSuccess() {
-        this.toastr.success('Game has been added to your cart.', 'Game added!');
+        this.toastr.success("The game \'" + this.game.name + "\'has been added to your cart.", 'Game added to cart!');
   }
   @Input()
   game: Game;
