@@ -15,7 +15,7 @@
             <td>{{g.name}}</td>
             <td>{{g.price}} €</td>
             <td>
-              <a  class="btn btn-outline-primary" [routerLink]="['/addGame', g.id]">Edit</a>
+              <a  class="btn btn-outline-primary" [routerLink]="['/updateGame', g.id]">Edit</a>
               <a class="btn btn-outline-primary" (click)="deleteGame(g.id)">Delete</a>
             </td>
           </tr>

@@ -1,9 +1,9 @@
-import {Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from "app/services/data.service";
 import { Game } from 'app/models/game';
 import { Genre } from 'app/models/genre';
 import { Platform } from 'app/models/platform';
-import {Router} from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-game-form',
@@ -16,14 +16,18 @@ export class GameFormComponent implements OnInit {
   genres: Genre[];
   platforms: Platform[];
   isLoading: boolean = false;
-
+  isNewGame: boolean;
   optionsMap = {};
-  optionsChecked = [];
 
-  constructor(private dataService: DataService, private router: Router) { }
+  constructor(private route: ActivatedRoute,
+              private dataService: DataService, private router: Router) { }
 
   ngOnInit() {
     this.isLoading = true;
+    this.isNewGame = this.isNew();
+    if(!this.isNewGame){
+      this.route.params.subscribe(params => {this.loadItem(params['id'])});
+    }
     Promise.all([
       this.dataService.getGenres().then(g => { this.genres = g; }),
       this.dataService.getPlatforms().then(p => { this.platforms = p; })
@@ -31,15 +35,36 @@ export class GameFormComponent implements OnInit {
       this.platforms.forEach((p) => {
         this.optionsMap[p.id] = false;
       });
-    }).then(()=> { this.isLoading = false});
+    }).then(()=> {
+      this.isLoading = false;
+    });
+  }
 
+  loadItem(id: string){
+    this.isLoading = true;
+
+    this.dataService.getGame(id)
+      .then(g => {
+        this.game = g;
+        this.game.platforms.forEach((p) => {
+          if(this.game.platforms.includes(p)){
+            this.optionsMap[p] = true;
+          }
+        });
+        this.isLoading = false;
+      });
+  }
+
+  isNew(): boolean{
+    var currentLocation : string = window.location.toString();
+    return (currentLocation.search("addGame") > 0);
   }
 
   updateCheckedOptions(option, event) {
     this.optionsMap[option.id] = event.target.checked;
   }
 
-  addNewGame(){
+  addUpdateGame(){
     this.game.platforms = [];
     for(var key in this.optionsMap){
       if(this.optionsMap[key]){
@@ -48,6 +73,12 @@ export class GameFormComponent implements OnInit {
     }
     this.game.genre = parseInt(this.game.genre);
     this.game.platforms = this.game.platforms.map(m => parseInt(m));
-    this.dataService.addGame(this.game).then( () => this.router.navigate(['manage-games']) );
+    debugger;
+    if(this.isNewGame){
+      this.dataService.addGame(this.game).then( () => this.router.navigate(['manage-games']) );
+    }
+    else{
+      this.dataService.updateGame(this.game).then( () => this.router.navigate(['manage-games']) );
+    }
   }
 }

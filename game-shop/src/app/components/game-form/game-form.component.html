@@ -1,5 +1,5 @@
-<h3>Add a new game</h3>
-<div *ngIf="!isLoading">
+<h3>{{isNewGame ? 'Add new game' : 'Edit a game'}}</h3>
+<div *ngIf="game.platforms || isNewGame">
   <div class="form-group">
     <label for="gameTitle">Title</label>
     <input [(ngModel)]="game.name" id="gameTitle" class="form-control" type="text" name="name" maxlength="40" placeholder="Title" required autofocus>
@@ -16,9 +16,9 @@
   </div>
   <div class="form-group">
     <label for="platforms">Platforms</label>
-    <div *ngFor="let p of platforms; let i = index">
+    <div id="platforms" *ngFor="let p of platforms; let i = index">
       <label>
-        <input id="platforms"
+        <input id="{{p.name}}"
                type="checkbox"
                name="platforms"
                value="{{p}}"
@@ -37,6 +37,6 @@
     <textarea [(ngModel)]="game.description" class="form-control" name="description" id="description" required="" minlength="10" maxlength="2000"
               placeholder="Minimum 10 symbols"></textarea>
   </div>
-  <input type="submit" class="btn btn-primary" (click)="addNewGame()" value="Add Game">
+  <button class="btn btn-primary" (click)="addUpdateGame()" >{{isNewGame ? 'Add game' : 'Update'}}</button>
 
 </div>

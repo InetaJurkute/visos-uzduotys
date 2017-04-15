@@ -70,6 +70,14 @@ export class DataService {
       });
   }
 
+  updateGame(game: Game): Promise<void> {
+    return this.authHttp.put(this.backendURL + '/api/games/' + game.id, game)
+      .toPromise()
+      .then(response => {
+        return response.json();
+      });
+  }
+
   deleteGame(id: number): Promise<void> {
     return this.authHttp.delete('http://localhost:64128/api/games/' + id)
       .toPromise()

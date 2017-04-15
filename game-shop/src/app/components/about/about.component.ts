@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { GameComponent } from '../game/game.component';
+import { ActivatedRoute } from '@angular/router';
 import { DataService } from "app/services/data.service";
 import { Game } from 'app/models/game';
 import { ShoppingCartService } from "../../services/shopping-cart.service"
-import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-about',
@@ -15,8 +13,9 @@ import {Location} from '@angular/common';
 export class AboutComponent implements OnInit {
   game: Game;
   isLoading: boolean = false;
-  
-  constructor(private route: ActivatedRoute, private dataService: DataService, private shoppingCartService: ShoppingCartService, private _location: Location) { }
+
+  constructor(private route: ActivatedRoute, private dataService: DataService,
+              private shoppingCartService: ShoppingCartService) { }
 
   ngOnInit() {
     this.isLoading = true;
@@ -27,12 +26,13 @@ export class AboutComponent implements OnInit {
   this.isLoading = true;
 
   this.dataService.getGame(id)
-      .then(g => { 
+      .then(g => {
         this.game = g;
         this.isLoading = false;
       });
   }
-    addItem(){
+
+  addItem(){
     this.shoppingCartService.addItem(this.game);
     console.log(this.shoppingCartService.getPrice());
   }

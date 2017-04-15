@@ -50,8 +50,6 @@ export class UserService {
     body.set("confirmPassword", confirmPass)
     body.set("email", email);
 
-    console.log(username,password,confirmPass,email);
-
     return this.http.post('http://localhost:64128/api/Account/Register', body)
       .toPromise()
       .then(response => {
