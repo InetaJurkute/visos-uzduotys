@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DataService } from "app/services/data.service";
 import { Game } from 'app/models/game';
 import { ShoppingCartService } from "../../services/shopping-cart.service"
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-about',
@@ -14,9 +15,8 @@ export class AboutComponent implements OnInit {
   game: Game;
   isLoading: boolean = false;
 
-  constructor(private route: ActivatedRoute, private dataService: DataService,
-              private shoppingCartService: ShoppingCartService) { }
-
+  constructor(private route: ActivatedRoute, private dataService: DataService, private shoppingCartService: ShoppingCartService, private _location: Location) { }
+  
   ngOnInit() {
     this.isLoading = true;
     this.route.params.subscribe(params => {this.loadItem(params['id'])});
