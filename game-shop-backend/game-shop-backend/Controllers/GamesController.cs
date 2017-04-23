@@ -20,16 +20,21 @@ namespace game_shop_backend.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        //[Authorize(Roles = "Admin,Customer")]
+        [Authorize(Roles = "Admin,Customer")]
         // GET: api/Games
         public List<ViewGameDto> GetGames()
         {
-            var games = db.Games.ToList();
+            var games = new List<Game>();
+            games = db.Games.SqlQuery
+                (@"select* from games
+                where games.IsDeleted = 'false'").ToList();
+            
+           // var games = db.Games.ToList();
             return AutoMapper.Mapper.Map<List<ViewGameDto>>(games);
         }
         
         [Route("api/games/mygames")]
-        //[Authorize(Roles = "Customer")]
+        [Authorize(Roles = "Customer")]
         public List<ViewGameDto> GetMyGames()
         {
             var re = Request;
@@ -45,6 +50,7 @@ namespace game_shop_backend.Controllers
                         games.name, 
                         games.description, 
                         games.imageUrl,
+                        games.isDeleted,
                         games.CreateDate,
                         games.CreateUser,
                         games.ModifiedDate,
@@ -61,7 +67,7 @@ namespace game_shop_backend.Controllers
             return AutoMapper.Mapper.Map<List<ViewGameDto>>(games);
         }
 
-        //[Authorize(Roles = "Admin,Customer")]
+        [Authorize(Roles = "Admin,Customer")]
         // GET: api/Games/5
         [ResponseType(typeof(Game))]
         public IHttpActionResult GetGame(int id)
@@ -78,7 +84,7 @@ namespace game_shop_backend.Controllers
 
         // PUT: api/Games/5
         // NOT WORKING
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutGame(int id, [FromBody]GameDto gamedto)
         {
@@ -112,6 +118,7 @@ namespace game_shop_backend.Controllers
                     var plat = db.Platforms.Find(p);
                     game.Platforms.Add(plat);
                 }
+                game.IsDeleted = false;
 
             }
             catch (Exception ex)
@@ -140,7 +147,7 @@ namespace game_shop_backend.Controllers
         }
 
         // POST: api/Games
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ResponseType(typeof(GameDto))]
         public IHttpActionResult PostGame(GameDto gamedto)
         {
@@ -153,13 +160,15 @@ namespace game_shop_backend.Controllers
             
             Int32 genreID = gamedto.Genre;
             Genre gameDtoGenre = db.Genres.Find(genreID);
+            game.Platforms.Clear();
+
             game.Genre = gameDtoGenre;
             foreach (var p in gamedto.Platforms)
             {
                 var plat = db.Platforms.Find(p);
                 game.Platforms.Add(plat);
             }
-            
+            game.IsDeleted = false;
             db.Games.Add(game);
             db.SaveChanges();
 
@@ -177,10 +186,10 @@ namespace game_shop_backend.Controllers
                 return NotFound();
             }
 
-            db.Games.Remove(game);
+            game.IsDeleted = true;
             db.SaveChanges();
 
-            return Ok(game);
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
         protected override void Dispose(bool disposing)

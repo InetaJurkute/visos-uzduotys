@@ -21,7 +21,7 @@ namespace game_shop_backend.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: api/Orders
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public List<ViewOrderDto> GetOrders()
         {
             var orders = db.Orders.ToList();

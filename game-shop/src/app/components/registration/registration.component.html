@@ -14,8 +14,7 @@
     <label for="inputPassword" class="sr-only">Email</label>
     <input [(ngModel)]="email" type="email" name="email" id="inputEmail" class="form-control" placeholder="email" required>
 
-    <button  [disabled]="!registrationForm.form.valid" class="btn btn-outline-primary" (click)="this.register()">Register</button>
+    <button [disabled]="!registrationForm.form.valid" class="btn btn-outline-primary" (click)="this.register()">Register</button>
 
     <h2 class="registration">Or go login <a [routerLink]="['/login']"> here</a> </h2>
-
   </form>

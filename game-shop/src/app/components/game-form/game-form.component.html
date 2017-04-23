@@ -1,5 +1,6 @@
 <h3>{{isNewGame ? 'Add new game' : 'Edit a game'}}</h3>
 <div *ngIf="game.platforms || isNewGame">
+  <form #gameForm="ngForm">
   <div class="form-group">
     <label for="gameTitle">Title</label>
     <input [(ngModel)]="game.name" id="gameTitle" class="form-control" type="text" name="name" maxlength="40" placeholder="Title" required autofocus>
@@ -37,6 +38,6 @@
     <textarea [(ngModel)]="game.description" class="form-control" name="description" id="description" required="" minlength="10" maxlength="2000"
               placeholder="Minimum 10 symbols"></textarea>
   </div>
-  <button class="btn btn-primary" (click)="addUpdateGame()" >{{isNewGame ? 'Add game' : 'Update'}}</button>
-
+  <button [disabled]="!gameForm.form.valid" class="btn btn-primary" (click)="addUpdateGame()" >{{isNewGame ? 'Add game' : 'Update'}}</button>
+  </form>
 </div>

@@ -20,7 +20,9 @@ namespace game_shop_backend.Entities
         [Required]
         public double Price { get; set; }
         public string ImageUrl { get; set; }
-
+        [Required]
+        public bool IsDeleted { get; set; }
+    
         public DateTime? CreateDate { get; set; }
         public string CreateUser { get; set; }
         public DateTime? ModifiedDate { get; set; }

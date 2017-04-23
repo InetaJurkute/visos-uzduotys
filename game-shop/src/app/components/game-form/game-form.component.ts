@@ -73,7 +73,6 @@ export class GameFormComponent implements OnInit {
     }
     this.game.genre = parseInt(this.game.genre);
     this.game.platforms = this.game.platforms.map(m => parseInt(m));
-    debugger;
     if(this.isNewGame){
       this.dataService.addGame(this.game).then( () => this.router.navigate(['manage-games']) );
     }
